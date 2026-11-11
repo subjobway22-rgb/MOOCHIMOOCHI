@@ -116,7 +116,12 @@ async function main() {
   const items = [], log = [];
 
   // ---- 영상 ----
-  const api = (path) => get(`https://www.googleapis.com/youtube/v3/${path}&key=${KEY}`).then(JSON.parse);
+  const api = async (path) => {
+    for (let tryNo = 0; ; tryNo++) {
+      try { return JSON.parse(await get(`https://www.googleapis.com/youtube/v3/${path}&key=${KEY}`)); }
+      catch (e) { if (tryNo >= 2 || !/^429 /.test(e.message)) throw e; await new Promise((r) => setTimeout(r, 5000 * (tryNo + 1))); }   // 호출이 몰리면 잠깐 쉬고 다시 시도
+    }
+  };
   const candidates = new Map();   // videoId -> {title, channel, mood}
 
   if (!KEY) log.push('SKIP youtube: YOUTUBE_API_KEY 없음');
@@ -230,6 +235,14 @@ async function main() {
   for (let k = items.length - 1; k >= 0; k--) if (items[k].drop) items.splice(k, 1);
   log.push(`종류별 상한 ${cfg.maxPerSpecies}: ${JSON.stringify(perSpecies)}`);
 
+  // 이번 수집에서 영상이 크게 줄었으면(검색 한도 문제 등) 기존 피드를 그대로 둔다.
+  if (KEY && existsSync('feed.json')) {
+    try {
+      const old = JSON.parse(await readFile('feed.json', 'utf8')).items.filter((i) => i.type === 'video').length;
+      const now = items.filter((i) => i.type === 'video').length;
+      if (old >= 20 && now < old * 0.5) { console.log(log.join('\n')); console.warn(`영상이 ${old}개에서 ${now}개로 줄어 feed.json을 바꾸지 않습니다.`); process.exit(0); }
+    } catch { /* 기존 피드가 없으면 통과 */ }
+  }
   const seen = new Set();
   const unique = items.filter((i) => !seen.has(i.id) && seen.add(i.id));
   console.log(log.join('\n'));
