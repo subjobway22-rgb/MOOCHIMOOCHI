@@ -60,19 +60,33 @@ async function main() {
   const items = [];
   const log = [];
 
+  const KEY = process.env.YOUTUBE_API_KEY;
   for (const s of cfg.youtube) {
     try {
-      const id = await channelId(s.handle);
-      const xml = await get(`https://www.youtube.com/feeds/videos.xml?channel_id=${id}`);
+      let vids;
+      if (KEY) {
+        // 공식 API(무료 할당량). 업로드 목록을 읽는다.
+        const api = (path) => get(`https://www.googleapis.com/youtube/v3/${path}&key=${KEY}`).then(JSON.parse);
+        const ch = await api(`channels?part=contentDetails,snippet&forHandle=${encodeURIComponent(s.handle)}`);
+        const c = ch.items?.[0];
+        if (!c) throw new Error('channel not found');
+        const pl = await api(`playlistItems?part=snippet,contentDetails&maxResults=${cfg.perSource}&playlistId=${c.contentDetails.relatedPlaylists.uploads}`);
+        vids = (pl.items || []).map((x) => ({ videoId: x.contentDetails.videoId, title: x.snippet.title, published: x.contentDetails.videoPublishedAt || x.snippet.publishedAt, channel: c.snippet.title }))
+          .filter((v) => v.title !== 'Private video' && v.title !== 'Deleted video');
+      } else {
+        // API 키가 없으면 공개 RSS를 시도한다(깃허브 서버 IP에서는 막힐 수 있음).
+        const id = await channelId(s.handle);
+        vids = parseYouTube(await get(`https://www.youtube.com/feeds/videos.xml?channel_id=${id}`), s.handle);
+      }
       let n = 0;
-      for (const v of parseYouTube(xml, s.handle).slice(0, cfg.perSource)) {
+      for (const v of vids.slice(0, cfg.perSource)) {
         const iso = toISO(v.published);
         if (!iso || Date.parse(iso) < cutoff || isBlocked(v.title, cfg.blockWords)) continue;
         items.push({ id: `yt-${v.videoId}`, type: 'video', mood: s.mood, animal: true, title: v.title, source: `유튜브 · ${v.channel}`, time: iso, link: `https://www.youtube.com/watch?v=${v.videoId}`, videoId: v.videoId });
         n++;
       }
-      log.push(`ok ${s.handle}: ${n}`);
-    } catch (e) { log.push(`FAIL ${s.handle}: ${e.message}`); }
+      log.push(`ok ${s.handle}: ${n} (${KEY ? 'api' : 'rss'})`);
+    } catch (e) { log.push(`FAIL ${s.handle}: ${e.message.replace(KEY || '\u0000', '***')}`); }
   }
 
   for (const s of cfg.news) {
