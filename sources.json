@@ -1,88 +1,44 @@
 {
   "youtube": [
-    {
-      "handle": "@TheDodo",
-      "mood": "heal"
-    },
-    {
-      "handle": "@BBCEarth",
-      "mood": "heal"
-    },
-    {
-      "handle": "@natgeowild",
-      "mood": "heal"
-    },
-    {
-      "handle": "@sandiegozoo",
-      "mood": "heal"
-    },
-    {
-      "handle": "@LoveNature",
-      "mood": "heal"
-    }
+    { "handle": "@TheDodo", "mood": "heal" },
+    { "handle": "@sandiegozoo", "mood": "heal" },
+    { "handle": "@LoveNature", "mood": "heal" }
+  ],
+  "youtubeSearch": [
+    { "q": "cute baby animals shorts", "mood": "heal", "order": "viewCount" },
+    { "q": "baby panda shorts", "mood": "heal", "order": "viewCount" },
+    { "q": "puppy shorts cute", "mood": "heal", "order": "viewCount" },
+    { "q": "kitten shorts cute", "mood": "heal", "order": "viewCount" },
+    { "q": "baby otter OR baby duck OR baby bunny shorts", "mood": "laugh", "order": "viewCount" },
+    { "q": "아기 동물 shorts", "mood": "heal", "order": "viewCount" },
+    { "q": "새끼 고양이 shorts", "mood": "heal", "order": "viewCount" },
+    { "q": "강아지 새끼 shorts", "mood": "heal", "order": "viewCount" }
   ],
   "news": [
-    {
-      "query": "미담 OR 선행 OR 기부 OR 훈훈",
-      "mood": "touch",
-      "animal": false
-    },
-    {
-      "query": "구조 OR 입양 OR 보호소 강아지 OR 고양이 OR 유기견",
-      "mood": "heal",
-      "animal": true
-    },
-    {
-      "query": "개체 수 증가 OR 복원 성공 OR 연구 성과",
-      "mood": "hope",
-      "animal": false
-    },
-    {
-      "query": "귀여운 OR 화제 강아지 OR 고양이 OR 판다 OR 수달",
-      "mood": "laugh",
-      "animal": true
-    }
+    { "query": "미담 OR 선행 OR 훈훈", "mood": "touch", "animal": false },
+    { "query": "구조 OR 입양 OR 보호소 강아지 OR 고양이 OR 유기견", "mood": "heal", "animal": true },
+    { "query": "개체 수 증가 OR 복원 성공 OR 연구 성과", "mood": "hope", "animal": false },
+    { "query": "귀여운 OR 화제 강아지 OR 고양이 OR 판다 OR 수달", "mood": "laugh", "animal": true }
   ],
+  "newsExclude": "-연예인 -배우 -가수 -아이돌 -방송인 -예능",
   "perSource": 12,
   "maxAgeDays": 30,
+  "maxSeconds": 60,
+  "cuteWords": [
+    "baby", "babies", "puppy", "puppies", "kitten", "kittens", "cub", "cubs", "pup", "pups", "fawn", "calf", "duckling", "ducklings", "chick", "chicks", "lamb", "foal", "bunny", "newborn", "tiny", "cute",
+    "새끼", "아기", "꼬물", "병아리", "강아지", "아깽이", "냥아치", "아가"
+  ],
+  "humanWords": [
+    "owner", "man", "woman", "girl", "boy", "kid", "kids", "child", "children", "person", "people", "keeper", "zookeeper", "vet", "trainer", "rescue", "rescued", "rescues", "hug", "hugs", "family", "mom", "dad", "human", "humans", "prank", "challenge", "reaction", "vlog",
+    "주인", "집사", "사육사", "구조", "아이", "아빠", "엄마", "가족", "사람", "남자", "여자", "수의사", "브이로그", "챌린지"
+  ],
+  "celebWords": [
+    "연예인", "배우", "가수", "아이돌", "방송인", "개그맨", "개그우먼", "코미디언", "예능", "MC", "셀럽", "톱스타", "소속사", "팬클럽", "트로트", "유튜버", "인플루언서"
+  ],
+  "blockPeople": ["전현무"],
+  "blockSources": ["스타뉴스", "텐아시아", "마이데일리", "OSEN", "엑스포츠", "스포츠", "디스패치", "뉴스엔", "TV리포트", "엔터", "연예", "bnt", "헤럴드POP", "iMBC", "SBS 연예", "KBS 연예", "MBN"],
   "blockWords": [
-    "사고",
-    "사망",
-    "숨져",
-    "폭행",
-    "살해",
-    "학대",
-    "논란",
-    "비판",
-    "정치",
-    "대통령",
-    "국회",
-    "탄핵",
-    "전쟁",
-    "참사",
-    "화재",
-    "폭로",
-    "고소",
-    "사기",
-    "혐오",
-    "자살",
-    "실종",
-    "부상",
-    "재난",
-    "압수수색",
-    "구속",
-    "dead",
-    "death",
-    "killed",
-    "attack",
-    "injured",
-    "abuse",
-    "war",
-    "shooting",
-    "accident",
-    "cruel",
-    "dies",
-    "died",
-    "tragic"
+    "사고", "사망", "숨져", "폭행", "살해", "학대", "논란", "비판", "정치", "대통령", "국회", "탄핵", "전쟁", "참사", "화재", "폭로", "고소", "사기", "혐오", "자살", "실종", "부상", "재난", "압수수색", "구속",
+    "dead", "death", "killed", "attack", "injured", "abuse", "war", "shooting", "accident", "cruel", "dies", "died", "tragic"
   ]
 }

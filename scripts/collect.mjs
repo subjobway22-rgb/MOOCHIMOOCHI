@@ -1,9 +1,10 @@
-// 소스 목록(sources.json)에서 영상과 뉴스 제목을 모아 feed.json을 만든다.
-// 영상: 유튜브 채널 공개 RSS. 뉴스: 구글 뉴스 RSS(제목과 링크만 사용).
+// sources.json에서 영상(짧은 동물 영상)과 뉴스 제목을 모아 feed.json을 만든다.
+// 영상: YouTube Data API(YOUTUBE_API_KEY 필요). 뉴스: 구글 뉴스 RSS(제목과 링크만 사용).
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 const UA = 'Mozilla/5.0 (compatible; MoochiCollector/1.0)';
+const esc = (w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 export const decode = (s) => s
   .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
@@ -16,15 +17,6 @@ const tag = (x, t) => {
 };
 const blocks = (xml, t) => [...xml.matchAll(new RegExp(`<${t}(?:\\s[^>]*)?>[\\s\\S]*?</${t}>`, 'g'))].map((m) => m[0]);
 
-export function parseYouTube(xml, channelName) {
-  return blocks(xml, 'entry').map((e) => ({
-    videoId: tag(e, 'yt:videoId'),
-    title: tag(e, 'title'),
-    published: tag(e, 'published'),
-    channel: tag(e, 'name') || channelName,
-  })).filter((v) => v.videoId && v.title);
-}
-
 export function parseNews(xml) {
   return blocks(xml, 'item').map((it) => {
     let title = tag(it, 'title');
@@ -34,71 +26,87 @@ export function parseNews(xml) {
   }).filter((n) => n.title && /^https?:\/\//.test(n.link));
 }
 
-export const isBlocked = (title, words) => {
-  const t = title.toLowerCase();
-  return words.some((w) => t.includes(w.toLowerCase()));
-};
+// 영문 단어는 단어 경계로, 한글은 포함 여부로 비교한다("war"가 "warm"에 걸리지 않게).
+export function matchesAny(text, words) {
+  return words.some((w) => /^[\x00-\x7f]+$/.test(w) ? new RegExp(`\\b${esc(w)}\\b`, 'i').test(text) : text.includes(w));
+}
+
+export function parseDuration(iso) {   // PT1M5S -> 65
+  const m = /^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/.exec(iso || '');
+  return m ? (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0) : Infinity;
+}
 
 async function get(url) {
   const r = await fetch(url, { headers: { 'user-agent': UA, 'accept-language': 'ko,en;q=0.8' }, signal: AbortSignal.timeout(20000) });
-  if (!r.ok) throw new Error(`${r.status} ${url}`);
+  if (!r.ok) throw new Error(`${r.status} ${url.replace(/key=[^&]+/, 'key=***')}`);
   return r.text();
 }
-
-async function channelId(handle) {
-  const html = await get(`https://www.youtube.com/${handle}`);
-  const m = html.match(/"externalId":"(UC[\w-]{22})"/) || html.match(/channel_id=(UC[\w-]{22})/) || html.match(/"channelId":"(UC[\w-]{22})"/);
-  if (!m) throw new Error(`channel id not found: ${handle}`);
-  return m[1];
-}
-
 const toISO = (s) => { const d = new Date(s); return isNaN(d) ? null : d.toISOString(); };
 
 async function main() {
   const cfg = JSON.parse(await readFile('sources.json', 'utf8'));
   const cutoff = Date.now() - cfg.maxAgeDays * 86400000;
-  const items = [];
-  const log = [];
-
   const KEY = process.env.YOUTUBE_API_KEY;
-  for (const s of cfg.youtube) {
-    try {
-      let vids;
-      if (KEY) {
-        // 공식 API(무료 할당량). 업로드 목록을 읽는다.
-        const api = (path) => get(`https://www.googleapis.com/youtube/v3/${path}&key=${KEY}`).then(JSON.parse);
-        const ch = await api(`channels?part=contentDetails,snippet&forHandle=${encodeURIComponent(s.handle)}`);
-        const c = ch.items?.[0];
-        if (!c) throw new Error('channel not found');
-        const pl = await api(`playlistItems?part=snippet,contentDetails&maxResults=${cfg.perSource}&playlistId=${c.contentDetails.relatedPlaylists.uploads}`);
-        vids = (pl.items || []).map((x) => ({ videoId: x.contentDetails.videoId, title: x.snippet.title, published: x.contentDetails.videoPublishedAt || x.snippet.publishedAt, channel: c.snippet.title }))
-          .filter((v) => v.title !== 'Private video' && v.title !== 'Deleted video');
-      } else {
-        // API 키가 없으면 공개 RSS를 시도한다(깃허브 서버 IP에서는 막힐 수 있음).
-        const id = await channelId(s.handle);
-        vids = parseYouTube(await get(`https://www.youtube.com/feeds/videos.xml?channel_id=${id}`), s.handle);
-      }
-      let n = 0;
-      for (const v of vids.slice(0, cfg.perSource)) {
-        const iso = toISO(v.published);
-        if (!iso || Date.parse(iso) < cutoff || isBlocked(v.title, cfg.blockWords)) continue;
-        items.push({ id: `yt-${v.videoId}`, type: 'video', mood: s.mood, animal: true, title: v.title, source: `유튜브 · ${v.channel}`, time: iso, link: `https://www.youtube.com/watch?v=${v.videoId}`, videoId: v.videoId });
-        n++;
-      }
-      log.push(`ok ${s.handle}: ${n} (${KEY ? 'api' : 'rss'})`);
-    } catch (e) { log.push(`FAIL ${s.handle}: ${e.message.replace(KEY || '\u0000', '***')}`); }
+  const items = [], log = [];
+
+  // ---- 영상 ----
+  const api = (path) => get(`https://www.googleapis.com/youtube/v3/${path}&key=${KEY}`).then(JSON.parse);
+  const candidates = new Map();   // videoId -> {title, channel, mood}
+
+  if (!KEY) log.push('SKIP youtube: YOUTUBE_API_KEY 없음');
+  else {
+    for (const s of cfg.youtube) {
+      try {
+        const ch = (await api(`channels?part=contentDetails,snippet&forHandle=${encodeURIComponent(s.handle)}`)).items?.[0];
+        if (!ch) throw new Error('channel not found');
+        const pl = await api(`playlistItems?part=snippet,contentDetails&maxResults=${cfg.perSource}&playlistId=${ch.contentDetails.relatedPlaylists.uploads}`);
+        for (const x of pl.items || []) candidates.set(x.contentDetails.videoId, { title: x.snippet.title, channel: ch.snippet.title, mood: s.mood });
+        log.push(`channel ${s.handle}: ${pl.items?.length || 0} 후보`);
+      } catch (e) { log.push(`FAIL ${s.handle}: ${e.message}`); }
+    }
+    for (const s of cfg.youtubeSearch || []) {
+      try {
+        const r = await api(`search?part=snippet&type=video&videoDuration=short&videoEmbeddable=true&order=${s.order || 'date'}&maxResults=25&q=${encodeURIComponent(s.q)}&publishedAfter=${new Date(cutoff).toISOString()}`);
+        for (const x of r.items || []) candidates.set(x.id.videoId, { title: decode(x.snippet.title), channel: decode(x.snippet.channelTitle), mood: s.mood });
+        log.push(`search "${s.q}": ${r.items?.length || 0} 후보`);
+      } catch (e) { log.push(`FAIL search "${s.q}": ${e.message}`); }
+    }
+
+    // 길이와 임베드 가능 여부는 영상 상세로 확인한다.
+    const ids = [...candidates.keys()];
+    let kept = 0;
+    for (let i = 0; i < ids.length; i += 50) {
+      try {
+        const det = await api(`videos?part=contentDetails,status,snippet&id=${ids.slice(i, i + 50).join(',')}`);
+        for (const v of det.items || []) {
+          const c = candidates.get(v.id);
+          const title = decode(v.snippet.title);
+          const iso = toISO(v.snippet.publishedAt);
+          if (!v.status?.embeddable || parseDuration(v.contentDetails.duration) > cfg.maxSeconds) continue;
+          if (!iso || Date.parse(iso) < cutoff) continue;
+          if (matchesAny(title, cfg.blockWords) || matchesAny(title, cfg.humanWords)) continue;
+          if (!matchesAny(title, cfg.cuteWords)) continue;
+          items.push({ id: `yt-${v.id}`, type: 'video', mood: c.mood, animal: true, title, source: `유튜브 · ${c.channel}`, time: iso, link: `https://www.youtube.com/watch?v=${v.id}`, videoId: v.id });
+          kept++;
+        }
+      } catch (e) { log.push(`FAIL videos: ${e.message}`); }
+    }
+    log.push(`영상: 후보 ${ids.length} → 통과 ${kept}`);
   }
 
+  // ---- 뉴스 ----
+  const newsBlock = [...cfg.blockWords, ...cfg.celebWords, ...cfg.blockPeople];
   for (const s of cfg.news) {
     try {
-      const url = `https://news.google.com/rss/search?q=${encodeURIComponent(s.query + ' when:7d')}&hl=ko&gl=KR&ceid=KR:ko`;
-      const xml = await get(url);
+      const q = `${s.query} ${cfg.newsExclude} when:7d`;
+      const xml = await get(`https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=ko&gl=KR&ceid=KR:ko`);
       let n = 0;
-      for (const v of parseNews(xml).slice(0, cfg.perSource)) {
+      for (const v of parseNews(xml).slice(0, cfg.perSource * 2)) {
         const iso = toISO(v.published);
-        if (!iso || isBlocked(v.title, cfg.blockWords)) continue;
+        if (!iso || matchesAny(v.title, newsBlock)) continue;
+        if (cfg.blockSources.some((b) => v.source.includes(b))) continue;
         items.push({ id: `nw-${Buffer.from(v.link).toString('base64url').slice(-24)}`, type: 'news', mood: s.mood, animal: !!s.animal, title: v.title, source: v.source || '뉴스', time: iso, link: v.link });
-        n++;
+        if (++n >= cfg.perSource) break;
       }
       log.push(`ok news "${s.query}": ${n}`);
     } catch (e) { log.push(`FAIL news "${s.query}": ${e.message}`); }
