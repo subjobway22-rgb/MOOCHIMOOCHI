@@ -46,16 +46,16 @@ const toISO = (s) => { const d = new Date(s); return isNaN(d) ? null : d.toISOSt
 
 
 // ---- 반응(좋아요 비율, 댓글)으로 "정말 귀여운지" 판단 ----
-const POS = /귀여|귀엽|사랑스|힐링|심쿵|천사|예쁘|예뻐|아가|꼬물|\b(cute|cutie|adorable|aww+|precious|sweet|lovely|angel)\b|[❤🥰😍🥺💕]/i;
-const NEG = /무서|무섭|징그|소름|혐오|끔찍|불쌍|슬프|가짜|조작|ai\s?영상|ai가|으악|\b(creepy|scary|disturbing|gross|disgusting|nightmare|fake|ai[- ]generated|horrifying|terrifying|yikes|eww+|weird|cursed|wtf)\b|[😱🤢🤮😨🥶]/i;
+const POS = /귀여|귀엽|사랑스|힐링|심쿵|천사|예쁘|예뻐|아가|꼬물|\b(cute|cutie|adorable|aww+|precious|sweet|lovely|angel)\b|[❤🥰😍🥺💕]/iu;
+const NEG = /무서|무섭|징그|소름|혐오|끔찍|불쌍|슬프|가짜|조작|ai\s?영상|ai가|으악|\b(creepy|scary|disturbing|gross|disgusting|nightmare|fake|ai[- ]generated|horrifying|terrifying|yikes|eww+|weird|cursed|wtf)\b|[😱🤢🤮😨🥶]/iu;
 
 export function judgeReaction({ views, likes }, comments) {
   const likeRatio = views > 0 ? likes / views : 0;
-  if (views >= 1000 && likeRatio < 0.02) return { ok: false, why: 'like-ratio', likeRatio };
+  if (views >= 1000 && likes > 0 && likeRatio < 0.002) return { ok: false, why: 'like-ratio', likeRatio };
   if (!comments || comments.length < 5) return { ok: likeRatio >= 0.04, why: 'few-comments', likeRatio, cute: 0 };
   const pos = comments.filter((c) => POS.test(c)).length, neg = comments.filter((c) => NEG.test(c)).length;
   const n = comments.length;
-  const ok = pos / n >= 0.2 && neg / n <= 0.08;
+  const ok = pos / n >= 0.15 && neg / n <= 0.1;
   return { ok, why: ok ? 'ok' : 'comments', likeRatio, cute: +(pos / n).toFixed(2), neg: +(neg / n).toFixed(2) };
 }
 
@@ -140,7 +140,7 @@ async function main() {
       } catch (e) { log.push(`FAIL name "${s.name}": ${e.message}`); }
     }
     await writeFile('channels-cache.json', JSON.stringify(cache, null, 1) + '\n');
-    for (const s of cfg.youtubeSearch || []) {
+    for (const s of process.env.NO_SEARCH ? [] : cfg.youtubeSearch || []) {
       try {
         const r = await api(`search?part=snippet&type=video&videoDuration=short&videoEmbeddable=true&order=${s.order || 'date'}&maxResults=25&q=${encodeURIComponent(s.q)}&publishedAfter=${new Date(cutoff).toISOString()}`);
         for (const x of r.items || []) candidates.set(x.id.videoId, { title: decode(x.snippet.title), channel: decode(x.snippet.channelTitle), mood: s.mood });
@@ -217,7 +217,7 @@ async function main() {
   console.log(log.join('\n'));
   if (!unique.length) { console.error('수집된 항목이 없어 feed.json을 바꾸지 않습니다.'); process.exit(1); }
   unique.sort((a, b) => Date.parse(b.time) - Date.parse(a.time));
-  await writeFile('feed.json', JSON.stringify({ updated: new Date().toISOString(), items: unique }, null, 1) + '\n');
+  await writeFile(process.env.NO_SEARCH ? 'feed.quick.json' : 'feed.json', JSON.stringify({ updated: new Date().toISOString(), items: unique }, null, 1) + '\n');
   console.log(`feed.json: ${unique.length} items`);
 }
 

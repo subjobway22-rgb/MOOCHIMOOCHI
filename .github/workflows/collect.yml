@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '17 */6 * * *'
   workflow_dispatch:
+    inputs:
+      quick:
+        description: 'Test without YouTube search (cheap). Writes feed.quick.json only.'
+        type: boolean
+        default: false
 permissions:
   contents: write
 jobs:
@@ -16,6 +21,7 @@ jobs:
       - run: node scripts/collect.mjs
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          NO_SEARCH: ${{ inputs.quick && '1' || '' }}
       - name: Commit feed
         run: |
           git config user.name "github-actions[bot]"
