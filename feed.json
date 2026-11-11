@@ -1,6 +1,26 @@
 {
- "updated": "2026-11-11T07:46:23.194Z",
+ "updated": "2026-11-11T07:47:16.314Z",
  "items": [
+  {
+   "id": "nw-NXVZMmxvTlhGU01EQT9vYz01",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "전현무, '닮은꼴' 시츄 안고 행복..\"생일날 촬영 없이 유기견 보호소 봉사\"[스타이슈]",
+   "source": "스타뉴스",
+   "time": "2026-11-11T06:01:59.000Z",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1kdGJfWDJ6ZlBwZE5VNV9DelpoRzBZc3NNNVFlY2d3bWZRVVBhMU0tR0xZbmRjMjdFcmIySGFiWkR6Q25fczEyS2U5cEczY3JkeDRwbmdvSk4yUzJiam5TSDFfYVUxUW9zN25uY2loNXFSMDA?oc=5"
+  },
+  {
+   "id": "nw-SEJEUldWdlRrbG1NQT9vYz01",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "전현무, 생일에도 유기견 봉사…카메라 없이 구슬땀",
+   "source": "뉴시스",
+   "time": "2026-11-11T03:26:00.000Z",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE8xX3Ric0tuUXRpSlF4MzZfRDNva3dKQU56UjNqOHBnMGk1dnYwbTBzeHRRMmRfUzMwN2MyMmVBd2VrZVl1SHhHaURTUDNhRXRzY19MWVNyS1VJZl83TWFjNkNxSHlrcENRZjNIdGtCTHBDRWVvTklmMNIBeEFVX3lxTE8xX3Ric0tuUXRpSlF4MzZfRDNva3dKQU56UjNqOHBnMGk1dnYwbTBzeHRRMmRfUzMwN2MyMmVBd2VrZVl1SHhHaURTUDNhRXRzY19MWVNyS1VJZl83TWFjNkNxSHlrcENRZjNIdGtCTHBDRWVvTklmMA?oc=5"
+  },
   {
    "id": "nw-d3WWxGTE4zbGFOV2M_b2M9NQ",
    "type": "news",
@@ -22,6 +42,36 @@
    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5iQnVYZXFiaW5XaG5Ua0tSeHVhQjdoMUp0ODlBOGFQRy04UU1oQm5xbm1LcnBTLXA5Z3ZnbmNZcDlpWGRQYS1XdmNVT0szb2dBTnkzYlJ5UG95UmxYRUsxcEpZVmItVy1xVW9zbDZLX2l4Zw?oc=5"
   },
   {
+   "id": "nw-xUV3hXVWpobmFWQlY_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[사진] \"귀여운 판다가 반기네\" CIIE 쓰촨 전시홀",
+   "source": "서울뉴스통신",
+   "time": "2026-11-11T00:58:20.000Z",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBqQlZjOUVnN1FhNWowQUJNSS1kZ3JsNDNYZFcwRWxfZjJfZHdWSVhoSm1uLVhTOEIyWkxVX203Q0llUXdlYU9teGlyMTFodFFDZ3VjODF4T3N6M1N0d2ZXNExlTWxWUjhnaVBV?oc=5"
+  },
+  {
+   "id": "nw-MFUwYTJkR2NVbE5VUT9vYz01",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "전현무, 생일에 유기견 보호소 찾았다…카메라도 없이 '조용한 선행'",
+   "source": "굿모닝경제",
+   "time": "2026-11-11T00:42:54.000Z",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBVQjBwbVhCaEdTZHliZXA0RzBWcThkMFp2YXJpQlhNYUZlSEx0RHZkZGRUWWdENHZuSVl0YlQzSVpHa3N1bm9zOWZjTTAtNV84M3IxOGVTUmI2QVN0aTRCOG5QS0U0a2dGcUlNUQ?oc=5"
+  },
+  {
+   "id": "nw-JYm01aGJYVndkM2sxP29jPTU",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "배변 훈련용 고양이 모래 시장 2035년 전망: 새끼 고양이 입양 증가와 고급화가 성장 견인 - 뉴스 및 통계",
+   "source": "IndexBox",
+   "time": "2026-11-10T21:01:04.000Z",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZ2pKN00xbTlEZjJ2SlljNXJ0eU04emc5ZEtGSkZ4Ujlmem5obXN2US1RNm4tc1o2TWRmb1paY0Q0T0hlUVJZMUxodGJtR3l1eE5IN3pyZDcxQS1tdG1Yc0ZEMHhTXzFpczVWanFDeEpFOEV0V2h3eVJJRUMyRWNrVGhFNC13X0J3aTVfTXVadnRXVF9rcV90ZWE1N3Vac21vMjU4RUtTdXAwN1ZSYS1vUWFpTEUwQVJ3RUlKZDJFa0cxblNpaUZIbm5hbXVwd3k1?oc=5"
+  },
+  {
    "id": "nw-gyZWt0a1VuUlZNSEE_b2M9NQ",
    "type": "news",
    "mood": "touch",
@@ -30,6 +80,66 @@
    "source": "대한민국 정책브리핑",
    "time": "2026-11-10T08:59:21.000Z",
    "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9VbF8yVnJiWWxkamNuNDVXZG05ck9LaEJWbkkwVzFVOE8yNS1tTFlsVlJkZFdKZzFvU3BQZWJ1Z0tPZzgxOHY3QzlVVFRhSXBwUGVjS3RtYTV0ME82ektkUnRVMHA?oc=5"
+  },
+  {
+   "id": "nw-bGRuVjFNd05WZE1VUT9vYz01",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "\"강아지 집에나 깔아\" 핀잔에도 … '남대문 임영웅' 스카프 가게 화제",
+   "source": "뉴데일리",
+   "time": "2026-11-10T01:54:00.000Z",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOc3dmNmlsQ2NXb2RDX0h0aGZna3hseDM1MEFhSF9VNWV6OWROaDFDSFJ5amdJTldEY2FlN3RnR1dqY3owcnc5ZDRZUXVObkNseE96Q2UxQ25nMGtFYkJNZE9RanRZRTNxRFE5eGdBc1dyaThEV3kwSldnV1MwNVdMUdIBgAFBVV95cUxOc3dmNmlsQ2NXb2RDX0h0aGZna3hseDM1MEFhSF9VNWV6OWROaDFDSFJ5amdJTldEY2FlN3RnR1dqY3owcnc5ZDRZUXVObkNseE96Q2UxQ25nMGtFYkJNZE9RanRZRTNxRFE5eGdBc1dyaThEV3kwSldnV1MwNVdMUQ?oc=5"
+  },
+  {
+   "id": "nw-FMXRWbXBQUVVoTU1BP29jPTU",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "귀여운 고양이",
+   "source": "Minecraft",
+   "time": "2026-11-09T21:38:36.000Z",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNVG5WXzdSZ2N6S3BHb0VReXFhRk1jdjFrQWtaZUJnYTZJTjRLSU55RW9qM0RzcmF5TmR0X2lIVXpSSkc5ZTc5aWNxbzRadG9XN1VIUnJhaWRhcWF4d0I3OFZRM1lraWwxRTVFYWg2aTh4SEdPMGJ2eGEtS0tpMXN3aFZvMnZuRjNlNExaOFlmQzVGOGcxV1RjSHlUMlBnZE1tVmpPQUhMMA?oc=5"
+  },
+  {
+   "id": "nw-tOT1ZYZG9RV3hWWnc_b2M9NQ",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "“진짜 용자네”…독사에 물려 턱뼈 드러난 아기 고양이, 구조 당시 옆엔?",
+   "source": "매일경제",
+   "time": "2026-11-09T12:17:06.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1hYjZGbm9yd05oRV9FdGJXamJjZERoV0U2dVhDd25HTzc5R0M1ODJjNFFOWHFmWnRnZzNTanl3d01YZ2N2V2pmM0NpRkNOVXdoQWxVZw?oc=5"
+  },
+  {
+   "id": "nw-JWVmFGSlVNMUpJUVE_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[현장] “고양이로 점령” 더현대 서울에 나타난 작은 영웅들…80년대 뉴욕을 통째로 옮겨 오다",
+   "source": "파이낸셜투데이",
+   "time": "2026-11-09T11:38:24.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFAzMnZwd21uODZYQk9MQmI1d08zVWVzRm1lMGJvTEV0UEU5bTlVb055bGJ0NjFZZlROYnlHODBLQ25ZZjdhdlpYMWhWVVdubURteGdOT2hpVTZjdHdMcUl2aE9Yc0JyU1VDbEHSAW5BVV95cUxQank3NU90TXBROEFfcU1BVzJPZl9JcE5oQWNkckxiMXBmSnQ3TEdNbDU3X0FPZUNpUjYyTW5rRUxDWFhvRWgyeEpvN0R5U1hnQUhQalk0R0g4RlFFeWtsZUktSUJIZ2VVaFJUM1JIQQ?oc=5"
+  },
+  {
+   "id": "nw-JTVUpITURGdFZsSnY_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[포토] 미야오 수인, 귀여운 고양이",
+   "source": "조선일보",
+   "time": "2026-11-09T08:46:00.000Z",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTTVkaHVjNEYzaW1oNk9UdjR1bFFNb0tpVWdCNEktRGdNMl9md3ZiMTNfX2hOV2lLUm8wUFBFemFNR210TmJ3LXo0N0RDYmg0Y2NDLUJXUWY2aGxPaFlEd05TcnVIbG0yamJxeUpBaDNwSkIxQVFxYlplajBYRUc1ZWZ4bmxKQ21sck1JUGFrSUJHMDFtVlJv?oc=5"
+  },
+  {
+   "id": "nw-uTXlNR3BzWm5Jelp3P29jPTU",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[HD포토] 미야오 나린, ‘귀여운 고양이’ (카드 한 장에 우정이 흔들리는 줄은 몰랐습니다만? 제작발표회)",
+   "source": "톱스타뉴스",
+   "time": "2026-11-09T08:32:06.000Z",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Cd0dlTE1rTmtPLVlwMXNYR2JnTUFTckRxYnk0YUEtQ0d4N05Gd05WTEhQSWxPQlJ3cjJLelF3QUl3VXVqd0ZwNTdLOGdETVNzaWtaRmVMcV9keGlEUEltUjMyMWswV2JJanMyMGpsZnIzZw?oc=5"
   },
   {
    "id": "nw-FZNGRYRk9ZbVJFWnc_b2M9NQ",
@@ -52,6 +162,76 @@
    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9BVlp5dy1jQ2tvXzctbFhkN21zaFo1cllDVFNEajMzU1hSbmNRQmJRMFVoSVZTcXl5QnpiS3JRSWY4aE5BVUNMQXBCel9YUzhRcDdDS0lQcFhfTG9IdHNZUk1lRi1oVFE?oc=5"
   },
   {
+   "id": "nw-hwTWFUQmhYMGN6Wnc_b2M9NQ",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "독사와 맞짱 뜬 아기 고양이 근황…\"생사 오가는 치료 중\"",
+   "source": "JTBC",
+   "time": "2026-11-09T02:21:00.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBXU2lOZGNwY1J1ak5EaEYzak10RFpYQUpvNFJpWHZYaWU2RmNCNlRPNWFVQlpDT0dLdW53MzNhTGdhVWp1RjFfU0lHaXpMaTBhX0czZw?oc=5"
+  },
+  {
+   "id": "nw-NSVWRyWXpsTUxUQjM_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "애틀랜타 판다 핑핑·푸솽, 2년 만에 공개…10년 보전 협력",
+   "source": "www.diarypoint.com",
+   "time": "2026-11-08T22:33:00.000Z",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE81Z1V3NmF4Y2VtQ2FQTjBJVUZndklIaGhHM2ZOYXR0WkhiM3ViR0l5UG1wMm1ZY2VYMWlYc1dEU1ZxVkFQQWgtTUhFWWMwZlVCQk55QU1fUUJHakk1aVRUV1BCRUdrYzlMLTB3?oc=5"
+  },
+  {
+   "id": "nw-taHZkVW93ZDNwT1FRP29jPTU",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "독사와 싸워 살아남은 생후 3개월 아기고양이…새 주인 찾았다",
+   "source": "전자신문",
+   "time": "2026-11-08T21:00:00.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE82R3phMlVzZG9tWjVRWC02bkZGTnA1VV8ybGdoeG9HZDVaRjFBUTFwalFrVk1sRUxieHJkZHA4bTgxcHZFWmhvdUowd3pOQQ?oc=5"
+  },
+  {
+   "id": "nw-5IU3kxelltTnFOSE0_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[포토] 최예나, 귀여운 인간 고양이",
+   "source": "일간스포츠",
+   "time": "2026-11-08T10:59:00.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5uYS1rLTR0M3hrS1I3ZWRJbHV5SUhzVUJ0QUZaRzFTT291THoxdHR4VGx2YmFlYkxnZ09ndUZfaGktaDFOMklmU3IxVkhMV0hzUFNHSy1zYmNqNHM?oc=5"
+  },
+  {
+   "id": "nw-oQ1MzQkpYMUIxY2pBP29jPTU",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "폐교가 고양이 보호소·천문대·특수학교로…전국 우수사례 7곳 선정",
+   "source": "교육플러스",
+   "time": "2026-11-08T04:16:22.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1jXzU0OVI5SDE3LUVmbFktS1BkclY2LTIxUklKR21yWnNxYXNrcWxyTV80SVRVazYxZ3kyOTBXeXB0MjlianBNMjV0d2t6UjYtRnFuZ295dmFoTUpyYzhCS3BJX1B1cjA?oc=5"
+  },
+  {
+   "id": "nw-CU1dwQllXRlNiazV6P29jPTU",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "폐교가 고양이 보호소·천문관으로…정부, 우수 활용사례 7건 선정",
+   "source": "뉴스핌",
+   "time": "2026-11-08T00:00:00.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBrNERTRVQ5R01ac29pb2s0WExQN3FiRXRwN01BbmJ4cXkzUWJWaEFTb09NbnA2cnM4SE9uci1vU1FJN1VsbUo2ZHhlZW51WW5WR2FBSWpBYWFSbk5z?oc=5"
+  },
+  {
+   "id": "nw-ZWMG8wVVdoNlQzcDM_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "뱀과 싸워 이겼다?…몸무게 800g 불과한 아기 고양이, 생존 사투",
+   "source": "뉴스1",
+   "time": "2026-11-07T02:00:00.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE8tcER1TXRxZ1R2ZXlwUWo5UXdDNUFYRjFsLW9rdWRXeUp3VEFzTFI2TmlVUzgyWE5mOVcyUTZiYUxieks3aVVPNFNKSGxUTEJvVFZUVW9XTVJvV0o0UWh6T3p3?oc=5"
+  },
+  {
    "id": "nw-RVpYUzB4cmVVdEJRUT9vYz01",
    "type": "news",
    "mood": "touch",
@@ -62,6 +242,46 @@
    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9xelNnTDIxbk5DdTdwOURKeW03c0RTT0J4aGxUbDVUNWVlamRfZjRrZWhsdWFSNTlQOXcwZ01CdTJkcDlGa1VENmVFXzNLZC1kZEZXS0xreUtBQQ?oc=5"
   },
   {
+   "id": "nw-VKZlNrTnZXSEZqVVE_b2M9NQ",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "통로로 두 칸 잇는 보호소 고양이 케이지 설계",
+   "source": "비건뉴스",
+   "time": "2026-11-06T06:38:52.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBpdXNpaXVpSExGSzBiZlVPM0ZpTVBZQW5nUDJtTkRpZHpZdXljTnlqNFFtaXdPbDIyTGdNbGRaTDVpQzYycTRrcHBVMlpkX2JKRHE4dDctRWg5Y21oQUJfSkNvWHFjUQ?oc=5"
+  },
+  {
+   "id": "nw-MVdaVEkwWkZkcVMwMD9vYz01",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[포토] 아이브 장원영, 귀여운 고양이",
+   "source": "스포츠조선",
+   "time": "2026-11-06T01:27:25.000Z",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPbzZMLWFiVnd5b0ZrZF9rZl94N2FXUVpYV2wtOGhITDZrVTRLSWlQZld1c2FuVm0tRzVHeUZ6cXJ4TjdwOVhpZXJiSVpPbjRFWldZUzRldnBvQllpeTF0c0w0M21XUzVfNDlGZW1FTnNIb0taOTlvai1FTS1WZTI0ZFdqS00?oc=5"
+  },
+  {
+   "id": "nw-tTkVaMGhRVlZSYU9BP29jPTU",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "장원영, 귀여운 고양이[포토엔HD]",
+   "source": "뉴스엔",
+   "time": "2026-11-06T01:21:45.000Z",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5Ud0xYNnd1TUZtdS1fd28tVEhHRE1QalNVYmRvN0xJaFVjVlR0NXhOM2ZzckRCNVBET3FGYVVkbW5EZ3kwS05ZVzNNM1V3aG1MQ1drTXhMalhqVFM0U0wtbndtejBDbGFiXzFnd09zNXNKQmNEZ0hQVVRaOA?oc=5"
+  },
+  {
+   "id": "nw-JNVVhsWlZFMTBOREE_b2M9NQ",
+   "type": "news",
+   "mood": "touch",
+   "animal": false,
+   "title": "법무부 일자리 우수기업 연합회, 춘천시에 과자세트 기부",
+   "source": "강원일보",
+   "time": "2026-11-05T09:07:14.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55WXJ5NmNRX3RPcGJObVRiZk5obVAwczl5RDQ3UnpOVHA2R0FSVXh6bHllZkZNaHVjVVVWRGVtaTB4TkdCMUlIbm5Pei1kN0lJRDRMUXlZVE10NDA?oc=5"
+  },
+  {
    "id": "nw-1sWVluQm9NbEJmT0E_b2M9NQ",
    "type": "news",
    "mood": "touch",
@@ -70,6 +290,16 @@
    "source": "보건복지부 대표홈페이지",
    "time": "2026-11-05T08:00:00.000Z",
    "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPRXZYVmd3dmpfc3JmNWpPbGhGMVdKRjdzVEJ6Rmkzd0RtQ3lOdDVCXzJPLVlTdzVSbjFsd0xYYUpTbXFvQk5Td2ZQSnJRaHg4cG50OW9nZm1qWHJ0MjJmLUVNalQ2clRYQUlDLXlSQUVaNWJaS3JTU2pLYWdUbXR0QzBMemFldThoS3JpX1g2UGxIOUJvRzM5bHlmODQ2dUtob2dIN1FkOUpZVjZHT3lkUklDSGdTeXhnOThnNFFzcWtqMlNZYW81U2VQMkdlSE5zSXhOYjdPd2w1SmlYYnBoMlBfOA?oc=5"
+  },
+  {
+   "id": "nw-5hQzF0T0Vkb2NHeDM_b2M9NQ",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "고양이 세 마리 집사 리노, 보호소에 또 1억원 기부",
+   "source": "뉴스1",
+   "time": "2026-11-05T06:54:55.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE53MWRMLVNWMWlmNUhsaEFIWXNBc2kxbE9CLVQtMWZDc1E3di1wYVBFSHA5Q1NiQjlMa1QwMGR1S19oZ0pmYWxiR0g0ZUJPcjhRb2FNcjdjZXFNaC1tOEdocGx3?oc=5"
   },
   {
    "id": "nw-HbGlaakkyWlZSM2JBP29jPTU",
@@ -90,16 +320,6 @@
    "source": "의협신문",
    "time": "2026-11-05T01:39:38.000Z",
    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBvSzdoZmJOc2FQZzZLdGlQbXo2a25DOEFna3lJRVJ0ek1TZDdKRVd1ZUU0NUFkQXk3VlB4TTZXdW94TGJkNERrR1hrTGpDcUJCN0txS1RMUlVPMWREekF2bDFFODhjS3U3WnVTV0FSTWMtQQ?oc=5"
-  },
-  {
-   "id": "nw-xrY0c5YU1tTm1USGM_b2M9NQ",
-   "type": "news",
-   "mood": "touch",
-   "animal": false,
-   "title": "춘천 성림초 전교어린이회 3년째 ‘선행’",
-   "source": "강원일보",
-   "time": "2026-11-04T15:05:00.000Z",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE53akJHVEdLdjgzdmFIVC0wRk5seV9iYTJsMXdKbEZiMkxQV245SHJjTG5mOUtwUVVkVWxmOF91WVRXYzhvYnFxNjRUZTZtekowbVlkcG9aMmNmTHc?oc=5"
   },
   {
    "id": "nw-RkpOU2pVd1N6VkJkdz9vYz01",
