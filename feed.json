@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T08:16:10.048Z",
+ "updated": "2026-11-11T08:16:54.840Z",
  "items": [
   {
    "id": "nw-qU1haWVZtNUxVR3AzP29jPTU",
@@ -280,6 +280,16 @@
    "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5SbGl6V1E2aTBnQzlXWGswUkJJQXRYQ0psYzF0cVZiZTJiVTVtR0EzcGJpUkY0VGFJLUhvYUxfamtXQTFxcFhubXNCZmpoUnJsa2swTTVSYlpnd1lBM1UwQk9CMXdDQmtf?oc=5"
   },
   {
+   "id": "nw-SnBNMDVzYlU1Nk0xOD9vYz01",
+   "type": "news",
+   "mood": "touch",
+   "animal": false,
+   "title": "상주 함창읍 바르게살기운동위원회, '이웃사랑 반찬' 나눔",
+   "source": "경북신문",
+   "time": "2026-11-09T04:31:33.000Z",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBwTE0weVVkSk1EYkpsQk81YXJ3Q2pNQlhjaU56NEU3NUZaZmJfdXhtUVg4ckp6M2NYRzVXQ01kSEJQeEY2bFlGUjV3LTY2RXJpM05sbU56M18?oc=5"
+  },
+  {
    "id": "nw-l2UVRCbFkwODRVMEU_b2M9NQ",
    "type": "news",
    "mood": "touch",
@@ -319,16 +329,6 @@
    "time": "2026-11-08T16:00:15.000Z",
    "link": "https://www.youtube.com/watch?v=ct7qYufWTb8",
    "videoId": "ct7qYufWTb8"
-  },
-  {
-   "id": "nw-pKNFNYaElRMGRwZVE_b2M9NQ",
-   "type": "news",
-   "mood": "touch",
-   "animal": false,
-   "title": "서울시새마을부녀회, 김장김치 7,200포기로 따뜻한 이웃사랑 전해",
-   "source": "성광일보",
-   "time": "2026-11-08T10:38:00.000Z",
-   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1fdml6Szlhc3ZZTm9TbGRBbkljdjJMdUdQaHFXTmZwOS1QaVVDemZ6Z0tHVm1kQVNQUEwwT3NYSWcwbmxYV3J6QUpFejJ4SXhIQ0dpeQ?oc=5"
   },
   {
    "id": "nw-dWEwRXdVamR2T0VFdz9vYz01",
@@ -394,6 +394,17 @@
    "videoId": "UEwysSXfT_w"
   },
   {
+   "id": "yt-oEPN4AshZbs",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "미용하는 내내 잠만 자는 아기 강아지ㅋㅋㅋ #동물 #강아지",
+   "source": "유튜브 · 아니,근데",
+   "time": "2026-11-07T10:55:39.000Z",
+   "link": "https://www.youtube.com/watch?v=oEPN4AshZbs",
+   "videoId": "oEPN4AshZbs"
+  },
+  {
    "id": "yt-iGSk6krgVhQ",
    "type": "video",
    "mood": "heal",
@@ -438,6 +449,17 @@
    "videoId": "AB-CKt2YKO0"
   },
   {
+   "id": "yt-T9qc7WKCDok",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "냥이가 잠든 강아지를 발견하면 생기는 일ㅋㅋ",
+   "source": "유튜브 · 달려라하노리",
+   "time": "2026-11-06T09:00:35.000Z",
+   "link": "https://www.youtube.com/watch?v=T9qc7WKCDok",
+   "videoId": "T9qc7WKCDok"
+  },
+  {
    "id": "nw-hSMWN3WjFkbWNucFo_b2M9NQ",
    "type": "news",
    "mood": "touch",
@@ -467,6 +489,16 @@
    "time": "2026-11-06T06:00:20.000Z",
    "link": "https://www.youtube.com/watch?v=buBzTakbVuo",
    "videoId": "buBzTakbVuo"
+  },
+  {
+   "id": "nw-TYVZWV1ZWRXpXbnBCP29jPTU",
+   "type": "news",
+   "mood": "touch",
+   "animal": false,
+   "title": "광도면 새마을부녀회, 사랑의 팥죽 나눔으로 따뜻한 이웃사랑 실천",
+   "source": "영남신문",
+   "time": "2026-11-06T04:05:37.000Z",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFA3WlJpdzNXSUxtX0hsT21MTEZOYlVjd2JuREJoZmNSZUs1YmQ5RGs4Q0l1MDRqZFhKY3Y1N1JqbWVzS3hmZWM0MmlmTGs5ZGhpSi1PZGN1dlRLaWpyMll6U1pwQWRSaVVWVVEzWnpB?oc=5"
   },
   {
    "id": "yt-y7j1Q-TvtE4",
@@ -513,6 +545,17 @@
    "videoId": "MUKWe3ITBgc"
   },
   {
+   "id": "yt-H9iU56C_nIs",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "The Cutest Day of a Baby and His Puppy 🐶👶 | 아기와 강아지의 귀여운 하루",
+   "source": "유튜브 · 세식구소란일기",
+   "time": "2026-11-05T07:36:27.000Z",
+   "link": "https://www.youtube.com/watch?v=H9iU56C_nIs",
+   "videoId": "H9iU56C_nIs"
+  },
+  {
    "id": "yt-Rcgtx_JItUw",
    "type": "video",
    "mood": "heal",
@@ -524,14 +567,26 @@
    "videoId": "Rcgtx_JItUw"
   },
   {
-   "id": "nw-SkNTbWxrTFdwbWJXST9vYz01",
-   "type": "news",
-   "mood": "touch",
-   "animal": false,
-   "title": "상주 북문동, 따뜻한 겨울나기 위한 이웃사랑 나눔 실천",
-   "source": "경북신문",
-   "time": "2026-11-05T04:05:35.000Z",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1ERlphdFZSX3NOay1aVU94UDlEX2dnSHExZWVFUVYxTF9TSjJfLVlqWWNYS1VlRVhodTJHMnMzLXcxNF9LLUxkb2FDS1dFY0JCSmlkLWpmbWI?oc=5"
+   "id": "yt-7slXyGhN5wk",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "이제는 사춘기가와버린 아기팬더#판다 #팬더 #동물쇼츠 #판다쇼츠 #shorts #귀여운동물 #웃긴영상 #동물짤",
+   "source": "유튜브 · 깨발랄",
+   "time": "2026-11-05T03:54:09.000Z",
+   "link": "https://www.youtube.com/watch?v=7slXyGhN5wk",
+   "videoId": "7slXyGhN5wk"
+  },
+  {
+   "id": "yt-Z9enxSCcBTU",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "아기 진돗개의 해변 나들이 #진돗개 #댕댕이 #강아지",
+   "source": "유튜브 · 동물들 단톡방",
+   "time": "2026-11-04T22:15:10.000Z",
+   "link": "https://www.youtube.com/watch?v=Z9enxSCcBTU",
+   "videoId": "Z9enxSCcBTU"
   },
   {
    "id": "yt-ozEGbc0uzIw",
@@ -554,6 +609,17 @@
    "time": "2026-11-04T12:30:27.000Z",
    "link": "https://www.youtube.com/watch?v=dfuJhHqmvjE",
    "videoId": "dfuJhHqmvjE"
+  },
+  {
+   "id": "yt-bU_paQhHCfY",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "베이비시터 맡겼더니 아기 물고 튄 골든ㅋ 👶 #shorts",
+   "source": "유튜브 · 해보자GO",
+   "time": "2026-11-04T12:00:17.000Z",
+   "link": "https://www.youtube.com/watch?v=bU_paQhHCfY",
+   "videoId": "bU_paQhHCfY"
   },
   {
    "id": "yt-pYUuVwzJl5Q",
@@ -611,6 +677,17 @@
    "videoId": "yujnlzG8HiE"
   },
   {
+   "id": "yt-7I2ssUixmoI",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "cute helpful cat #cute #ai #cat #kitty #shorts #ytshorts",
+   "source": "유튜브 · :: just.irohaa'. ₊ ꒱",
+   "time": "2026-11-03T15:57:08.000Z",
+   "link": "https://www.youtube.com/watch?v=7I2ssUixmoI",
+   "videoId": "7I2ssUixmoI"
+  },
+  {
    "id": "yt-4PGrhUUwikw",
    "type": "video",
    "mood": "heal",
@@ -620,6 +697,17 @@
    "time": "2026-11-03T14:00:33.000Z",
    "link": "https://www.youtube.com/watch?v=4PGrhUUwikw",
    "videoId": "4PGrhUUwikw"
+  },
+  {
+   "id": "yt-Y6ssviiVmgs",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "자는 고양이를 발견한 아기 강아지에게 생긴 일ㅋㅋ #동물 #고양이",
+   "source": "유튜브 · 뜻밖의 하루",
+   "time": "2026-11-03T12:00:25.000Z",
+   "link": "https://www.youtube.com/watch?v=Y6ssviiVmgs",
+   "videoId": "Y6ssviiVmgs"
   },
   {
    "id": "yt-NYqT4VEMG5w",
@@ -699,6 +787,17 @@
    "videoId": "q9kpatYbz2c"
   },
   {
+   "id": "yt-J8OOXudT0l0",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "상자 뚜껑 열자마자 심장 멎게 만든 꼬물이",
+   "source": "유튜브 · 판다랑",
+   "time": "2026-11-01T04:20:23.000Z",
+   "link": "https://www.youtube.com/watch?v=J8OOXudT0l0",
+   "videoId": "J8OOXudT0l0"
+  },
+  {
    "id": "yt-WNv9FeD1OHY",
    "type": "video",
    "mood": "heal",
@@ -710,6 +809,17 @@
    "videoId": "WNv9FeD1OHY"
   },
   {
+   "id": "yt-cKugJeQ5dgE",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "시골 강아지가 처음 바다를 보면 생기는 일 #shorts",
+   "source": "유튜브 · 시골강아지 도담이",
+   "time": "2026-10-31T10:10:17.000Z",
+   "link": "https://www.youtube.com/watch?v=cKugJeQ5dgE",
+   "videoId": "cKugJeQ5dgE"
+  },
+  {
    "id": "yt-aQVJ1e-gu0I",
    "type": "video",
    "mood": "heal",
@@ -719,6 +829,28 @@
    "time": "2026-10-31T09:30:09.000Z",
    "link": "https://www.youtube.com/watch?v=aQVJ1e-gu0I",
    "videoId": "aQVJ1e-gu0I"
+  },
+  {
+   "id": "yt-i6gHYoATNZc",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "자기 주장 확실한 까칠 요정 아기 판다 ㅋㅋㅋ #Panda #동물",
+   "source": "유튜브 · 유니집",
+   "time": "2026-10-29T20:15:18.000Z",
+   "link": "https://www.youtube.com/watch?v=i6gHYoATNZc",
+   "videoId": "i6gHYoATNZc"
+  },
+  {
+   "id": "yt-O8v5LevuRuA",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "아기 팬더에게서밥을 빼앗으면?#판다 #아기판다 #판다월드 #동물영상 #귀여운동물 #쇼츠 #shorts #panda #babyanimals #cute",
+   "source": "유튜브 · 깨발랄",
+   "time": "2026-10-28T07:27:47.000Z",
+   "link": "https://www.youtube.com/watch?v=O8v5LevuRuA",
+   "videoId": "O8v5LevuRuA"
   },
   {
    "id": "yt-SLJe4yUXWtA",
@@ -752,6 +884,17 @@
    "time": "2026-10-27T19:00:32.000Z",
    "link": "https://www.youtube.com/watch?v=nIG7gkCWp_o",
    "videoId": "nIG7gkCWp_o"
+  },
+  {
+   "id": "yt-mAcc9s466nA",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "아기팬더를 무시하면 안되는 이유#판다 #아기판다 #눈싸움 #웃긴영상 #동물쇼츠 #Shorts #Panda #FunnyAnimals",
+   "source": "유튜브 · 깨발랄",
+   "time": "2026-10-27T12:11:00.000Z",
+   "link": "https://www.youtube.com/watch?v=mAcc9s466nA",
+   "videoId": "mAcc9s466nA"
   },
   {
    "id": "yt-WthMj0vB_uU",
@@ -829,6 +972,17 @@
    "time": "2026-10-25T19:36:10.000Z",
    "link": "https://www.youtube.com/watch?v=znSMhr_jRFo",
    "videoId": "znSMhr_jRFo"
+  },
+  {
+   "id": "yt-14NbAqYz8Sk",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "Panda sui laga raha hai 💉💉 #shorts #comedy #funny #cute #cutebaby #trending",
+   "source": "유튜브 · Rahulba official__03",
+   "time": "2026-10-25T12:49:10.000Z",
+   "link": "https://www.youtube.com/watch?v=14NbAqYz8Sk",
+   "videoId": "14NbAqYz8Sk"
   },
   {
    "id": "yt-nwv416XZ230",
@@ -974,6 +1128,17 @@
    "videoId": "IJ1auLVhrfI"
   },
   {
+   "id": "yt-xZWTUT9xpLk",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "From Cute Babies to Fierce Predators #shorts #animal #babyanimals #animalbaby #trending #viral",
+   "source": "유튜브 · Fact Ki Anokhi Duniya",
+   "time": "2026-10-21T08:38:14.000Z",
+   "link": "https://www.youtube.com/watch?v=xZWTUT9xpLk",
+   "videoId": "xZWTUT9xpLk"
+  },
+  {
    "id": "yt-sh_H9gv5r_Y",
    "type": "video",
    "mood": "heal",
@@ -1117,6 +1282,17 @@
    "videoId": "2M5qwAF_guY"
   },
   {
+   "id": "yt-s3z1bwECE4U",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "아기 쪽쪽이 훔친 범인#Shorts #골든리트리버 #강아지 #댕댕이 #웃긴동영상",
+   "source": "유튜브 · 멍냥데이즈",
+   "time": "2026-10-16T08:00:18.000Z",
+   "link": "https://www.youtube.com/watch?v=s3z1bwECE4U",
+   "videoId": "s3z1bwECE4U"
+  },
+  {
    "id": "yt-dcg4QNucfBQ",
    "type": "video",
    "mood": "heal",
@@ -1128,15 +1304,15 @@
    "videoId": "dcg4QNucfBQ"
   },
   {
-   "id": "yt-fk2MhOqCKfM",
+   "id": "yt-zD6mbJVgcxE",
    "type": "video",
    "mood": "heal",
    "animal": true,
-   "title": "아기처럼 우유 마시는 고양이 루루",
-   "source": "유튜브 · 크집사",
-   "time": "2026-10-15T08:00:04.000Z",
-   "link": "https://www.youtube.com/watch?v=fk2MhOqCKfM",
-   "videoId": "fk2MhOqCKfM"
+   "title": "집에 들어가면 연락 늦는 이유 #강아지 #shorts",
+   "source": "유튜브 · 말티즈율무",
+   "time": "2026-10-14T01:40:30.000Z",
+   "link": "https://www.youtube.com/watch?v=zD6mbJVgcxE",
+   "videoId": "zD6mbJVgcxE"
   },
   {
    "id": "yt-yQP9tqxnj1I",
