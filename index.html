@@ -149,7 +149,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 const safeUrl = u => /^https:\/\//.test(u) ? u : "#";
 
 let ITEMS = [];
-const state = { start: 70, mood: "all", seen: new Set(), saved: new Set(), hidden: new Set(), uid: 0, a: 0, o: 0, m: 0, supportShown: false };
+const state = { start: 70, mood: "all", seen: new Set(), saved: new Set(), hidden: new Set(), uid: 0, a: 0, o: 0, m: 0, usedV: new Set(), recent: [], supportShown: false };
 try { JSON.parse(localStorage.getItem("moochi-saved") || "[]").forEach(i => state.saved.add(i)); } catch (e) {}
 function persist() { try { localStorage.setItem("moochi-saved", JSON.stringify([...state.saved])); } catch (e) {} }
 
@@ -163,14 +163,44 @@ function ago(iso) {
 const pool = f => ITEMS.filter(i => !state.hidden.has(i.id) && f(i));
 const take = (list, k) => list.length ? list[state[k]++ % list.length] : null;
 
+// 같은 동물이 몰리지 않게 제한한다. 강아지와 고양이는 제한하지 않는다.
+let SPECIES = {};   // species.json에서 불러온다
+const hasWord = (t, w) => /^[\x00-\x7f]+$/.test(w) ? new RegExp("\\b" + w + "(s|es|lings?)?\\b", "i").test(t) : t.includes(w);
+function speciesOf(i) {   // 제한 대상 동물 이름. 강아지/고양이/알 수 없음은 null
+  if (i._sp === undefined) {
+    const e = Object.entries(SPECIES).find(([, ws]) => ws.some(w => hasWord(i.title, w)));
+    i._sp = e ? e[0] : null;
+  }
+  return i._sp;
+}
+const shuffle = a => { a = a.slice(); for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; };
+
+function pickVideo(videos, counts) {
+  const last = state.recent.slice(-3);
+  const strict = v => { const s = speciesOf(v); return !s || ((counts[s] || 0) < 2 && !last.includes(s)); };
+  const loose = v => { const s = speciesOf(v); return !s || s !== state.recent[state.recent.length - 1]; };
+  let unused = shuffle(videos.filter(v => !state.usedV.has(v.id)));
+  let it = unused.find(strict);
+  if (!it) { state.usedV.clear(); unused = shuffle(videos); it = unused.find(strict) || unused.find(loose) || unused[0]; }
+  state.usedV.add(it.id);
+  return it;
+}
+
 // 무한 피드. 영상 5개당 뉴스 1개. 항목이 바닥나면 처음부터 다시 돈다.
 function nextBatch() {
-  const out = [];
+  const out = [], counts = {};
   const mood = state.mood === "all" ? () => true : i => i.mood === state.mood;
   const videos = pool(i => i.type === "video" && mood(i)), news = pool(i => i.type === "news" && mood(i));
   for (let n = 0; n < BATCH; n++) {
-    const wantNews = n % 6 === 5;
-    const it = (wantNews ? take(news, "o") : take(videos, "a")) || take(videos, "a") || take(news, "o");
+    let it = null;
+    if (n % 6 === 5) it = take(news, "o");
+    if (!it && videos.length) {
+      it = pickVideo(videos, counts);
+      const s = speciesOf(it);
+      state.recent.push(s); if (state.recent.length > 6) state.recent.shift();
+      if (s) counts[s] = (counts[s] || 0) + 1;
+    }
+    if (!it) it = take(news, "o");
     if (it) out.push(it);
   }
   return out.map(it => ({ ...it, uid: ++state.uid }));
@@ -220,7 +250,7 @@ function loadMore() {
 }
 
 function resetFeed() {
-  $("feed").innerHTML = ""; state.a = state.o = state.m = 0; $("sentinel").textContent = "더 불러오는 중…";
+  $("feed").innerHTML = ""; state.a = state.o = state.m = 0; state.usedV.clear(); state.recent = []; $("sentinel").textContent = "더 불러오는 중…";
   setupObservers(); loadMore(); updateGauge();
 }
 
@@ -254,6 +284,7 @@ async function boot() {
     if (!r.ok) throw new Error(r.status);
     const d = await r.json();
     ITEMS = d.items || [];
+    try { SPECIES = await (await fetch("species.json")).json(); } catch (e) {}
     if (!ITEMS.length) { $("loadmsg").textContent = "아직 수집된 콘텐츠가 없습니다. 수집이 한 번 실행되면 보여요."; return; }
     $("loadmsg").hidden = true; $("start").disabled = false;
   } catch (e) { $("loadmsg").textContent = "콘텐츠를 불러오지 못했어요. 잠시 뒤 다시 열어 주세요."; }

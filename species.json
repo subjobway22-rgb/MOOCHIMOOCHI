@@ -1,0 +1,128 @@
+{
+ "panda": [
+  "판다",
+  "panda"
+ ],
+ "duck": [
+  "오리",
+  "duck"
+ ],
+ "otter": [
+  "수달",
+  "otter"
+ ],
+ "rabbit": [
+  "토끼",
+  "bunny",
+  "rabbit"
+ ],
+ "hamster": [
+  "햄스터",
+  "hamster"
+ ],
+ "donkey": [
+  "당나귀",
+  "donkey"
+ ],
+ "goat": [
+  "염소",
+  "goat"
+ ],
+ "sheep": [
+  "양털",
+  "새끼 양",
+  "lamb",
+  "sheep"
+ ],
+ "pig": [
+  "돼지",
+  "pig",
+  "piglet"
+ ],
+ "horse": [
+  "망아지",
+  "horse",
+  "pony",
+  "foal"
+ ],
+ "cow": [
+  "송아지",
+  "calf",
+  "cow"
+ ],
+ "chick": [
+  "병아리",
+  "chick"
+ ],
+ "penguin": [
+  "펭귄",
+  "penguin"
+ ],
+ "koala": [
+  "코알라",
+  "koala"
+ ],
+ "monkey": [
+  "원숭이",
+  "monkey"
+ ],
+ "bigcat": [
+  "사자",
+  "호랑이",
+  "라이거",
+  "lion",
+  "tiger",
+  "cub"
+ ],
+ "elephant": [
+  "코끼리",
+  "elephant"
+ ],
+ "fox": [
+  "여우",
+  "fox"
+ ],
+ "bear": [
+  "곰",
+  "bear"
+ ],
+ "hedgehog": [
+  "고슴도치",
+  "hedgehog"
+ ],
+ "turtle": [
+  "거북",
+  "turtle"
+ ],
+ "seal": [
+  "물개",
+  "바다표범",
+  "seal"
+ ],
+ "sloth": [
+  "나무늘보",
+  "sloth"
+ ],
+ "capybara": [
+  "카피바라",
+  "capybara"
+ ],
+ "raccoon": [
+  "너구리",
+  "raccoon"
+ ],
+ "deer": [
+  "사슴",
+  "deer",
+  "fawn"
+ ],
+ "owl": [
+  "부엉이",
+  "올빼미",
+  "owl"
+ ],
+ "parrot": [
+  "앵무",
+  "parrot"
+ ]
+}

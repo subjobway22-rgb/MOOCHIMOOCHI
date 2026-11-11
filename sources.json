@@ -349,5 +349,6 @@
       "name": "모카밀크",
       "mood": "heal"
     }
-  ]
+  ],
+  "maxPerSpecies": 5
 }

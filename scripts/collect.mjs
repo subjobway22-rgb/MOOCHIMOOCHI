@@ -45,6 +45,13 @@ async function get(url) {
 const toISO = (s) => { const d = new Date(s); return isNaN(d) ? null : d.toISOString(); };
 
 
+// ---- 같은 동물이 피드에 몰리지 않게 종류별 상한 ----
+const SPECIES = JSON.parse(await readFile('species.json', 'utf8'));
+export const speciesOf = (title, map = SPECIES) => {
+  const e = Object.entries(map).find(([, ws]) => ws.some((w) => /^[\x00-\x7f]+$/.test(w) ? new RegExp(`\\b${esc(w)}(s|es|lings?)?\\b`, 'i').test(title) : title.includes(w)));
+  return e ? e[0] : null;   // 강아지, 고양이, 알 수 없음은 null(제한 없음)
+};
+
 // ---- 반응(좋아요 비율, 댓글)으로 "정말 귀여운지" 판단 ----
 const POS = /귀여|귀엽|사랑스|힐링|심쿵|천사|예쁘|예뻐|아가|꼬물|\b(cute|cutie|adorable|aww+|precious|sweet|lovely|angel)\b|[❤🥰😍🥺💕]/iu;
 const NEG = /무서|무섭|징그|소름|혐오|끔찍|불쌍|슬프|가짜|조작|ai\s?영상|ai가|으악|\b(creepy|scary|disturbing|gross|disgusting|nightmare|fake|ai[- ]generated|horrifying|terrifying|yikes|eww+|weird|cursed|wtf)\b|[😱🤢🤮😨🥶]/iu;
@@ -212,6 +219,17 @@ async function main() {
   log.push(`뉴스 이미지: ${newsItems.filter((i) => i.image).length}/${newsItems.length}`);
 
   if (KEY && !items.some((i) => i.type === 'video')) { console.log(log.join('\n')); console.warn('영상이 0개라 feed.json을 바꾸지 않습니다.'); process.exit(0); }
+  // 종류별 상한(강아지·고양이는 제한 없음). 반응이 좋은 영상을 우선 남긴다.
+  const perSpecies = {};
+  items.filter((i) => i.type === 'video').sort((a, b) => (b.cute || 0) - (a.cute || 0)).forEach((i) => {
+    i.species = speciesOf(i.title);
+    if (!i.species) return;
+    perSpecies[i.species] = (perSpecies[i.species] || 0) + 1;
+    if (perSpecies[i.species] > cfg.maxPerSpecies) i.drop = true;
+  });
+  for (let k = items.length - 1; k >= 0; k--) if (items[k].drop) items.splice(k, 1);
+  log.push(`종류별 상한 ${cfg.maxPerSpecies}: ${JSON.stringify(perSpecies)}`);
+
   const seen = new Set();
   const unique = items.filter((i) => !seen.has(i.id) && seen.add(i.id));
   console.log(log.join('\n'));
