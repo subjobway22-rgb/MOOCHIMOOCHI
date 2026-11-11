@@ -211,11 +211,11 @@ async function main() {
   for (let i = 0; i < newsItems.length; i += 5) await Promise.all(newsItems.slice(i, i + 5).map(enrichNews));
   log.push(`뉴스 이미지: ${newsItems.filter((i) => i.image).length}/${newsItems.length}`);
 
-  if (KEY && !items.some((i) => i.type === 'video')) { console.log(log.join('\n')); console.error('영상이 0개라 feed.json을 바꾸지 않습니다.'); process.exit(1); }
+  if (KEY && !items.some((i) => i.type === 'video')) { console.log(log.join('\n')); console.warn('영상이 0개라 feed.json을 바꾸지 않습니다.'); process.exit(0); }
   const seen = new Set();
   const unique = items.filter((i) => !seen.has(i.id) && seen.add(i.id));
   console.log(log.join('\n'));
-  if (!unique.length) { console.error('수집된 항목이 없어 feed.json을 바꾸지 않습니다.'); process.exit(1); }
+  if (!unique.length) { console.warn('수집된 항목이 없어 feed.json을 바꾸지 않습니다.'); process.exit(0); }
   unique.sort((a, b) => Date.parse(b.time) - Date.parse(a.time));
   await writeFile(process.env.NO_SEARCH ? 'feed.quick.json' : 'feed.json', JSON.stringify({ updated: new Date().toISOString(), items: unique }, null, 1) + '\n');
   console.log(`feed.json: ${unique.length} items`);
