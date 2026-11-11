@@ -316,5 +316,39 @@
     "ytn",
     "gmod",
     "minecraft"
+  ],
+  "youtubeNames": [
+    {
+      "name": "크림히어로즈",
+      "mood": "heal"
+    },
+    {
+      "name": "수리노을",
+      "mood": "heal"
+    },
+    {
+      "name": "졸미 Jeolmi",
+      "mood": "heal"
+    },
+    {
+      "name": "꼬불하개파마",
+      "mood": "heal"
+    },
+    {
+      "name": "밀키복이탄이",
+      "mood": "heal"
+    },
+    {
+      "name": "모카밀크",
+      "mood": "heal"
+    },
+    {
+      "name": "정브르",
+      "mood": "heal"
+    },
+    {
+      "name": "다흑",
+      "mood": "heal"
+    }
   ]
 }

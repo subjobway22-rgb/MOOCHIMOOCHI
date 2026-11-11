@@ -1,6 +1,7 @@
 // sources.json에서 영상(짧은 동물 영상)과 뉴스 제목을 모아 feed.json을 만든다.
 // 영상: YouTube Data API(YOUTUBE_API_KEY 필요). 뉴스: 구글 뉴스 RSS(제목과 링크만 사용).
 import { readFile, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const UA = 'Mozilla/5.0 (compatible; MoochiCollector/1.0)';
@@ -64,6 +65,23 @@ async function main() {
         log.push(`channel ${s.handle}: ${pl.items?.length || 0} 후보`);
       } catch (e) { log.push(`FAIL ${s.handle}: ${e.message}`); }
     }
+    // 채널 이름으로 찾은 채널. 처음 한 번만 검색하고 channels-cache.json에 저장한다.
+    const cache = existsSync('channels-cache.json') ? JSON.parse(await readFile('channels-cache.json', 'utf8')) : {};
+    for (const s of cfg.youtubeNames || []) {
+      try {
+        if (!cache[s.name]) {
+          const r = await api(`search?part=snippet&type=channel&maxResults=1&regionCode=KR&q=${encodeURIComponent(s.name)}`);
+          const c = r.items?.[0];
+          if (!c) throw new Error('channel not found');
+          cache[s.name] = { id: c.snippet.channelId, title: decode(c.snippet.channelTitle) };
+        }
+        const { id, title } = cache[s.name];
+        const pl = await api(`playlistItems?part=snippet,contentDetails&maxResults=${cfg.perSource * 2}&playlistId=UU${id.slice(2)}`);
+        for (const x of pl.items || []) candidates.set(x.contentDetails.videoId, { title: x.snippet.title, channel: title, mood: s.mood });
+        log.push(`name "${s.name}" -> ${title} (${id}): ${pl.items?.length || 0} 후보`);
+      } catch (e) { log.push(`FAIL name "${s.name}": ${e.message}`); }
+    }
+    await writeFile('channels-cache.json', JSON.stringify(cache, null, 1) + '\n');
     for (const s of cfg.youtubeSearch || []) {
       try {
         const r = await api(`search?part=snippet&type=video&videoDuration=short&videoEmbeddable=true&order=${s.order || 'date'}&maxResults=25&q=${encodeURIComponent(s.q)}&publishedAfter=${new Date(cutoff).toISOString()}`);
