@@ -44,6 +44,64 @@ async function get(url) {
 }
 const toISO = (s) => { const d = new Date(s); return isNaN(d) ? null : d.toISOString(); };
 
+
+// ---- 반응(좋아요 비율, 댓글)으로 "정말 귀여운지" 판단 ----
+const POS = /귀여|귀엽|사랑스|힐링|심쿵|천사|예쁘|예뻐|아가|꼬물|\b(cute|cutie|adorable|aww+|precious|sweet|lovely|angel)\b|[❤🥰😍🥺💕]/i;
+const NEG = /무서|무섭|징그|소름|혐오|끔찍|불쌍|슬프|가짜|조작|ai\s?영상|ai가|으악|\b(creepy|scary|disturbing|gross|disgusting|nightmare|fake|ai[- ]generated|horrifying|terrifying|yikes|eww+|weird|cursed|wtf)\b|[😱🤢🤮😨🥶]/i;
+
+export function judgeReaction({ views, likes }, comments) {
+  const likeRatio = views > 0 ? likes / views : 0;
+  if (views >= 1000 && likeRatio < 0.02) return { ok: false, why: 'like-ratio', likeRatio };
+  if (!comments || comments.length < 5) return { ok: likeRatio >= 0.04, why: 'few-comments', likeRatio, cute: 0 };
+  const pos = comments.filter((c) => POS.test(c)).length, neg = comments.filter((c) => NEG.test(c)).length;
+  const n = comments.length;
+  const ok = pos / n >= 0.2 && neg / n <= 0.08;
+  return { ok, why: ok ? 'ok' : 'comments', likeRatio, cute: +(pos / n).toFixed(2), neg: +(neg / n).toFixed(2) };
+}
+
+// ---- 구글 뉴스 링크 -> 실제 기사 주소 -> 대표 이미지(og:image) ----
+async function realUrl(link) {
+  const m = /\/articles\/([^?/]+)/.exec(link);
+  if (!m) return null;
+  const id = m[1];
+  const raw = Buffer.from(id.replace(/-/g, '+').replace(/_/g, '/'), 'base64');
+  if (raw[0] === 0x08 && raw[1] === 0x13 && raw[2] === 0x22) {
+    let b = raw.subarray(3);
+    if (b.length >= 3 && b[b.length - 3] === 0xd2 && b[b.length - 2] === 0x01 && b[b.length - 1] === 0x00) b = b.subarray(0, -3);
+    const len = b[0];
+    const str = (len >= 0x80 ? b.subarray(2, len + 1) : b.subarray(1, len + 1)).toString('utf8');
+    if (!str.startsWith('AU_yqL')) return str;
+  }
+  const page = await get(`https://news.google.com/rss/articles/${id}`);
+  const sg = /data-n-a-sg="([^"]+)"/.exec(page)?.[1], ts = /data-n-a-ts="([^"]+)"/.exec(page)?.[1];
+  if (!sg || !ts) return null;
+  const inner = JSON.stringify(['garturlreq', [['X', 'X', ['X', 'X'], null, null, 1, 1, 'US:en', null, 1, null, null, null, null, null, 0, 1], 'X', 'X', 1, [1, 1, 1], 1, 1, null, 0, 0, null, 0], id, ts, sg]);
+  const r = await fetch('https://news.google.com/_/DotsSplashUi/data/batchexecute', {
+    method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded;charset=UTF-8', 'user-agent': UA },
+    body: 'f.req=' + encodeURIComponent(JSON.stringify([[['Fbv4je', inner, null, 'generic']]])), signal: AbortSignal.timeout(20000),
+  });
+  const parsed = JSON.parse((await r.text()).split('\n\n')[1]);
+  return JSON.parse(parsed[0][2])[1] || null;
+}
+
+export function pickOgImage(html, base) {
+  const m = html.match(/<meta[^>]+(?:property|name)=["'](?:og:image|twitter:image)["'][^>]*content=["']([^"']+)["']/i)
+    || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|twitter:image)["']/i);
+  if (!m) return null;
+  try { const u = new URL(decode(m[1]), base).href; return u.startsWith('https://') ? u : null; } catch { return null; }
+}
+
+async function enrichNews(item) {
+  try {
+    const url = await realUrl(item.link);
+    if (!url || !/^https?:\/\//.test(url)) return;
+    item.link = url;
+    const html = (await get(url)).slice(0, 400000);
+    const img = pickOgImage(html, url);
+    if (img) item.image = img;
+  } catch { /* 이미지 없이 보여준다 */ }
+}
+
 async function main() {
   const cfg = JSON.parse(await readFile('sources.json', 'utf8'));
   const cutoff = Date.now() - cfg.maxAgeDays * 86400000;
@@ -92,10 +150,11 @@ async function main() {
 
     // 길이와 임베드 가능 여부는 영상 상세로 확인한다.
     const ids = [...candidates.keys()];
-    let kept = 0;
+    let kept = 0, rejected = 0;
+    const pre = [];
     for (let i = 0; i < ids.length; i += 50) {
       try {
-        const det = await api(`videos?part=contentDetails,status,snippet&id=${ids.slice(i, i + 50).join(',')}`);
+        const det = await api(`videos?part=contentDetails,status,snippet,statistics&id=${ids.slice(i, i + 50).join(',')}`);
         for (const v of det.items || []) {
           const c = candidates.get(v.id);
           const title = decode(v.snippet.title);
@@ -105,12 +164,24 @@ async function main() {
           if (!iso || Date.parse(iso) < cutoff) continue;
           if (matchesAny(title, cfg.blockWords) || matchesAny(title, cfg.humanWords)) continue;
           if (!matchesAny(title, cfg.cuteWords)) continue;
-          items.push({ id: `yt-${v.id}`, type: 'video', mood: c.mood, animal: true, title, source: `유튜브 · ${c.channel}`, time: iso, link: `https://www.youtube.com/watch?v=${v.id}`, videoId: v.id });
-          kept++;
+          const st = v.statistics || {};
+          pre.push({ v, c, title, iso, views: +st.viewCount || 0, likes: +st.likeCount || 0 });
         }
       } catch (e) { log.push(`FAIL videos: ${e.message}`); }
     }
-    log.push(`영상: 후보 ${ids.length} → 통과 ${kept}`);
+    // 제목 조건을 통과한 영상만 댓글을 읽어 귀여운지 판단한다.
+    for (const p of pre) {
+      let comments = null;
+      try {
+        const r = await api(`commentThreads?part=snippet&maxResults=50&order=relevance&textFormat=plainText&videoId=${p.v.id}`);
+        comments = (r.items || []).map((x) => x.snippet.topLevelComment.snippet.textDisplay);
+      } catch { /* 댓글 막힘 */ }
+      const j = judgeReaction(p, comments);
+      if (!j.ok) { rejected++; continue; }
+      items.push({ id: `yt-${p.v.id}`, type: 'video', mood: p.c.mood, animal: true, title: p.title, source: `유튜브 · ${p.c.channel}`, time: p.iso, link: `https://www.youtube.com/watch?v=${p.v.id}`, videoId: p.v.id, cute: j.cute });
+      kept++;
+    }
+    log.push(`영상: 후보 ${ids.length} → 제목 통과 ${pre.length} → 반응 통과 ${kept} (탈락 ${rejected})`);
   }
 
   // ---- 뉴스 ----
@@ -130,6 +201,11 @@ async function main() {
       log.push(`ok news "${s.query}": ${n}`);
     } catch (e) { log.push(`FAIL news "${s.query}": ${e.message}`); }
   }
+
+  // 뉴스 대표 이미지(링크 미리보기용). 실패하면 이미지 없이 둔다.
+  const newsItems = items.filter((i) => i.type === 'news');
+  for (let i = 0; i < newsItems.length; i += 5) await Promise.all(newsItems.slice(i, i + 5).map(enrichNews));
+  log.push(`뉴스 이미지: ${newsItems.filter((i) => i.image).length}/${newsItems.length}`);
 
   const seen = new Set();
   const unique = items.filter((i) => !seen.has(i.id) && seen.add(i.id));
