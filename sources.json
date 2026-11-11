@@ -1,0 +1,21 @@
+{
+  "youtube": [
+    { "handle": "@TheDodo", "mood": "heal" },
+    { "handle": "@BBCEarth", "mood": "heal" },
+    { "handle": "@natgeowild", "mood": "heal" },
+    { "handle": "@sandiegozoo", "mood": "heal" },
+    { "handle": "@LoveNature", "mood": "heal" }
+  ],
+  "news": [
+    { "query": "미담 OR 선행 OR 기부", "mood": "touch", "animal": false },
+    { "query": "구조 동물 입양 훈훈", "mood": "heal", "animal": true },
+    { "query": "연구 성과 개체 수 증가 복원", "mood": "hope", "animal": false },
+    { "query": "웃음 화제 귀여운 동물", "mood": "laugh", "animal": true }
+  ],
+  "perSource": 12,
+  "maxAgeDays": 30,
+  "blockWords": [
+    "사고", "사망", "숨져", "폭행", "살해", "학대", "논란", "비판", "정치", "대통령", "국회", "탄핵", "전쟁", "참사", "화재", "폭로", "고소", "사기", "혐오", "자살", "실종", "부상", "재난", "압수수색", "구속",
+    "dead", "death", "killed", "attack", "injured", "abuse", "war", "shooting", "accident", "cruel", "dies", "died", "tragic"
+  ]
+}

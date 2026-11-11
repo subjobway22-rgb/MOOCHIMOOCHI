@@ -1,5 +1,9 @@
-<title>딜리트</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>무치무치</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
 /* Layout: 한 칸 세로 피드. 상단에 스트레스 게이지가 고정되고, 카드는 출처와 원문 버튼을 항상 갖는다. */
@@ -69,6 +73,12 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .feed { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; scroll-margin-top: 130px; }
 .card.seen { border-color: var(--accent); }
+.thumb { display:block; position:relative; width:100%; aspect-ratio:16/9; padding:0; border:0; background:#000; overflow:hidden; }
+.thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.thumb .play { position:absolute; inset:0; margin:auto; width:56px; height:56px; border-radius:50%; background:rgba(0,0,0,.55); color:#fff; display:grid; place-items:center; font-size:20px; }
+.player { aspect-ratio:16/9; background:#000; }
+.player iframe { width:100%; height:100%; border:0; display:block; }
+.btn:disabled { opacity:.5; cursor:default; }
 .media { aspect-ratio: 16 / 9; max-width: 100%; display: grid; place-items: center; color: #fff; text-align: center; padding: 12px; font-size: 13px; }
 .media .play { width: 52px; height: 52px; border-radius: 50%; background: rgba(0,0,0,.35); display: grid; place-items: center; margin: 0 auto 6px; font-size: 20px; }
 .m-heal { background: linear-gradient(135deg, #2f7d6b, #7cc4a2); }
@@ -99,98 +109,68 @@ a.go { background: var(--accent); color: var(--accent-ink); text-decoration: non
 footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
 </style>
-
+</head>
+<body>
 <div class="wrap">
-  <header class="top">
-    <div class="brand">딜리트</div>
-    <div class="sample">프로토타입 · 샘플 데이터</div>
-  </header>
-
+  <header class="top"><div class="brand">무치무치</div><div class="sample">나쁜 소식 없는 피드</div></header>
   <section class="gauge" id="gauge" hidden aria-live="polite">
-    <div class="gauge-row">
-      <span class="gauge-label">지금 스트레스</span>
-      <span class="gauge-num"><span id="gnum">0</span>%</span>
-    </div>
+    <div class="gauge-row"><span class="gauge-label">지금 스트레스</span><span class="gauge-num"><span id="gnum">0</span>%</span></div>
     <div class="bar"><i id="gbar"></i></div>
     <div class="progress" id="gprog"></div>
   </section>
-
   <section class="intro" id="intro">
     <h1>지금 스트레스는 몇 %인가요?</h1>
     <p>동물 영상 위주로 계속 이어집니다. 보는 만큼 줄어들고, 나쁜 소식은 없습니다.</p>
     <div class="big"><span id="sval">70</span>%</div>
     <label for="slider" class="sample">스트레스 정도</label>
     <input type="range" id="slider" min="10" max="100" step="5" value="70">
-    <p></p>
-    <button class="btn" id="start">시작하기</button>
+    <p id="loadmsg" class="sample">불러오는 중…</p>
+    <button class="btn" id="start" disabled>시작하기</button>
   </section>
-
   <div id="app" hidden>
     <div class="tabs" id="tabs" role="group" aria-label="기분 선택"></div>
     <div id="doneBox"></div>
     <div class="feed" id="feed"></div>
     <div id="sentinel" class="empty">더 불러오는 중…</div>
   </div>
-
-  <footer>
-    영상은 공식 임베드, 뉴스와 게시글은 제목과 짧은 요약만 보여주고 원문으로 연결합니다. 아래 카드는 화면 구성을 보기 위한 예시이며 실제 기사나 게시글이 아닙니다.
-  </footer>
+  <footer>영상은 유튜브 공식 플레이어로 재생하고, 뉴스는 제목과 출처만 보여준 뒤 원문으로 연결합니다. 콘텐츠의 권리는 각 원작자와 언론사에 있습니다.</footer>
 </div>
 <div class="toast" id="toast" hidden></div>
-
 <script>
-// 샘플 데이터. link는 실제 글 주소 대신 각 출처의 대표 주소를 사용한다.
-const ITEMS = [
-  { id: 1, type: "video", mood: "heal", title: "구조된 새끼 고양이가 처음 집에 온 날", sum: "낯선 집을 조심스럽게 돌아다니다 결국 사람 무릎에서 잠드는 3분 영상.", source: "유튜브 · 고양이 일상", time: "2시간 전", link: "https://www.youtube.com/", cta: "유튜브에서 보기" },
-  { id: 2, type: "news", mood: "touch", title: "폐지 줍던 할머니에게 이웃들이 모아 준 겨울 난방비", sum: "동네 상인들이 말없이 모은 성금이 전달됐다는 지역 소식.", source: "지역 언론 (예시)", time: "5시간 전", link: "https://news.google.com/", cta: "원문 보러가기" },
-  { id: 3, type: "humor", mood: "laugh", title: "강아지가 택배 상자에 들어가 안 나오는 사연", sum: "배달 온 상자 안에서 자리를 잡은 강아지와 주인의 실랑이 후기.", source: "루리웹 · 유머 게시판", time: "3시간 전", link: "https://bbs.ruliweb.com/", cta: "원문 보러가기" },
-  { id: 4, type: "video", mood: "heal", title: "비 오는 숲에서 듣는 20분 빗소리", sum: "잔잔한 숲 풍경과 빗소리만 이어지는 영상. 퇴근길에 틀어 두기 좋습니다.", source: "유튜브 · 자연 풍경", time: "어제", link: "https://www.youtube.com/", cta: "유튜브에서 보기" },
-  { id: 5, type: "news", mood: "hope", title: "멸종위기 철새 개체 수가 3년 연속 늘었다", sum: "서식지 복원 사업 이후 개체 수가 회복세라는 환경 소식.", source: "환경 전문지 (예시)", time: "어제", link: "https://news.google.com/", cta: "원문 보러가기" },
-  { id: 6, type: "humor", mood: "laugh", title: "회사 회식 메뉴 투표가 예상 밖으로 흘러간 이야기", sum: "치킨과 샐러드 사이에서 의외의 표가 나온 사무실 후기.", source: "루리웹 · 유머 게시판", time: "4시간 전", link: "https://bbs.ruliweb.com/", cta: "원문 보러가기" },
-  { id: 7, type: "video", mood: "touch", title: "수십 년 만에 만난 형제의 재회 영상", sum: "공항 도착장에서 서로를 알아보는 순간을 담은 짧은 영상.", source: "유튜브 · 사연 채널", time: "1일 전", link: "https://www.youtube.com/", cta: "유튜브에서 보기" },
-  { id: 8, type: "news", mood: "hope", title: "새 치료법 임상에서 환자 70%가 증상 호전", sum: "초기 임상 결과이므로 추가 검증이 필요하지만 긍정적인 신호라는 과학 소식.", source: "과학 매체 (예시)", time: "6시간 전", link: "https://news.google.com/", cta: "원문 보러가기" },
-  { id: 9, type: "humor", mood: "laugh", title: "아이가 그린 가족 그림에서 아빠가 이상하게 나온 이유", sum: "그림 속 아빠 머리 모양을 두고 벌어진 댓글 놀이.", source: "루리웹 · 유머 게시판", time: "8시간 전", link: "https://bbs.ruliweb.com/", cta: "원문 보러가기" },
-  { id: 10, type: "video", mood: "heal", title: "수달 가족이 먹이를 나눠 먹는 모습", sum: "새끼 수달에게 먹이를 건네는 어미를 가까이서 찍은 영상.", source: "유튜브 · 야생동물", time: "2일 전", link: "https://www.youtube.com/", cta: "유튜브에서 보기" },
-  { id: 11, type: "news", mood: "touch", title: "무인 가게에 남겨진 손편지와 계산 잊은 물건값", sum: "나중에 찾아와 값을 치른 손님의 이야기가 가게 주인에게 전해졌다.", source: "지역 언론 (예시)", time: "1일 전", link: "https://news.google.com/", cta: "원문 보러가기" },
-  { id: 12, type: "humor", mood: "heal", title: "베란다에서 태어난 비둘기 새끼 성장 일기", sum: "알에서 깨 날아가기까지의 한 달을 사진 일기로 정리한 글.", source: "루리웹 · 유머 게시판", time: "9시간 전", link: "https://bbs.ruliweb.com/", cta: "원문 보러가기" }
-];
-// 동물 영상 위주로 보강한 샘플 항목
-ITEMS.push(
-  { id: 13, type: "video", mood: "heal", title: "골든리트리버가 아기 고양이를 처음 만난 순간", sum: "코로 살짝 인사하더니 옆에 눕는 모습을 담은 영상.", source: "유튜브 · 반려동물", time: "3시간 전", link: "https://www.youtube.com/", cta: "유튜브에서 보기" },
-  { id: 14, type: "video", mood: "laugh", title: "펭귄이 눈길에서 미끄러지며 출근하는 아침", sum: "배로 미끄러지다 동료와 부딪히는 펭귄 무리 영상.", source: "유튜브 · 야생동물", time: "1일 전", link: "https://www.youtube.com/", cta: "유튜브에서 보기" },
-  { id: 15, type: "video", mood: "heal", title: "판다 새끼가 대나무에 올라갔다 내려오지 못하는 영상", sum: "사육사가 지켜보는 가운데 조심조심 내려오는 3분 영상.", source: "유튜브 · 동물원", time: "2일 전", link: "https://www.youtube.com/", cta: "유튜브에서 보기" },
-  { id: 16, type: "video", mood: "touch", title: "구조된 유기견이 새 가족에게 입양되는 날", sum: "보호소를 나서며 꼬리를 흔드는 장면을 담은 짧은 영상.", source: "유튜브 · 입양 캠페인", time: "1일 전", link: "https://www.youtube.com/", cta: "유튜브에서 보기" },
-  { id: 17, type: "video", mood: "laugh", title: "고양이가 로봇청소기를 타고 집을 한 바퀴 도는 영상", sum: "도도한 표정으로 거실을 순찰하는 고양이.", source: "유튜브 · 고양이 일상", time: "5시간 전", link: "https://www.youtube.com/", cta: "유튜브에서 보기" },
-  { id: 18, type: "video", mood: "heal", title: "아기 코알라가 엄마 등에 매달려 잠드는 모습", sum: "눈을 감았다 떴다 하다 결국 잠드는 영상.", source: "유튜브 · 야생동물", time: "2일 전", link: "https://www.youtube.com/", cta: "유튜브에서 보기" }
-);
-
 const MOODS = [["all","전체"],["heal","힐링"],["laugh","웃음"],["touch","감동"],["hope","희망"]];
-const TYPE_LABEL = { video: "영상", news: "뉴스", humor: "유머" };
+const TYPE_LABEL = { video: "영상", news: "뉴스" };
 const MOOD_LABEL = { heal: "힐링", laugh: "웃음", touch: "감동", hope: "희망" };
-const ANIMAL_IDS = new Set([1, 3, 10, 12, 13, 14, 15, 16, 17, 18]);
 const BATCH = 10, ANIMAL_PER_BATCH = 7;   // 10개 중 7개는 동물
 
 const $ = id => document.getElementById(id);
-const state = { start: 70, mood: "all", seen: new Set(), saved: new Set(), hidden: new Set(), uid: 0, aCur: 0, oCur: 0, mCur: 0, supportShown: false };
-try { JSON.parse(localStorage.getItem("delete-saved") || "[]").forEach(i => state.saved.add(i)); } catch (e) {}
-function persist() { try { localStorage.setItem("delete-saved", JSON.stringify([...state.saved])); } catch (e) {} }
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const safeUrl = u => /^https:\/\//.test(u) ? u : "#";
 
-function pool(filter) { return ITEMS.filter(i => !state.hidden.has(i.id) && filter(i)); }
-function take(list, key) { if (!list.length) return null; const it = list[state[key] % list.length]; state[key]++; return it; }
+let ITEMS = [];
+const state = { start: 70, mood: "all", seen: new Set(), saved: new Set(), hidden: new Set(), uid: 0, a: 0, o: 0, m: 0, supportShown: false };
+try { JSON.parse(localStorage.getItem("moochi-saved") || "[]").forEach(i => state.saved.add(i)); } catch (e) {}
+function persist() { try { localStorage.setItem("moochi-saved", JSON.stringify([...state.saved])); } catch (e) {} }
 
-// 무한 피드: 항목이 모자라면 처음부터 다시 순환한다(샘플 데이터라서).
+function ago(iso) {
+  const m = Math.max(1, Math.round((Date.now() - Date.parse(iso)) / 60000));
+  if (m < 60) return m + "분 전";
+  if (m < 1440) return Math.round(m / 60) + "시간 전";
+  return Math.round(m / 1440) + "일 전";
+}
+
+const pool = f => ITEMS.filter(i => !state.hidden.has(i.id) && f(i));
+const take = (list, k) => list.length ? list[state[k]++ % list.length] : null;
+
+// 무한 피드. 항목이 바닥나면 처음부터 다시 돈다.
 function nextBatch() {
   const out = [];
   if (state.mood === "all") {
-    const animals = pool(i => ANIMAL_IDS.has(i.id)), others = pool(i => !ANIMAL_IDS.has(i.id));
-    const order = [];
-    for (let n = 0; n < BATCH; n++) order.push(n % 10 < ANIMAL_PER_BATCH ? "a" : "o");
-    // 동물과 기타가 연달아 몰리지 않게 섞는다
-    order.sort((x, y) => (x === y ? 0 : ((Math.random() < .5) ? -1 : 1)));
-    order.forEach(k => { const it = k === "a" ? take(animals, "aCur") : take(others, "oCur"); if (it) out.push(it); });
+    const animals = pool(i => i.animal), others = pool(i => !i.animal);
+    const order = Array.from({ length: BATCH }, (_, n) => n < ANIMAL_PER_BATCH ? "a" : "o").sort(() => Math.random() - .5);
+    order.forEach(k => { const it = (k === "a" ? take(animals, "a") : take(others, "o")) || take(animals, "a") || take(others, "o"); if (it) out.push(it); });
   } else {
     const list = pool(i => i.mood === state.mood);
-    for (let n = 0; n < BATCH; n++) { const it = take(list, "mCur"); if (it) out.push(it); }
+    for (let n = 0; n < BATCH; n++) { const it = take(list, "m"); if (it) out.push(it); }
   }
   return out.map(it => ({ ...it, uid: ++state.uid }));
 }
@@ -204,16 +184,16 @@ function renderTabs() {
 
 function cardHTML(i) {
   const media = i.type === "video"
-    ? `<div class="media m-${i.mood}"><div><div class="play">▶</div>공식 임베드 플레이어가 들어갈 자리</div></div>` : "";
-  return `<article class="card" data-uid="${i.uid}" data-id="${i.id}">
+    ? `<button class="thumb" data-play="${esc(i.videoId)}" aria-label="영상 재생"><img loading="lazy" alt="" src="https://i.ytimg.com/vi/${esc(i.videoId)}/hqdefault.jpg"><span class="play">▶</span></button>` : "";
+  const cta = i.type === "video" ? "유튜브에서 보기" : "원문 보러가기";
+  return `<article class="card" data-uid="${i.uid}" data-id="${esc(i.id)}">
     ${media}
     <div class="body">
-      <div class="meta"><span class="chip">${TYPE_LABEL[i.type]}</span><span>${MOOD_LABEL[i.mood]}</span><span>${i.time}</span></div>
-      <h2>${i.title}</h2>
-      <p class="sum">${i.sum}</p>
-      <div class="src">출처 <b>${i.source}</b></div>
+      <div class="meta"><span class="chip">${TYPE_LABEL[i.type]}</span><span>${MOOD_LABEL[i.mood] || ""}</span><span>${ago(i.time)}</span></div>
+      <h2>${esc(i.title)}</h2>
+      <div class="src">출처 <b>${esc(i.source)}</b></div>
       <div class="actions">
-        <a class="go" href="${i.link}" target="_blank" rel="noopener noreferrer">${i.cta}</a>
+        <a class="go" href="${esc(safeUrl(i.link))}" target="_blank" rel="noopener noreferrer">${cta}</a>
         <button class="act" data-a="save" aria-pressed="${state.saved.has(i.id)}">${state.saved.has(i.id) ? "저장됨" : "저장"}</button>
         <button class="act" data-a="share">링크 복사</button>
         <button class="act hide" data-a="hide">기분 안 좋아요</button>
@@ -222,98 +202,89 @@ function cardHTML(i) {
   </article>`;
 }
 
-let seenObserver, moreObserver;
+let seenObs, moreObs;
 function setupObservers() {
-  if (seenObserver) seenObserver.disconnect();
-  if (moreObserver) moreObserver.disconnect();
-  seenObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { markSeen(+e.target.dataset.uid); seenObserver.unobserve(e.target); } });
-  }, { threshold: 0.7 });
-  moreObserver = new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) loadMore(); }, { rootMargin: "600px 0px" });
-  moreObserver.observe($("sentinel"));
+  if (seenObs) seenObs.disconnect();
+  if (moreObs) moreObs.disconnect();
+  seenObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { markSeen(+e.target.dataset.uid); seenObs.unobserve(e.target); } }), { threshold: 0.7 });
+  moreObs = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) loadMore(); }, { rootMargin: "600px 0px" });
+  moreObs.observe($("sentinel"));
 }
 
 function loadMore() {
   const batch = nextBatch();
   if (!batch.length) { $("sentinel").textContent = "이 탭에는 보여줄 항목이 없어요."; return; }
   $("feed").insertAdjacentHTML("beforeend", batch.map(cardHTML).join(""));
-  $("feed").querySelectorAll(".card:not([data-obs])").forEach(c => { c.dataset.obs = "1"; seenObserver.observe(c); });
+  $("feed").querySelectorAll(".card:not([data-obs])").forEach(c => { c.dataset.obs = "1"; seenObs.observe(c); });
 }
 
 function resetFeed() {
-  $("feed").innerHTML = "";
-  state.aCur = state.oCur = state.mCur = 0;
-  setupObservers();
-  loadMore();
-  updateGauge();
+  $("feed").innerHTML = ""; state.a = state.o = state.m = 0; $("sentinel").textContent = "더 불러오는 중…";
+  setupObservers(); loadMore(); updateGauge();
 }
 
 function markSeen(uid) {
   if (state.seen.has(uid)) return;
   state.seen.add(uid);
-  const el = document.querySelector(`.card[data-uid="${uid}"]`);
-  if (el) el.classList.add("seen");
+  const el = document.querySelector(`.card[data-uid="${uid}"]`); if (el) el.classList.add("seen");
   updateGauge();
 }
 
-// 볼 때마다 약 10%씩 줄어든다.
-function updateGauge() {
-  const seen = state.seen.size;
-  const now = Math.round(state.start * Math.pow(0.9, seen));
-  $("gnum").textContent = now;
-  $("gbar").style.width = Math.max(now, 2) + "%";
+function updateGauge() {   // 볼 때마다 약 10%씩 줄어든다
+  const seen = state.seen.size, now = Math.round(state.start * Math.pow(0.9, seen));
+  $("gnum").textContent = now; $("gbar").style.width = Math.max(now, 2) + "%";
   $("gprog").textContent = `${seen}개 봤어요 · 계속 내려서 볼 수 있어요`;
   if (now <= 10 && !state.supportShown) showSupport(now);
 }
 
 function showSupport(now) {
   state.supportShown = true;
-  const goal = 62;
-  $("doneBox").innerHTML = `<section class="done" id="done">
+  $("doneBox").innerHTML = `<section class="done">
     <h2>기분이 좀 나아지셨나요?</h2>
-    <p>스트레스가 ${state.start}%에서 ${now}%로 내려갔어요. 마음에 드셨다면 커피 한 잔으로 이 앱을 지켜 주세요. 닫고 계속 보셔도 됩니다.</p>
-    <div class="coffee" role="group" aria-label="후원 금액">
-      <button class="btn" data-c="1500">커피 한 잔 1,500원</button>
-      <button class="btn ghost" data-c="3000">두 잔 3,000원</button>
-      <button class="btn ghost" data-c="5000">케이크 5,000원</button>
-    </div>
-    <div class="server">이번 달 서버비 ${goal}% 달성 (예시 수치)
-      <div class="bar"><i style="width:${goal}%"></i></div>
-    </div>
-    <p></p>
+    <p>스트레스가 ${state.start}%에서 ${now}%로 내려갔어요. 마음에 드셨다면 커피 한 잔으로 이 사이트를 지켜 주세요. 닫고 계속 보셔도 됩니다.</p>
+    <p class="server">후원 링크는 준비 중입니다.</p>
     <button class="btn ghost" id="closeDone">닫기</button>
   </section>`;
 }
 
-// 이벤트
+async function boot() {
+  try {
+    const r = await fetch("feed.json", { cache: "no-cache" });
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    ITEMS = d.items || [];
+    if (!ITEMS.length) { $("loadmsg").textContent = "아직 수집된 콘텐츠가 없습니다. 수집이 한 번 실행되면 보여요."; return; }
+    $("loadmsg").hidden = true; $("start").disabled = false;
+  } catch (e) { $("loadmsg").textContent = "콘텐츠를 불러오지 못했어요. 잠시 뒤 다시 열어 주세요."; }
+}
+
 $("slider").addEventListener("input", e => { $("sval").textContent = e.target.value; });
 $("start").addEventListener("click", () => {
   state.start = +$("slider").value;
   $("intro").hidden = true; $("gauge").hidden = false; $("app").hidden = false;
   renderTabs(); resetFeed();
 });
-$("tabs").addEventListener("click", e => {
-  const b = e.target.closest(".tab"); if (!b) return;
-  state.mood = b.dataset.m; renderTabs(); resetFeed();
-});
+$("tabs").addEventListener("click", e => { const b = e.target.closest(".tab"); if (!b) return; state.mood = b.dataset.m; renderTabs(); resetFeed(); });
 $("feed").addEventListener("click", e => {
+  const p = e.target.closest("[data-play]");
+  if (p) {
+    const id = p.dataset.play;
+    p.outerHTML = `<div class="player"><iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1" title="영상" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
+    return;
+  }
   const b = e.target.closest("[data-a]"); if (!b) return;
-  const card = b.closest(".card"); const id = +card.dataset.id; const item = ITEMS.find(i => i.id === id);
+  const card = b.closest(".card"), id = card.dataset.id, item = ITEMS.find(i => i.id === id);
   if (b.dataset.a === "save") {
     state.saved.has(id) ? state.saved.delete(id) : state.saved.add(id); persist();
     b.setAttribute("aria-pressed", state.saved.has(id)); b.textContent = state.saved.has(id) ? "저장됨" : "저장";
   } else if (b.dataset.a === "share") {
-    const text = `${item.title} (${item.source}) ${item.link}`;
-    const fallback = () => toast("복사가 막혀 있어요. 원문 버튼으로 주소를 확인해 주세요.");
-    try { navigator.clipboard.writeText(text).then(() => toast("링크를 복사했어요"), fallback); } catch (err) { fallback(); }
-  } else if (b.dataset.a === "hide") {
-    state.hidden.add(id);
-    card.remove();
-    toast("앞으로 비슷한 글을 줄일게요");
-  }
+    const fb = () => toast("복사가 막혀 있어요. 원문 버튼으로 주소를 확인해 주세요.");
+    try { navigator.clipboard.writeText(`${item.title} ${item.link}`).then(() => toast("링크를 복사했어요"), fb); } catch (err) { fb(); }
+  } else if (b.dataset.a === "hide") { state.hidden.add(id); card.remove(); toast("앞으로 비슷한 글을 줄일게요"); }
 });
-$("doneBox").addEventListener("click", e => {
-  if (e.target.id === "closeDone") { $("doneBox").innerHTML = ""; return; }
-  if (e.target.dataset.c) toast("결제는 아직 연결되지 않은 프로토타입입니다");
-});
+$("doneBox").addEventListener("click", e => { if (e.target.id === "closeDone") $("doneBox").innerHTML = ""; });
+boot();
+
 </script>
+</body>
+</html>
