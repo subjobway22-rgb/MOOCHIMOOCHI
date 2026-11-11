@@ -82,6 +82,7 @@ async function main() {
           const c = candidates.get(v.id);
           const title = decode(v.snippet.title);
           const iso = toISO(v.snippet.publishedAt);
+          if (cfg.blockChannels.some((b) => c.channel.toLowerCase().includes(b))) continue;
           if (!v.status?.embeddable || parseDuration(v.contentDetails.duration) > cfg.maxSeconds) continue;
           if (!iso || Date.parse(iso) < cutoff) continue;
           if (matchesAny(title, cfg.blockWords) || matchesAny(title, cfg.humanWords)) continue;
