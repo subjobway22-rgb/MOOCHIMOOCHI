@@ -152,6 +152,8 @@ async function main() {
     const ids = [...candidates.keys()];
     let kept = 0, rejected = 0;
     const pre = [];
+    const whyCount = {};
+    let sample = 0;
     for (let i = 0; i < ids.length; i += 50) {
       try {
         const det = await api(`videos?part=contentDetails,status,snippet,statistics&id=${ids.slice(i, i + 50).join(',')}`);
@@ -177,11 +179,13 @@ async function main() {
         comments = (r.items || []).map((x) => x.snippet.topLevelComment.snippet.textDisplay);
       } catch { /* 댓글 막힘 */ }
       const j = judgeReaction(p, comments);
+      whyCount[j.why + (j.ok ? '+' : '-')] = (whyCount[j.why + (j.ok ? '+' : '-')] || 0) + 1;
+      if (sample++ < 8) log.push(`  sample "${p.title.slice(0, 30)}" views=${p.views} likes=${p.likes} comments=${comments ? comments.length : 'none'} -> ${JSON.stringify(j)}`);
       if (!j.ok) { rejected++; continue; }
       items.push({ id: `yt-${p.v.id}`, type: 'video', mood: p.c.mood, animal: true, title: p.title, source: `유튜브 · ${p.c.channel}`, time: p.iso, link: `https://www.youtube.com/watch?v=${p.v.id}`, videoId: p.v.id, cute: j.cute });
       kept++;
     }
-    log.push(`영상: 후보 ${ids.length} → 제목 통과 ${pre.length} → 반응 통과 ${kept} (탈락 ${rejected})`);
+    log.push(`영상: 후보 ${ids.length} → 제목 통과 ${pre.length} → 반응 통과 ${kept} (탈락 ${rejected}) ${JSON.stringify(whyCount)}`);
   }
 
   // ---- 뉴스 ----
@@ -207,6 +211,7 @@ async function main() {
   for (let i = 0; i < newsItems.length; i += 5) await Promise.all(newsItems.slice(i, i + 5).map(enrichNews));
   log.push(`뉴스 이미지: ${newsItems.filter((i) => i.image).length}/${newsItems.length}`);
 
+  if (KEY && !items.some((i) => i.type === 'video')) { console.log(log.join('\n')); console.error('영상이 0개라 feed.json을 바꾸지 않습니다.'); process.exit(1); }
   const seen = new Set();
   const unique = items.filter((i) => !seen.has(i.id) && seen.add(i.id));
   console.log(log.join('\n'));
