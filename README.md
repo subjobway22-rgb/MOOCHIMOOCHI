@@ -5,6 +5,7 @@
 ## 구조
 - `index.html`: 사이트 전체(정적). `feed.json`을 읽어 무한 스크롤로 보여줍니다.
 - `scripts/collect.mjs`: 유튜브 채널 RSS와 구글 뉴스 RSS에서 모아 `feed.json`을 만듭니다.
+- `portfolio/`: 포트폴리오 페이지(`/portfolio/`). 이미지는 `portfolio/images/`, 영상은 `portfolio/videos/`에 저장되고 `portfolio/items.json`이 목록입니다. 페이지의 “업로드 / 관리”에서 GitHub 토큰으로 바로 올릴 수 있습니다.
 - `sources.json`: 채널, 뉴스 검색어, 제외 단어를 여기서 고칩니다.
 - `.github/workflows/collect.yml`: 3시간마다 자동 수집해서 `feed.json`을 커밋합니다.
 

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>포트폴리오</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root {
+  --bg:#eef3ef; --surface:#fff; --fg:#1d2b27; --muted:#5d6f69; --line:#d5e0da;
+  --accent:#1f8a6b; --accent-ink:#fff; --soft:#dcebe3; --danger:#c0392b;
+  --font-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --font-display:"Do Hyeon","Noto Sans KR",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#101a17;--surface:#182622;--fg:#e6efeb;--muted:#9bb0a8;--line:#2a3d37;--accent:#4cc9a0;--accent-ink:#0c1d17;--soft:#20352e;--danger:#ff8a7a;color-scheme:dark}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 var(--font-body);padding:0 max(16px,env(safe-area-inset-right)) 48px max(16px,env(safe-area-inset-left))}
+.wrap{max-width:1040px;margin:0 auto}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:20px;flex-wrap:wrap}
+h1{font-family:var(--font-display);font-size:30px;margin:0;font-weight:400}
+.back{color:var(--muted);font-size:13px;text-decoration:none}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 14px;min-height:40px}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+.btn.danger{color:var(--danger)}
+.btn:disabled{opacity:.5;cursor:default}
+.tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px;min-height:36px}
+.tab[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{aspect-ratio:4/3;background:var(--soft);border:0;padding:0;width:100%;position:relative;display:block}
+.thumb img,.thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.65);color:#fff;font-size:12px;padding:2px 8px;border-radius:6px}
+.meta{padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.meta b{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.meta small{color:var(--muted);display:block;font-size:12px}
+.empty{color:var(--muted);text-align:center;padding:56px 0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:16px}
+.panel[hidden]{display:none}
+.panel h2{font-size:16px;margin:0 0 10px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+label{font-size:13px;color:var(--muted);display:block;margin-bottom:4px}
+input[type=text],input[type=password]{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:8px 10px;min-height:40px}
+.field{flex:1 1 200px}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:28px 12px;text-align:center;color:var(--muted)}
+.drop.over{border-color:var(--accent);background:var(--soft)}
+.queue{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px;font-size:13px}
+.queue li{display:flex;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.queue .st{color:var(--muted);white-space:nowrap}
+.queue .ok{color:var(--accent)} .queue .err{color:var(--danger)}
+.hint{font-size:12px;color:var(--muted);margin:6px 0 0}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:10;padding:16px}
+.lb[hidden]{display:none}
+.lb img,.lb video{max-width:100%;max-height:88vh;border-radius:8px}
+.lb .x{position:absolute;top:max(12px,env(safe-area-inset-top));right:12px;background:#fff;color:#000;border:0;border-radius:999px;width:44px;height:44px;font-size:20px}
+.lb .cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#fff;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <a class="back" href="../">← 무치무치</a>
+      <h1>포트폴리오</h1>
+    </div>
+    <button class="btn" id="adminBtn" aria-expanded="false" aria-controls="admin">업로드 / 관리</button>
+  </header>
+
+  <section class="panel" id="admin" hidden>
+    <h2>업로드</h2>
+    <div class="row">
+      <div class="field"><label for="repo">저장소 (소유자/이름)</label><input type="text" id="repo" placeholder="subjobway22-rgb/moochimoochi"></div>
+      <div class="field" style="flex:0 1 120px"><label for="branch">브랜치</label><input type="text" id="branch" value="main"></div>
+    </div>
+    <div class="row">
+      <div class="field"><label for="token">GitHub 토큰 (이 브라우저에만 저장됨)</label><input type="password" id="token" autocomplete="off" placeholder="github_pat_..."></div>
+      <button class="btn" id="saveTok" style="align-self:flex-end">저장</button>
+    </div>
+    <p class="hint">토큰은 이 저장소의 Contents 쓰기 권한만 있는 fine-grained 토큰을 쓰세요. 서버로 전송되지 않고 GitHub API로만 사용됩니다.</p>
+    <div class="row" style="margin-top:12px"><div class="field"><label for="title">제목 (선택, 여러 개 올릴 땐 파일명 사용)</label><input type="text" id="title"></div></div>
+    <div class="drop" id="drop" tabindex="0">
+      파일을 끌어다 놓거나 <button class="btn" id="pick" type="button">파일 선택</button><br>
+      <small>이미지 → portfolio/images/ · 영상 → portfolio/videos/ · 파일당 최대 90MB</small>
+      <input type="file" id="file" multiple accept="image/*,video/*" hidden>
+    </div>
+    <ul class="queue" id="queue"></ul>
+  </section>
+
+  <nav class="tabs" aria-label="종류">
+    <button class="tab" data-f="all" aria-pressed="true">전체</button>
+    <button class="tab" data-f="image" aria-pressed="false">이미지</button>
+    <button class="tab" data-f="video" aria-pressed="false">영상</button>
+  </nav>
+  <main class="grid" id="grid" aria-live="polite"></main>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="미리보기">
+  <button class="x" id="lbx" aria-label="닫기">✕</button>
+  <div id="lbm"></div><div class="cap" id="lbc"></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const LS = {get:k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}}, set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+const MAX = 90*1024*1024;
+let items = [], filter = 'all', admin = false;
+
+// 저장소 자동 감지: <owner>.github.io/<repo>/portfolio/
+(function initRepo(){
+  let r = LS.get('pf_repo');
+  if(!r){
+    const m = location.hostname.match(/^(.+)\.github\.io$/), p = location.pathname.split('/')[1];
+    if(m && p) r = m[1] + '/' + p;
+  }
+  $('#repo').value = r || 'subjobway22-rgb/moochimoochi';
+  $('#branch').value = LS.get('pf_branch') || 'main';
+  $('#token').value = LS.get('pf_token');
+})();
+
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const url = p => p.split('/').map(encodeURIComponent).join('/');
+
+async function load(){
+  try{
+    const r = await fetch('items.json?_='+Date.now());
+    items = r.ok ? await r.json() : [];
+  }catch(e){ items = []; }
+  render();
+}
+
+function render(){
+  const list = items.filter(i => filter==='all' || i.type===filter).sort((a,b)=>b.date.localeCompare(a.date));
+  const g = $('#grid');
+  if(!list.length){ g.innerHTML = '<p class="empty" style="grid-column:1/-1">아직 올린 작업이 없어요. 우측 상단 “업로드 / 관리”에서 추가하세요.</p>'; return; }
+  g.innerHTML = list.map(i => `
+    <article class="card">
+      <button class="thumb" data-open="${esc(i.id)}" aria-label="${esc(i.title)} 열기">
+        ${i.type==='video' ? `<video src="${url(i.path)}#t=0.1" preload="metadata" muted playsinline></video>` : `<img src="${url(i.path)}" alt="${esc(i.title)}" loading="lazy">`}
+        <span class="badge">${i.type==='video'?'영상':'이미지'}</span>
+      </button>
+      <div class="meta"><div style="min-width:0"><b>${esc(i.title)}</b><small>${esc(i.date.slice(0,10))}</small></div>
+      ${admin ? `<button class="btn danger" data-del="${esc(i.id)}">삭제</button>`:''}</div>
+    </article>`).join('');
+}
+
+document.querySelectorAll('.tab').forEach(b => b.onclick = () => {
+  filter = b.dataset.f;
+  document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-pressed', t===b));
+  render();
+});
+
+$('#grid').addEventListener('click', e => {
+  const o = e.target.closest('[data-open]'), d = e.target.closest('[data-del]');
+  if(o){ const i = items.find(x=>x.id===o.dataset.open); if(i) openLb(i); }
+  if(d){ del(d.dataset.del); }
+});
+
+function openLb(i){
+  $('#lbm').innerHTML = i.type==='video' ? `<video src="${url(i.path)}" controls autoplay playsinline></video>` : `<img src="${url(i.path)}" alt="${esc(i.title)}">`;
+  $('#lbc').textContent = i.title; $('#lb').hidden = false; $('#lbx').focus();
+}
+function closeLb(){ $('#lb').hidden = true; $('#lbm').innerHTML = ''; }
+$('#lbx').onclick = closeLb;
+$('#lb').onclick = e => { if(e.target.id==='lb') closeLb(); };
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLb(); });
+
+$('#adminBtn').onclick = () => {
+  admin = $('#admin').hidden; $('#admin').hidden = !admin;
+  $('#adminBtn').setAttribute('aria-expanded', admin); render();
+};
+$('#saveTok').onclick = () => {
+  LS.set('pf_token', $('#token').value.trim()); LS.set('pf_repo', $('#repo').value.trim()); LS.set('pf_branch', $('#branch').value.trim()||'main');
+  $('#saveTok').textContent = '저장됨'; setTimeout(()=>$('#saveTok').textContent='저장', 1200);
+};
+
+// ---- GitHub Contents API ----
+function cfg(){
+  const repo = $('#repo').value.trim(), token = $('#token').value.trim(), branch = $('#branch').value.trim()||'main';
+  if(!/^[^/\s]+\/[^/\s]+$/.test(repo)) throw new Error('저장소를 owner/name 형식으로 입력하세요');
+  if(!token) throw new Error('GitHub 토큰을 입력하세요');
+  return {repo, token, branch};
+}
+async function gh(method, path, body){
+  const {repo, token, branch} = cfg();
+  const q = method==='GET' ? `?ref=${encodeURIComponent(branch)}&_=${Date.now()}` : '';
+  const r = await fetch(`https://api.github.com/repos/${repo}/contents/${path.split('/').map(encodeURIComponent).join('/')}${q}`, {
+    method, headers:{Authorization:'Bearer '+token, Accept:'application/vnd.github+json'},
+    body: body ? JSON.stringify({...body, branch}) : undefined
+  });
+  if(r.status===404 && method==='GET') return null;
+  if(!r.ok){ const t = await r.json().catch(()=>({})); const e = new Error(t.message || ('HTTP '+r.status)); e.status = r.status; throw e; }
+  return r.json();
+}
+const toB64 = file => new Promise((res, rej) => {
+  const fr = new FileReader(); fr.onload = () => res(fr.result.split(',')[1]); fr.onerror = rej; fr.readAsDataURL(file);
+});
+// items.json을 읽고-수정하고-쓰기. 충돌(409/422) 시 재시도.
+async function mutateManifest(fn){
+  for(let n=0;n<4;n++){
+    const cur = await gh('GET','portfolio/items.json');
+    const list = cur ? JSON.parse(decodeURIComponent(escape(atob(cur.content.replace(/\n/g,''))))) : [];
+    const next = fn(list);
+    try{
+      await gh('PUT','portfolio/items.json',{message:'portfolio: update items', content: btoa(unescape(encodeURIComponent(JSON.stringify(next,null,2)+'\n'))), sha: cur && cur.sha});
+      items = next; return;
+    }catch(e){ if(n===3 || ![409,422].includes(e.status)) throw e; await new Promise(r=>setTimeout(r,800)); }
+  }
+}
+function safeName(name){
+  const dot = name.lastIndexOf('.'), ext = dot>0 ? name.slice(dot).toLowerCase().replace(/[^.a-z0-9]/g,'') : '';
+  let base = (dot>0?name.slice(0,dot):name).normalize('NFKD').replace(/[^a-zA-Z0-9_-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40) || 'file';
+  return Date.now().toString(36)+'-'+base+ext;
+}
+
+async function uploadFiles(files){
+  const q = $('#queue');
+  const many = files.length > 1, title = $('#title').value.trim();
+  for(const f of files){
+    const li = document.createElement('li');
+    li.innerHTML = `<span>${esc(f.name)}</span><span class="st">대기</span>`; q.prepend(li);
+    const st = li.querySelector('.st');
+    try{
+      const type = f.type.startsWith('video/') ? 'video' : f.type.startsWith('image/') ? 'image' : null;
+      if(!type) throw new Error('이미지/영상만 가능');
+      if(f.size > MAX) throw new Error('90MB 초과');
+      cfg();
+      st.textContent = '업로드 중…';
+      const path = `portfolio/${type}s/${safeName(f.name)}`;
+      await gh('PUT', path, {message:`portfolio: add ${type}`, content: await toB64(f)});
+      st.textContent = '목록 갱신…';
+      const entry = {id: path.split('/').pop(), type, path: path.replace(/^portfolio\//,''), title: (!many && title) || f.name.replace(/\.[^.]+$/,''), date: new Date().toISOString()};
+      await mutateManifest(l => [...l, entry]);
+      st.textContent = '완료'; st.className = 'st ok'; render();
+    }catch(e){ st.textContent = '실패: '+e.message; st.className = 'st err'; }
+  }
+  $('#title').value = '';
+}
+
+async function del(id){
+  const i = items.find(x=>x.id===id); if(!i || !confirm(`“${i.title}” 삭제할까요?`)) return;
+  try{
+    const f = await gh('GET', 'portfolio/'+i.path);
+    if(f) await gh('DELETE', 'portfolio/'+i.path, {message:'portfolio: remove '+i.type, sha:f.sha});
+    await mutateManifest(l => l.filter(x=>x.id!==id)); render();
+  }catch(e){ alert('삭제 실패: '+e.message); }
+}
+
+const drop = $('#drop'), fileIn = $('#file');
+$('#pick').onclick = () => fileIn.click();
+fileIn.onchange = () => { uploadFiles([...fileIn.files]); fileIn.value=''; };
+['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', e => uploadFiles([...e.dataTransfer.files]));
+
+load();
+</script>
+</body>
+</html>
