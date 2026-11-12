@@ -71,21 +71,26 @@ input[type=text],input[type=password]{width:100%;border:1px solid var(--line);ba
     <button class="btn" id="adminBtn" aria-expanded="false" aria-controls="admin">업로드 / 관리</button>
   </header>
 
-  <section class="panel" id="admin" hidden>
-    <h2>업로드</h2>
-    <div class="row">
-      <div class="field"><label for="repo">저장소 (소유자/이름)</label><input type="text" id="repo" placeholder="subjobway22-rgb/moochimoochi"></div>
+  <section class="panel" id="login" hidden>
+    <h2 id="loginTitle">관리자 로그인</h2>
+    <div class="row" id="setupRow" hidden>
+      <div class="field"><label for="repo">저장소 (소유자/이름)</label><input type="text" id="repo"></div>
       <div class="field" style="flex:0 1 120px"><label for="branch">브랜치</label><input type="text" id="branch" value="main"></div>
+      <div class="field" style="flex:1 1 100%"><label for="token">GitHub 토큰 (최초 1회만 입력)</label><input type="password" id="token" autocomplete="off" placeholder="github_pat_..."></div>
     </div>
     <div class="row">
-      <div class="field"><label for="token">GitHub 토큰 (이 브라우저에만 저장됨)</label><input type="password" id="token" autocomplete="off" placeholder="github_pat_..."></div>
-      <button class="btn" id="saveTok" style="align-self:flex-end">저장</button>
+      <div class="field"><label for="pw" id="pwLabel">비밀번호</label><input type="password" id="pw" autocomplete="current-password"></div>
+      <button class="btn primary" id="loginBtn" style="align-self:flex-end">로그인</button>
     </div>
-    <p class="hint">토큰은 이 저장소의 Contents 쓰기 권한만 있는 fine-grained 토큰을 쓰세요. 서버로 전송되지 않고 GitHub API로만 사용됩니다.</p>
-    <div class="row" style="margin-top:12px"><div class="field"><label for="title">제목 (선택, 여러 개 올릴 땐 파일명 사용)</label><input type="text" id="title"></div></div>
+    <p class="hint" id="loginMsg" role="status"></p>
+  </section>
+
+  <section class="panel" id="admin" hidden>
+    <div class="row" style="justify-content:space-between"><h2 style="margin:0">관리자</h2><button class="btn" id="logoutBtn">로그아웃</button></div>
+    <div class="row"><div class="field"><label for="title">제목 (선택, 여러 개 올릴 땐 파일명 사용)</label><input type="text" id="title"></div></div>
     <div class="drop" id="drop" tabindex="0">
-      파일을 끌어다 놓거나 <button class="btn" id="pick" type="button">파일 선택</button><br>
-      <small>이미지 → portfolio/images/ · 영상 → portfolio/videos/ · 파일당 최대 90MB</small>
+      파일을 끌어다 놓거나 <button class="btn primary" id="pick" type="button">업로드</button><br>
+      <small>이미지 → images/ · 영상 → videos/ · 파일당 최대 90MB · 각 작품의 “삭제” 버튼으로 관리</small>
       <input type="file" id="file" multiple accept="image/*,video/*" hidden>
     </div>
     <ul class="queue" id="queue"></ul>
@@ -111,16 +116,11 @@ const MAX = 90*1024*1024;
 let items = [], filter = 'all', admin = false;
 
 // 저장소 자동 감지: <owner>.github.io/<repo>/portfolio/
-(function initRepo(){
-  let r = LS.get('pf_repo');
-  if(!r){
-    const m = location.hostname.match(/^(.+)\.github\.io$/), p = location.pathname.split('/')[1];
-    if(m && p) r = m[1] + '/' + p;
-  }
-  $('#repo').value = r || 'subjobway22-rgb/moochimoochi';
-  $('#branch').value = LS.get('pf_branch') || 'main';
-  $('#token').value = LS.get('pf_token');
+(function(){
+  const m = location.hostname.match(/^(.+)\.github\.io$/), p = location.pathname.split('/')[1];
+  $('#repo').value = (m && p) ? m[1]+'/'+p : 'subjobway22-rgb/moochimoochi';
 })();
+let session = null, authInfo = null; // session = {repo, branch, token}
 
 const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const url = p => p.split('/').map(encodeURIComponent).join('/');
@@ -169,22 +169,64 @@ $('#lbx').onclick = closeLb;
 $('#lb').onclick = e => { if(e.target.id==='lb') closeLb(); };
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeLb(); });
 
+// ---- 관리자 로그인: 토큰을 비밀번호로 암호화해 auth.json에 보관 ----
+const b64 = u8 => btoa(String.fromCharCode(...u8));
+const unb64 = t => Uint8Array.from(atob(t), c => c.charCodeAt(0));
+async function deriveKey(pw, salt, iter){
+  const km = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2', salt, iterations:iter, hash:'SHA-256'}, km, {name:'AES-GCM', length:256}, false, ['encrypt','decrypt']);
+}
+async function loadAuth(){
+  try{ const r = await fetch('auth.json?_='+Date.now()); authInfo = r.ok ? await r.json() : null; }catch(e){ authInfo = null; }
+  $('#setupRow').hidden = !!authInfo;
+  $('#loginTitle').textContent = authInfo ? '관리자 로그인' : '관리자 최초 설정';
+  $('#pwLabel').textContent = authInfo ? '비밀번호' : '새 비밀번호 (8자 이상)';
+  $('#loginBtn').textContent = authInfo ? '로그인' : '설정 완료';
+}
+function setAdmin(on){
+  admin = on; $('#admin').hidden = !on; $('#login').hidden = true;
+  $('#adminBtn').textContent = on ? '관리 중' : '관리자'; render();
+}
 $('#adminBtn').onclick = () => {
-  admin = $('#admin').hidden; $('#admin').hidden = !admin;
-  $('#adminBtn').setAttribute('aria-expanded', admin); render();
+  if(admin){ $('#admin').scrollIntoView(); return; }
+  $('#login').hidden = !$('#login').hidden; if(!$('#login').hidden){ loadAuth(); $('#pw').focus(); }
 };
-$('#saveTok').onclick = () => {
-  LS.set('pf_token', $('#token').value.trim()); LS.set('pf_repo', $('#repo').value.trim()); LS.set('pf_branch', $('#branch').value.trim()||'main');
-  $('#saveTok').textContent = '저장됨'; setTimeout(()=>$('#saveTok').textContent='저장', 1200);
+$('#logoutBtn').onclick = () => { session = null; try{sessionStorage.removeItem('pf_s')}catch(e){} setAdmin(false); };
+$('#pw').addEventListener('keydown', e => { if(e.key==='Enter') $('#loginBtn').click(); });
+$('#loginBtn').onclick = async () => {
+  const msg = $('#loginMsg'), pw = $('#pw').value; msg.textContent = '';
+  $('#loginBtn').disabled = true;
+  try{
+    if(authInfo){
+      let token;
+      try{
+        const key = await deriveKey(pw, unb64(authInfo.salt), authInfo.iter);
+        token = new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM', iv:unb64(authInfo.iv)}, key, unb64(authInfo.data)));
+      }catch(e){ throw new Error('비밀번호가 맞지 않아요'); }
+      session = {repo:authInfo.repo, branch:authInfo.branch, token};
+    }else{
+      const repo = $('#repo').value.trim(), branch = $('#branch').value.trim()||'main', token = $('#token').value.trim();
+      if(!/^[^/\s]+\/[^/\s]+$/.test(repo)) throw new Error('저장소를 owner/name 형식으로 입력하세요');
+      if(!token) throw new Error('GitHub 토큰을 입력하세요');
+      if(pw.length < 8) throw new Error('비밀번호는 8자 이상');
+      const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12)), iter = 600000;
+      const key = await deriveKey(pw, salt, iter);
+      const data = new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM', iv}, key, new TextEncoder().encode(token)));
+      const info = {repo, branch, iter, salt:b64(salt), iv:b64(iv), data:b64(data)};
+      session = {repo, branch, token};
+      const cur = await gh('GET','portfolio/auth.json');
+      await gh('PUT','portfolio/auth.json',{message:'portfolio: set admin', content: btoa(JSON.stringify(info,null,2)+'\n'), sha: cur && cur.sha});
+      authInfo = info;
+    }
+    try{ sessionStorage.setItem('pf_s', JSON.stringify(session)); }catch(e){}
+    $('#pw').value = ''; $('#token').value = ''; setAdmin(true);
+  }catch(e){ session = null; msg.textContent = e.message; }
+  $('#loginBtn').disabled = false;
 };
+try{ const t = sessionStorage.getItem('pf_s'); if(t){ session = JSON.parse(t); setAdmin(true); } }catch(e){}
 
 // ---- GitHub Contents API ----
-function cfg(){
-  const repo = $('#repo').value.trim(), token = $('#token').value.trim(), branch = $('#branch').value.trim()||'main';
-  if(!/^[^/\s]+\/[^/\s]+$/.test(repo)) throw new Error('저장소를 owner/name 형식으로 입력하세요');
-  if(!token) throw new Error('GitHub 토큰을 입력하세요');
-  return {repo, token, branch};
-}
+function cfg(){ if(!session) throw new Error('로그인이 필요해요'); return session; }
 async function gh(method, path, body){
   const {repo, token, branch} = cfg();
   const q = method==='GET' ? `?ref=${encodeURIComponent(branch)}&_=${Date.now()}` : '';
