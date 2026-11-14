@@ -1,16 +1,29 @@
 {
- "updated": "2026-11-13T19:39:40.106Z",
+ "updated": "2026-11-14T06:17:59.526Z",
  "items": [
   {
-   "id": "nw-NBeFNURjFlbTVQYnc_b2M9NQ",
+   "id": "nw-tNTJibkpTUzBwdlFRP29jPTU",
    "type": "news",
-   "mood": "touch",
-   "animal": false,
-   "title": "“자양2동, 소불고기 반찬에 담은 따뜻한 이웃 사랑”",
-   "source": "성광일보",
-   "time": "2026-11-13T12:20:00.000Z",
-   "link": "https://www.sgilbo.kr/ko-kr/articles/55340",
-   "image": "https://cdn.www.sgilbo.kr/w1200/q100/f_original/uploads/dab958d0-e92f-4d35-a5b3-f41e12866dc7.png"
+   "mood": "heal",
+   "animal": true,
+   "title": "김연아, 유기견 입양 독려 화보 공개…“토니와 쿠키의 가족이 되어주세요”",
+   "source": "스페셜타임스",
+   "time": "2026-11-14T00:32:10.000Z",
+   "link": "http://www.specialtimes.co.kr/news/articleView.html?idxno=485504",
+   "image": "https://cdn.specialtimes.co.kr/news/thumbnail/202611/485504_472518_3210_v150.jpg"
+  },
+  {
+   "id": "yt-3lzpGFidxpA",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "아기 강아지를 건들면 생기는 일 #shorts",
+   "source": "유튜브 · 도도한냐초",
+   "time": "2026-11-14T00:10:32.000Z",
+   "link": "https://www.youtube.com/watch?v=3lzpGFidxpA",
+   "videoId": "3lzpGFidxpA",
+   "cute": 0.21,
+   "species": null
   },
   {
    "id": "nw-3Y1VaeU1HNUdkMmMzP29jPTU",
@@ -24,6 +37,17 @@
    "image": "https://www.ddmissue.com/news/upload/1794565310679.jpg"
   },
   {
+   "id": "nw-CMFZFaEZSa1YyYTNjP29jPTU",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[현장영상] 로봇개가 강아지 데리고 '산책'…\"배변도 치워줄까\" 의문까지",
+   "source": "SBS 뉴스",
+   "time": "2026-11-13T09:18:21.000Z",
+   "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845067",
+   "image": "https://img.sbs.co.kr/newimg/news/20261113/202240766_1280.jpg"
+  },
+  {
    "id": "nw-XVlRaV05GRkxVVmhCP29jPTU",
    "type": "news",
    "mood": "touch",
@@ -34,15 +58,15 @@
    "link": "http://www.hyundaiilbo.com/news/articleView.html?idxno=636266"
   },
   {
-   "id": "nw-MUpXVVY0UjNCU2Rraz9vYz01",
+   "id": "nw-RE5pZWxSNmVHbEpOdz9vYz01",
    "type": "news",
-   "mood": "hope",
-   "animal": false,
-   "title": "기름띠가 사라진 뒤에도 무너진 바다",
-   "source": "사이언스타임즈",
-   "time": "2026-11-13T06:22:30.000Z",
-   "link": "https://www.sciencetimes.co.kr/nscvrg/view/menu/257?thisPage=1&searchCategory=&searchSection=&sersYn=&serlYn=&nscvrgSn=262662",
-   "image": "https://www.sciencetimes.co.kr/jnrepo/upload/editor/202611/7fa10eb28fb3427e87bcc4b5e2347b2c_1794442261854.jpg"
+   "mood": "heal",
+   "animal": true,
+   "title": "반려동물 장례식장 포포즈, 동물보호연대에 사료 576kg 기부",
+   "source": "바이오타임즈",
+   "time": "2026-11-13T05:48:05.000Z",
+   "link": "https://www.biotimes.co.kr/news/articleView.html?idxno=36165",
+   "image": "https://cdn.biotimes.co.kr/news/photo/202611/36165_47535_4753.png"
   },
   {
    "id": "nw-ZNbXRKZGxBMmRIZDM_b2M9NQ",
@@ -66,6 +90,17 @@
    "image": "https://cdn.esgeconomy.com/news/thumbnail/202611/17385_25808_2016_v150.jpg"
   },
   {
+   "id": "nw-VmNYTnJRMVpTZW14ej9vYz01",
+   "type": "news",
+   "mood": "touch",
+   "animal": false,
+   "title": "광주 초월초등학교, 정성으로 버무린 김치에 따뜻한 이웃사랑 담아",
+   "source": "누리일보",
+   "time": "2026-11-13T04:11:03.000Z",
+   "link": "https://nuriilbo.com/mobile/article.html?no=941964",
+   "image": "https://www.nuriilbo.com/data/photos/portnews/202611/20261113123212-63286.jpg"
+  },
+  {
    "id": "nw-sVXhZMXBqWnpsUVp3P29jPTU",
    "type": "news",
    "mood": "heal",
@@ -74,6 +109,27 @@
    "source": "시선뉴스",
    "time": "2026-11-13T02:27:31.000Z",
    "link": "http://www.sisunnews.co.kr/news/articleViewAmp.html?idxno=249617"
+  },
+  {
+   "id": "nw-tTWxBeE0wTjZUbFZWP29jPTU",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "강아지 산책시키는 로봇개 등장...\"로봇이 똥오줌도 치우나\"",
+   "source": "뉴스;트리",
+   "time": "2026-11-13T01:00:42.000Z",
+   "link": "https://www.newstree.kr/newsView/ntr202611130007"
+  },
+  {
+   "id": "nw-Rjk0VDNwWlRIb3lkdz9vYz01",
+   "type": "news",
+   "mood": "hope",
+   "animal": false,
+   "title": "기름띠가 사라진 뒤에도 무너진 바다",
+   "source": "사이언스타임즈",
+   "time": "2026-11-13T00:00:24.000Z",
+   "link": "https://www.sciencetimes.co.kr/nscvrg/view/menu/253?searchCategory=225&nscvrgSn=262662",
+   "image": "https://www.sciencetimes.co.kr/jnrepo/upload/editor/202611/7fa10eb28fb3427e87bcc4b5e2347b2c_1794442261854.jpg"
   },
   {
    "id": "nw-thelZZVGtOSVVYTlI_b2M9NQ",
@@ -87,15 +143,28 @@
    "image": "https://cdn.nbntv.co.kr/news/photo/202611/4027392_302612_1947.jpg"
   },
   {
-   "id": "nw-M2FVWlVha2R5Tmpkcj9vYz01",
+   "id": "nw-dFYyWkhTbEZTTjFkMz9vYz01",
    "type": "news",
-   "mood": "heal",
+   "mood": "laugh",
    "animal": true,
-   "title": "샌드박스네트워크, 크리에이터·임직원 함께 유기동물 봉사 4차례 진행…사회공헌 캠페인 ‘PLAY GOOD’ 첫발",
-   "source": "공감신문",
-   "time": "2026-11-12T23:00:00.000Z",
-   "link": "https://www.gokorea.kr/news/articleView.html?idxno=885336",
-   "image": "https://cdn.gokorea.kr/news/thumbnail/202611/885336_162943_4325_v150.jpg"
+   "title": "물놀이하다 흠뻑 젖은 강아지…보호자가 품에 안자 벌어진 일",
+   "source": "애니멀플래닛",
+   "time": "2026-11-12T20:10:00.000Z",
+   "link": "https://m.animalplanet.co.kr/contents/?artNo=62356",
+   "image": "https://img.animalplanet.co.kr/thumbnail/2026/11/12/1200/1ds76i71ux4lkj3nbf3y.jpg"
+  },
+  {
+   "id": "yt-mJkxznQQYPU",
+   "type": "video",
+   "mood": "laugh",
+   "animal": true,
+   "title": "Asked my cat to give the baby bunny back #catvideo #bunny #cuteanimals",
+   "source": "유튜브 · Elowen Sterling",
+   "time": "2026-11-12T15:45:31.000Z",
+   "link": "https://www.youtube.com/watch?v=mJkxznQQYPU",
+   "videoId": "mJkxznQQYPU",
+   "cute": 0.43,
+   "species": "rabbit"
   },
   {
    "id": "yt-2lCGUsag7gc",
@@ -118,8 +187,7 @@
    "title": "수영구 망미1동, 익명의 중년 부부가 전하는 따뜻한 이웃사랑",
    "source": "부산일보",
    "time": "2026-11-12T06:04:06.000Z",
-   "link": "https://mobile.busan.com/view/busan/view.php?code=2026111214552731705",
-   "image": "https://www.busan.com/nas/wcms/wcms_data/photos/2026/11/12/2026111214551419959_m.jpg"
+   "link": "https://mobile.busan.com/view/busan/view.php?code=2026111214552731705"
   },
   {
    "id": "nw-ucERNVFJ1ZVRWNFFRP29jPTU",
@@ -131,6 +199,17 @@
    "time": "2026-11-12T04:50:00.000Z",
    "link": "https://www.newspenguin.com/news/articleViewAmp.html?idxno=22425",
    "image": "https://cdn.newspenguin.com/news/thumbnail/202611/22425_65679_5641_v150.jpg"
+  },
+  {
+   "id": "nw-qWm5SWFZSVWxnMFFRP29jPTU",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "잘못 배달된 택배, 강아지에 입혀버린 국가유공자 할아버지…따뜻한 결말 [사연잇슈]",
+   "source": "서울신문",
+   "time": "2026-11-12T04:42:23.000Z",
+   "link": "https://amp.seoul.co.kr/seoul/20261112500147",
+   "image": "https://img.seoul.co.kr/img/upload/2026/11/12/SSC_20261112134219.jpg.webp"
   },
   {
    "id": "nw-ZCYU5GbFVTRlZvYWc_b2M9NQ",
@@ -155,6 +234,16 @@
    "image": "https://www.dailydgnews.com/data/photos/20261146/art_17944490559373_c4dd79.jpg"
   },
   {
+   "id": "nw-tRXlWMjlxVERZMlFRP29jPTU",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "베베허그, 귀여운 강아지 자수를 더한 ‘뽀시래기 테리빕’ 출시",
+   "source": "시선뉴스",
+   "time": "2026-11-12T01:27:12.000Z",
+   "link": "http://www.sisunnews.co.kr/news/articleViewAmp.html?idxno=249474"
+  },
+  {
    "id": "nw-jeFdVUmpSWFp6UlZFP29jPTU",
    "type": "news",
    "mood": "heal",
@@ -166,6 +255,28 @@
    "image": "https://media.yonhapnewstv.co.kr/article/AKR/20261112/AKR20261112093233KqN_01_i.jpg"
   },
   {
+   "id": "nw-hGclJFdFlja0pSZHc_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "\"내가 살려드릴'개'\"...심폐소생술 하는 강아지 '화제' [앵커리포트]",
+   "source": "YTN",
+   "time": "2026-11-11T23:59:00.000Z",
+   "link": "https://www.ytn.co.kr/_cs/_ln_0115_202611120859144613_005.html",
+   "image": "https://image.ytn.co.kr/general/jpg/2026/1112/202611120859144613_t.jpg"
+  },
+  {
+   "id": "nw-FSMU4wUkJOMHhUT0E_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "“너 내 집사가 돼라”… 알바생만 보면 쪼르르 달려오던 아기 고양이",
+   "source": "한국일보",
+   "time": "2026-11-11T23:00:00.000Z",
+   "link": "https://www.hankookilbo.com/news/article/A2026111108550005858",
+   "image": "https://newsimg.hankookilbo.com/2026/11/11/9a240d24-cc3a-4afe-b12d-e18a095fd558.png"
+  },
+  {
    "id": "yt-lXUbg7SwVoU",
    "type": "video",
    "mood": "heal",
@@ -175,19 +286,8 @@
    "time": "2026-11-11T21:00:18.000Z",
    "link": "https://www.youtube.com/watch?v=lXUbg7SwVoU",
    "videoId": "lXUbg7SwVoU",
-   "cute": 0.6,
+   "cute": 0.76,
    "species": null
-  },
-  {
-   "id": "nw-GdmJFZG5kMFJDZWxFP29jPTU",
-   "type": "news",
-   "mood": "heal",
-   "animal": true,
-   "title": "아기 고양이 구하려 모인 어르신들…경주서 전해진 ’훈훈한 사연’",
-   "source": "연합뉴스TV",
-   "time": "2026-11-11T20:03:00.000Z",
-   "link": "https://www.yonhapnewstv.co.kr/news/AKR202611111750408fC",
-   "image": "https://media.yonhapnewstv.co.kr/article/AKR/20261111/AKR202611111750408fC_01_i.jpg"
   },
   {
    "id": "nw-dVIxazJMVmh3YzBaaT9vYz01",
@@ -232,7 +332,7 @@
    "time": "2026-11-11T05:05:30.000Z",
    "link": "https://www.youtube.com/watch?v=_gpvr29sJME",
    "videoId": "_gpvr29sJME",
-   "cute": 0.2,
+   "cute": 0.19,
    "species": null
   },
   {
@@ -247,6 +347,17 @@
    "image": "https://www.ksmnews.co.kr/data/newsThumb/1794372725ADD_thumb580.jpg"
   },
   {
+   "id": "nw-UjNkbEJtVFY5MGNsRT9vYz01",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[사진] \"귀여운 판다가 반기네\" CIIE 쓰촨 전시홀",
+   "source": "동방일보",
+   "time": "2026-11-11T00:58:20.000Z",
+   "link": "https://www.dongbangilbo.co.kr/news/articleView.html?idxno=113129",
+   "image": "https://cdn.dongbangilbo.co.kr/news/thumbnail/202611/113129_133312_0006_v150.jpg"
+  },
+  {
    "id": "yt-iEjnfyurDzY",
    "type": "video",
    "mood": "heal",
@@ -258,6 +369,28 @@
    "videoId": "iEjnfyurDzY",
    "cute": 0.31,
    "species": null
+  },
+  {
+   "id": "nw-FielU0VVdnM2QzTm4_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "TV 가리는 강아지의 귀여운 뒤통수, 정면 얼굴 공개되자 반전",
+   "source": "애니멀플래닛",
+   "time": "2026-11-10T21:15:00.000Z",
+   "link": "https://www.animalplanet.co.kr/contents/?artNo=62326",
+   "image": "https://img.animalplanet.co.kr/thumbnail/2026/11/10/1200/22bl596zs6hnqdd50147.jpg"
+  },
+  {
+   "id": "nw-ZXVkpXY0dSWGIycDM_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "TV 가리는 강아지의 동그란 뒤통수에 반했는데…정면 얼굴 보니 '반전'",
+   "source": "www.animalplanet.co.kr",
+   "time": "2026-11-10T21:15:00.000Z",
+   "link": "https://www.animalplanet.co.kr/contents/?artNo=62325",
+   "image": "https://img.animalplanet.co.kr/thumbnail/2026/11/10/1200/5n013i21401ka3o9y1ey.jpg"
   },
   {
    "id": "yt-6971RpC1V5c",
@@ -293,6 +426,17 @@
    "time": "2026-11-10T01:35:00.000Z",
    "link": "https://www.autodaily.co.kr/news/articleView.html?idxno=601960",
    "image": "https://cdn.autodaily.co.kr/news/photo/202611/601960_203847_3151.jpg"
+  },
+  {
+   "id": "nw-JWVmFGSlVNMUpJUVE_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[현장] “고양이로 점령” 더현대 서울에 나타난 작은 영웅들…80년대 뉴욕을 통째로 옮겨 오다",
+   "source": "파이낸셜투데이",
+   "time": "2026-11-09T11:38:24.000Z",
+   "link": "http://www.ftoday.co.kr/news/articleView.html?idxno=369214",
+   "image": "https://cdn.ftoday.co.kr/news/thumbnail/202611/369214_379291_1528_v150.jpg"
   },
   {
    "id": "nw-MFYyWkdjRlZQVG0xbj9vYz01",
@@ -360,15 +504,15 @@
    "image": "https://cdn.mediagn.co.kr/news/photo/202611/31048_41087_311.jpg"
   },
   {
-   "id": "nw-qVFRsU2JXWjRjMnMyP29jPTU",
+   "id": "nw-oQ1MzQkpYMUIxY2pBP29jPTU",
    "type": "news",
    "mood": "heal",
    "animal": true,
-   "title": "통영교육지원청, 폐교 활용 고양이 보호센터 국무총리상 수상",
-   "source": "뉴스핌",
-   "time": "2026-11-08T08:23:00.000Z",
-   "link": "https://www.newspim.com/news/view/20261108000112",
-   "image": "https://img.newspim.com/news/2026/11/08/2611081721270850_t1.jpg"
+   "title": "폐교가 고양이 보호소·천문대·특수학교로…전국 우수사례 7곳 선정",
+   "source": "교육플러스",
+   "time": "2026-11-08T04:16:22.000Z",
+   "link": "https://www.edpl.co.kr/news/articleView.html?idxno=22014",
+   "image": "https://cdn.edpl.co.kr/news/photo/202611/22014_43566_1341.png"
   },
   {
    "id": "yt-p0418ckcGsA",
@@ -380,7 +524,7 @@
    "time": "2026-11-08T00:00:18.000Z",
    "link": "https://www.youtube.com/watch?v=p0418ckcGsA",
    "videoId": "p0418ckcGsA",
-   "cute": 0.19,
+   "cute": 0.2,
    "species": null
   },
   {
@@ -408,6 +552,17 @@
    "species": null
   },
   {
+   "id": "nw-diR0pKTWtWMGFGaEs_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[포토] 카리나냥",
+   "source": "파이낸셜포스트",
+   "time": "2026-11-07T08:00:00.000Z",
+   "link": "https://www.financialpost.co.kr/news/articleView.html?idxno=285356",
+   "image": "https://cdn.financialpost.co.kr/news/photo/202611/285356_378866_011.jpg"
+  },
+  {
    "id": "yt-n04nTNizOn8",
    "type": "video",
    "mood": "heal",
@@ -417,8 +572,21 @@
    "time": "2026-11-07T02:00:06.000Z",
    "link": "https://www.youtube.com/watch?v=n04nTNizOn8",
    "videoId": "n04nTNizOn8",
-   "cute": 0.44,
+   "cute": 0.46,
    "species": "bigcat"
+  },
+  {
+   "id": "yt-iGSk6krgVhQ",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "What Happens When These Babies Grow Up? 😱 #AnimalTransformation #Shorts",
+   "source": "유튜브 · SmallToWild",
+   "time": "2026-11-07T00:00:10.000Z",
+   "link": "https://www.youtube.com/watch?v=iGSk6krgVhQ",
+   "videoId": "iGSk6krgVhQ",
+   "cute": 0.5,
+   "species": null
   },
   {
    "id": "yt-T9qc7WKCDok",
@@ -443,7 +611,7 @@
    "time": "2026-11-06T02:45:00.000Z",
    "link": "https://www.youtube.com/watch?v=UqqDxFcFuKg",
    "videoId": "UqqDxFcFuKg",
-   "cute": 0.22,
+   "cute": 0.24,
    "species": "donkey"
   },
   {
@@ -456,21 +624,8 @@
    "time": "2026-11-05T15:45:34.000Z",
    "link": "https://www.youtube.com/watch?v=G_9y6Dy4-Ew",
    "videoId": "G_9y6Dy4-Ew",
-   "cute": 0.8,
+   "cute": 0.83,
    "species": "rabbit"
-  },
-  {
-   "id": "yt-C78-qvncFjw",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "Cute Animals Baby You Never See it 🥰🐼 #shorts",
-   "source": "유튜브 · FactsMoon",
-   "time": "2026-11-05T11:30:02.000Z",
-   "link": "https://www.youtube.com/watch?v=C78-qvncFjw",
-   "videoId": "C78-qvncFjw",
-   "cute": 0.45,
-   "species": null
   },
   {
    "id": "yt-H9iU56C_nIs",
@@ -482,7 +637,7 @@
    "time": "2026-11-05T07:36:27.000Z",
    "link": "https://www.youtube.com/watch?v=H9iU56C_nIs",
    "videoId": "H9iU56C_nIs",
-   "cute": 0.44,
+   "cute": 0.5,
    "species": null
   },
   {
@@ -495,7 +650,20 @@
    "time": "2026-11-04T16:00:02.000Z",
    "link": "https://www.youtube.com/watch?v=ozEGbc0uzIw",
    "videoId": "ozEGbc0uzIw",
-   "cute": 0.76,
+   "cute": 0.82,
+   "species": "panda"
+  },
+  {
+   "id": "yt-pYUuVwzJl5Q",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "Cute Panda| Cute Panda Cub |Panda Video #panda #pandacubs #pandacub #giantpanda #pandapic #babypanda",
+   "source": "유튜브 · PauliForever",
+   "time": "2026-11-04T09:50:59.000Z",
+   "link": "https://www.youtube.com/watch?v=pYUuVwzJl5Q",
+   "videoId": "pYUuVwzJl5Q",
+   "cute": 0.74,
    "species": "panda"
   },
   {
@@ -508,7 +676,7 @@
    "time": "2026-11-03T10:00:18.000Z",
    "link": "https://www.youtube.com/watch?v=4Qm1IfZ2hO4",
    "videoId": "4Qm1IfZ2hO4",
-   "cute": 0.2,
+   "cute": 0.24,
    "species": null
   },
   {
@@ -534,7 +702,7 @@
    "time": "2026-11-01T09:29:40.000Z",
    "link": "https://www.youtube.com/watch?v=yESHDXU_kYA",
    "videoId": "yESHDXU_kYA",
-   "cute": 0.82,
+   "cute": 0.78,
    "species": "panda"
   },
   {
@@ -547,7 +715,7 @@
    "time": "2026-10-31T10:10:17.000Z",
    "link": "https://www.youtube.com/watch?v=cKugJeQ5dgE",
    "videoId": "cKugJeQ5dgE",
-   "cute": 0.42,
+   "cute": 0.48,
    "species": null
   },
   {
@@ -560,7 +728,7 @@
    "time": "2026-10-31T09:30:09.000Z",
    "link": "https://www.youtube.com/watch?v=aQVJ1e-gu0I",
    "videoId": "aQVJ1e-gu0I",
-   "cute": 0.28,
+   "cute": 0.34,
    "species": null
   },
   {
@@ -573,7 +741,7 @@
    "time": "2026-10-31T09:00:24.000Z",
    "link": "https://www.youtube.com/watch?v=QlCSTP1wESY",
    "videoId": "QlCSTP1wESY",
-   "cute": 0.36,
+   "cute": 0.42,
    "species": null
   },
   {
@@ -586,7 +754,7 @@
    "time": "2026-10-28T22:27:26.000Z",
    "link": "https://www.youtube.com/watch?v=2FegMIQY8Qs",
    "videoId": "2FegMIQY8Qs",
-   "cute": 0.5,
+   "cute": 0.54,
    "species": "deer"
   },
   {
@@ -603,6 +771,19 @@
    "species": null
   },
   {
+   "id": "yt-kmDshU3OKlY",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "아기 돼지들의 극과 극 반응#동물 #돼지",
+   "source": "유튜브 · 이시간지구촌",
+   "time": "2026-10-27T23:00:12.000Z",
+   "link": "https://www.youtube.com/watch?v=kmDshU3OKlY",
+   "videoId": "kmDshU3OKlY",
+   "cute": 0.19,
+   "species": "pig"
+  },
+  {
    "id": "yt-nIG7gkCWp_o",
    "type": "video",
    "mood": "heal",
@@ -614,6 +795,19 @@
    "videoId": "nIG7gkCWp_o",
    "cute": 0.84,
    "species": "panda"
+  },
+  {
+   "id": "yt-gAfwhCkyWKo",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "Haaye Ve Gaadi Kaali Mein 🖤🔥 | Punjabi Song Lyrics | Cute Dog Aesthetic Status #Shorts​",
+   "source": "유튜브 · Vimal Raj Verse",
+   "time": "2026-10-27T05:48:30.000Z",
+   "link": "https://www.youtube.com/watch?v=gAfwhCkyWKo",
+   "videoId": "gAfwhCkyWKo",
+   "cute": 0.68,
+   "species": null
   },
   {
    "id": "yt-dyGn0HYZ4Nk",
@@ -629,6 +823,19 @@
    "species": null
   },
   {
+   "id": "yt-EL_LmH22aKs",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "🐶 Baby Laughs With His Husky Best Friend ❤️ | Cutest Baby and Dog Moments #Husky #BabyAndDog",
+   "source": "유튜브 · Creature Facts",
+   "time": "2026-10-26T12:30:26.000Z",
+   "link": "https://www.youtube.com/watch?v=EL_LmH22aKs",
+   "videoId": "EL_LmH22aKs",
+   "cute": 0.6,
+   "species": null
+  },
+  {
    "id": "yt-znSMhr_jRFo",
    "type": "video",
    "mood": "heal",
@@ -638,7 +845,7 @@
    "time": "2026-10-25T19:36:10.000Z",
    "link": "https://www.youtube.com/watch?v=znSMhr_jRFo",
    "videoId": "znSMhr_jRFo",
-   "cute": 0.18,
+   "cute": 0.17,
    "species": "turtle"
   },
   {
@@ -651,7 +858,7 @@
    "time": "2026-10-25T10:15:19.000Z",
    "link": "https://www.youtube.com/watch?v=nwv416XZ230",
    "videoId": "nwv416XZ230",
-   "cute": 0.38,
+   "cute": 0.54,
    "species": null
   },
   {
@@ -664,7 +871,7 @@
    "time": "2026-10-24T23:15:33.000Z",
    "link": "https://www.youtube.com/watch?v=Bk2-a0e5cWg",
    "videoId": "Bk2-a0e5cWg",
-   "cute": 0.46,
+   "cute": 0.42,
    "species": "rabbit"
   },
   {
@@ -694,19 +901,6 @@
    "species": null
   },
   {
-   "id": "yt-JC0noj-DZxI",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "아기 판다 간식 뺏어 먹으면 일어나는 일#판다 #아기판다 #동물쇼츠 #귀여운동물 #판다월드 #동물영상 #웃긴동물 #shorts",
-   "source": "유튜브 · 깨발랄",
-   "time": "2026-10-23T09:15:40.000Z",
-   "link": "https://www.youtube.com/watch?v=JC0noj-DZxI",
-   "videoId": "JC0noj-DZxI",
-   "cute": 0.88,
-   "species": "panda"
-  },
-  {
    "id": "yt-kDPX2AfMAL8",
    "type": "video",
    "mood": "heal",
@@ -729,7 +923,7 @@
    "time": "2026-10-23T03:00:31.000Z",
    "link": "https://www.youtube.com/watch?v=_byFRE94OhU",
    "videoId": "_byFRE94OhU",
-   "cute": 0.38,
+   "cute": 0.46,
    "species": null
   },
   {
@@ -742,21 +936,8 @@
    "time": "2026-10-23T00:09:08.000Z",
    "link": "https://www.youtube.com/watch?v=bfFZvV7oq_Q",
    "videoId": "bfFZvV7oq_Q",
-   "cute": 0.36,
+   "cute": 0.32,
    "species": null
-  },
-  {
-   "id": "yt-azrdgJcpJvI",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "차에 치인 아기 고슴도치, 기적의 결말🦔 #shorts #viral #touchingstory",
-   "source": "유튜브 · 매일의 발견",
-   "time": "2026-10-22T12:31:42.000Z",
-   "link": "https://www.youtube.com/watch?v=azrdgJcpJvI",
-   "videoId": "azrdgJcpJvI",
-   "cute": 0.4,
-   "species": "hedgehog"
   },
   {
    "id": "yt-Jfef7ifjyKg",
@@ -781,7 +962,7 @@
    "time": "2026-10-21T14:43:58.000Z",
    "link": "https://www.youtube.com/watch?v=IJ1auLVhrfI",
    "videoId": "IJ1auLVhrfI",
-   "cute": 0.76,
+   "cute": 0.8,
    "species": "panda"
   },
   {
@@ -807,7 +988,20 @@
    "time": "2026-10-20T20:23:01.000Z",
    "link": "https://www.youtube.com/watch?v=u78TmSb4JyA",
    "videoId": "u78TmSb4JyA",
-   "cute": 0.64,
+   "cute": 0.6,
+   "species": null
+  },
+  {
+   "id": "yt-QE5XeyP19Qc",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "We need to know! 😫 Puppy Dance Class! 😱🐶 #puppy #dance #viral",
+   "source": "유튜브 · Jasmin and James",
+   "time": "2026-10-20T15:30:34.000Z",
+   "link": "https://www.youtube.com/watch?v=QE5XeyP19Qc",
+   "videoId": "QE5XeyP19Qc",
+   "cute": 0.36,
    "species": null
   },
   {
@@ -820,7 +1014,7 @@
    "time": "2026-10-19T19:27:26.000Z",
    "link": "https://www.youtube.com/watch?v=BXrW7gpwLWg",
    "videoId": "BXrW7gpwLWg",
-   "cute": 0.56,
+   "cute": 0.58,
    "species": null
   },
   {
@@ -846,7 +1040,7 @@
    "time": "2026-10-18T21:00:04.000Z",
    "link": "https://www.youtube.com/watch?v=eNRDmeampCQ",
    "videoId": "eNRDmeampCQ",
-   "cute": 0.56,
+   "cute": 0.52,
    "species": "rabbit"
   },
   {
@@ -885,7 +1079,7 @@
    "time": "2026-10-17T03:00:21.000Z",
    "link": "https://www.youtube.com/watch?v=6KRHdTfG7lA",
    "videoId": "6KRHdTfG7lA",
-   "cute": 0.86,
+   "cute": 0.78,
    "species": "capybara"
   },
   {
@@ -899,19 +1093,6 @@
    "link": "https://www.youtube.com/watch?v=2M5qwAF_guY",
    "videoId": "2M5qwAF_guY",
    "cute": 0.3,
-   "species": null
-  },
-  {
-   "id": "yt-HVR0nHxMf-k",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "The tiny doctor you actually need... 🥺❤️ #shorts",
-   "source": "유튜브 · Content That Makes Your Day",
-   "time": "2026-10-15T18:00:38.000Z",
-   "link": "https://www.youtube.com/watch?v=HVR0nHxMf-k",
-   "videoId": "HVR0nHxMf-k",
-   "cute": 0.68,
    "species": null
   }
  ]
