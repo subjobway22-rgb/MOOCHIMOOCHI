@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T13:38:10.605Z",
+ "updated": "2026-11-14T22:22:12.570Z",
  "items": [
   {
    "id": "nw-haRkYxYjNsTE0ySTE_b2M9NQ",
@@ -58,6 +58,17 @@
    "image": "https://www.ddmissue.com/news/upload/1794565310679.jpg"
   },
   {
+   "id": "nw-CMFZFaEZSa1YyYTNjP29jPTU",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "[현장영상] 로봇개가 강아지 데리고 '산책'…\"배변도 치워줄까\" 의문까지",
+   "source": "SBS 뉴스",
+   "time": "2026-11-13T09:18:21.000Z",
+   "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845067",
+   "image": "https://img.sbs.co.kr/newimg/news/20261113/202240766_1280.jpg"
+  },
+  {
    "id": "nw-XVlRaV05GRkxVVmhCP29jPTU",
    "type": "news",
    "mood": "touch",
@@ -98,6 +109,17 @@
    "time": "2026-11-13T04:19:54.000Z",
    "link": "https://www.jejubokjinews.com/news/articleView.html?idxno=22446",
    "image": "https://cdn.jejubokjinews.com/news/thumbnail/202611/22446_21485_1929_v150.jpg"
+  },
+  {
+   "id": "nw-VmNYTnJRMVpTZW14ej9vYz01",
+   "type": "news",
+   "mood": "touch",
+   "animal": false,
+   "title": "광주 초월초등학교, 정성으로 버무린 김치에 따뜻한 이웃사랑 담아",
+   "source": "누리일보",
+   "time": "2026-11-13T04:11:03.000Z",
+   "link": "https://nuriilbo.com/mobile/article.html?no=941964",
+   "image": "https://www.nuriilbo.com/data/photos/portnews/202611/20261113123212-63286.jpg"
   },
   {
    "id": "nw-sVXhZMXBqWnpsUVp3P29jPTU",
@@ -162,7 +184,7 @@
    "time": "2026-11-12T15:45:31.000Z",
    "link": "https://www.youtube.com/watch?v=mJkxznQQYPU",
    "videoId": "mJkxznQQYPU",
-   "cute": 0.41,
+   "cute": 0.4,
    "species": "rabbit"
   },
   {
@@ -347,26 +369,15 @@
    "species": null
   },
   {
-   "id": "nw-Mk4wRXdWRGROUzB4cj9vYz01",
-   "type": "news",
-   "mood": "touch",
-   "animal": false,
-   "title": "농협영천시지부, 따뜻한 이웃사랑 실천",
-   "source": "경상매일신문",
-   "time": "2026-11-11T04:49:41.000Z",
-   "link": "https://www.ksmnews.co.kr/news/view.php?idx=629322",
-   "image": "https://www.ksmnews.co.kr/data/newsThumb/1794372725ADD_thumb580.jpg"
-  },
-  {
-   "id": "nw-UjNkbEJtVFY5MGNsRT9vYz01",
+   "id": "nw-xUV3hXVWpobmFWQlY_b2M9NQ",
    "type": "news",
    "mood": "laugh",
    "animal": true,
    "title": "[사진] \"귀여운 판다가 반기네\" CIIE 쓰촨 전시홀",
-   "source": "동방일보",
+   "source": "서울뉴스통신",
    "time": "2026-11-11T00:58:20.000Z",
-   "link": "https://www.dongbangilbo.co.kr/news/articleView.html?idxno=113129",
-   "image": "https://cdn.dongbangilbo.co.kr/news/thumbnail/202611/113129_133312_0006_v150.jpg"
+   "link": "http://www.snakorea.com/news/articleView.html?idxno=1063288",
+   "image": "https://cdn.snakorea.com/news/thumbnail/202611/1063288_1015196_0004_v150.jpg"
   },
   {
    "id": "yt-iEjnfyurDzY",
@@ -393,17 +404,6 @@
    "image": "https://img.animalplanet.co.kr/thumbnail/2026/11/10/1200/22bl596zs6hnqdd50147.jpg"
   },
   {
-   "id": "nw-ZXVkpXY0dSWGIycDM_b2M9NQ",
-   "type": "news",
-   "mood": "laugh",
-   "animal": true,
-   "title": "TV 가리는 강아지의 동그란 뒤통수에 반했는데…정면 얼굴 보니 '반전'",
-   "source": "www.animalplanet.co.kr",
-   "time": "2026-11-10T21:15:00.000Z",
-   "link": "https://www.animalplanet.co.kr/contents/?artNo=62325",
-   "image": "https://img.animalplanet.co.kr/thumbnail/2026/11/10/1200/5n013i21401ka3o9y1ey.jpg"
-  },
-  {
    "id": "yt-6971RpC1V5c",
    "type": "video",
    "mood": "heal",
@@ -413,7 +413,7 @@
    "time": "2026-11-10T18:30:36.000Z",
    "link": "https://www.youtube.com/watch?v=6971RpC1V5c",
    "videoId": "6971RpC1V5c",
-   "cute": 0.64,
+   "cute": 0.58,
    "species": "goat"
   },
   {
@@ -439,6 +439,19 @@
    "time": "2026-11-10T06:22:00.000Z",
    "link": "https://www.joongboo.com/news/articleView.html?idxno=363742059",
    "image": "https://cdn.joongboo.com/news/photo/202611/363742059_2523015_2406.jpg"
+  },
+  {
+   "id": "yt-YciMnLeARsw",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "The cutest little panda you will ever see 😭❤️​#cutebaby​#panda​#babycostume #shorts  #baby #funny",
+   "source": "유튜브 · Tiny Whispers US",
+   "time": "2026-11-09T12:00:15.000Z",
+   "link": "https://www.youtube.com/watch?v=YciMnLeARsw",
+   "videoId": "YciMnLeARsw",
+   "cute": 1,
+   "species": "panda"
   },
   {
    "id": "nw-kbFZXaFNWRE5TU0VFP29jPTU",
@@ -585,7 +598,7 @@
    "time": "2026-11-07T02:00:06.000Z",
    "link": "https://www.youtube.com/watch?v=n04nTNizOn8",
    "videoId": "n04nTNizOn8",
-   "cute": 0.38,
+   "cute": 0.4,
    "species": "bigcat"
   },
   {
@@ -602,17 +615,17 @@
    "species": null
   },
   {
-   "id": "yt-MUKWe3ITBgc",
+   "id": "yt-UqqDxFcFuKg",
    "type": "video",
    "mood": "heal",
    "animal": true,
-   "title": "말도 못하는 셋이서 대화가 되는 게 신기함 ㅋㅋㅋ #동물 #강아지 #고양이",
-   "source": "유튜브 · 애니멀로그",
-   "time": "2026-11-05T09:44:25.000Z",
-   "link": "https://www.youtube.com/watch?v=MUKWe3ITBgc",
-   "videoId": "MUKWe3ITBgc",
-   "cute": 0.16,
-   "species": null
+   "title": "물 마시러 온 아기 당나귀가 소들한테 무시당하자ㅋㅋ 순둥이 당나귀의 반전 #당나귀 #아기당나귀 #동물 #소",
+   "source": "유튜브 · 톡톡 힐링자판기",
+   "time": "2026-11-06T02:45:00.000Z",
+   "link": "https://www.youtube.com/watch?v=UqqDxFcFuKg",
+   "videoId": "UqqDxFcFuKg",
+   "cute": 0.26,
+   "species": "donkey"
   },
   {
    "id": "yt-H9iU56C_nIs",
@@ -667,32 +680,6 @@
    "species": null
   },
   {
-   "id": "yt-yESHDXU_kYA",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "cute baby panda crying 🫵🤣🥰❤️💖👍😘🫵🤣🤣🥰😭😭😭😁😄😃😃😀😂😂😂😆🥰❤️❤️💖👍 #funny #emoji#sad#panda# #cutepanda",
-   "source": "유튜브 · Rapper 😎",
-   "time": "2026-11-01T09:29:40.000Z",
-   "link": "https://www.youtube.com/watch?v=yESHDXU_kYA",
-   "videoId": "yESHDXU_kYA",
-   "cute": 0.78,
-   "species": "panda"
-  },
-  {
-   "id": "yt-cKugJeQ5dgE",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "시골 강아지가 처음 바다를 보면 생기는 일 #shorts",
-   "source": "유튜브 · 시골강아지 도담이",
-   "time": "2026-10-31T10:10:17.000Z",
-   "link": "https://www.youtube.com/watch?v=cKugJeQ5dgE",
-   "videoId": "cKugJeQ5dgE",
-   "cute": 0.48,
-   "species": null
-  },
-  {
    "id": "yt-aQVJ1e-gu0I",
    "type": "video",
    "mood": "heal",
@@ -741,21 +728,8 @@
    "time": "2026-10-28T10:07:39.000Z",
    "link": "https://www.youtube.com/watch?v=qTZvRAVxEBA",
    "videoId": "qTZvRAVxEBA",
-   "cute": 0.5,
+   "cute": 0.49,
    "species": null
-  },
-  {
-   "id": "yt-kmDshU3OKlY",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "아기 돼지들의 극과 극 반응#동물 #돼지",
-   "source": "유튜브 · 이시간지구촌",
-   "time": "2026-10-27T23:00:12.000Z",
-   "link": "https://www.youtube.com/watch?v=kmDshU3OKlY",
-   "videoId": "kmDshU3OKlY",
-   "cute": 0.19,
-   "species": "pig"
   },
   {
    "id": "yt-nIG7gkCWp_o",
@@ -780,7 +754,7 @@
    "time": "2026-10-27T05:48:30.000Z",
    "link": "https://www.youtube.com/watch?v=gAfwhCkyWKo",
    "videoId": "gAfwhCkyWKo",
-   "cute": 0.58,
+   "cute": 0.56,
    "species": null
   },
   {
@@ -806,8 +780,21 @@
    "time": "2026-10-26T12:30:26.000Z",
    "link": "https://www.youtube.com/watch?v=EL_LmH22aKs",
    "videoId": "EL_LmH22aKs",
-   "cute": 0.6,
+   "cute": 0.62,
    "species": null
+  },
+  {
+   "id": "yt-znSMhr_jRFo",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "Baby Turtle Ko Ladybug Bana Diya🐞😱 #turtle #ladybug #animals #pets #shorts",
+   "source": "유튜브 · Pets Baithak",
+   "time": "2026-10-25T19:36:10.000Z",
+   "link": "https://www.youtube.com/watch?v=znSMhr_jRFo",
+   "videoId": "znSMhr_jRFo",
+   "cute": 0.17,
+   "species": "turtle"
   },
   {
    "id": "yt-nwv416XZ230",
@@ -819,7 +806,7 @@
    "time": "2026-10-25T10:15:19.000Z",
    "link": "https://www.youtube.com/watch?v=nwv416XZ230",
    "videoId": "nwv416XZ230",
-   "cute": 0.42,
+   "cute": 0.46,
    "species": null
   },
   {
@@ -832,8 +819,21 @@
    "time": "2026-10-24T23:15:33.000Z",
    "link": "https://www.youtube.com/watch?v=Bk2-a0e5cWg",
    "videoId": "Bk2-a0e5cWg",
-   "cute": 0.42,
+   "cute": 0.44,
    "species": "rabbit"
+  },
+  {
+   "id": "yt-9k7Ar01zKRM",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "Cute cow baby aa gya 😍 #minivlog #pets #animals #cow #funny #ytshorts #shortsfeed",
+   "source": "유튜브 · mo.junnuuu",
+   "time": "2026-10-24T06:30:48.000Z",
+   "link": "https://www.youtube.com/watch?v=9k7Ar01zKRM",
+   "videoId": "9k7Ar01zKRM",
+   "cute": 0.36,
+   "species": "cow"
   },
   {
    "id": "yt-6ADTX4G4oKo",
@@ -871,7 +871,7 @@
    "time": "2026-10-23T08:38:27.000Z",
    "link": "https://www.youtube.com/watch?v=kDPX2AfMAL8",
    "videoId": "kDPX2AfMAL8",
-   "cute": 0.88,
+   "cute": 0.9,
    "species": null
   },
   {
@@ -936,7 +936,7 @@
    "time": "2026-10-21T14:43:58.000Z",
    "link": "https://www.youtube.com/watch?v=IJ1auLVhrfI",
    "videoId": "IJ1auLVhrfI",
-   "cute": 0.82,
+   "cute": 0.8,
    "species": "panda"
   },
   {
@@ -962,7 +962,7 @@
    "time": "2026-10-20T20:23:01.000Z",
    "link": "https://www.youtube.com/watch?v=u78TmSb4JyA",
    "videoId": "u78TmSb4JyA",
-   "cute": 0.6,
+   "cute": 0.58,
    "species": null
   },
   {
@@ -1027,21 +1027,8 @@
    "time": "2026-10-18T12:47:33.000Z",
    "link": "https://www.youtube.com/watch?v=eSgEAGaSERE",
    "videoId": "eSgEAGaSERE",
-   "cute": 0.56,
+   "cute": 0.57,
    "species": "rabbit"
-  },
-  {
-   "id": "yt-PGJuJXHg1NU",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "Cute Baby Animals vs Wild Beasts #shorts #animal #babyanimals #animalbaby #trending #viral",
-   "source": "유튜브 · WildRoots",
-   "time": "2026-10-17T12:38:14.000Z",
-   "link": "https://www.youtube.com/watch?v=PGJuJXHg1NU",
-   "videoId": "PGJuJXHg1NU",
-   "cute": 0.2,
-   "species": null
   },
   {
    "id": "yt-cTxghj3_U4w",
@@ -1057,19 +1044,6 @@
    "species": null
   },
   {
-   "id": "yt-alDxeTvUwpI",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "Baby Animals Transformation So Cute! #shorts #cuteanimals #babyanimals #animaltransformation",
-   "source": "유튜브 · TROLL PET",
-   "time": "2026-10-17T03:30:01.000Z",
-   "link": "https://www.youtube.com/watch?v=alDxeTvUwpI",
-   "videoId": "alDxeTvUwpI",
-   "cute": 0.4,
-   "species": null
-  },
-  {
    "id": "yt-6KRHdTfG7lA",
    "type": "video",
    "mood": "heal",
@@ -1081,19 +1055,6 @@
    "videoId": "6KRHdTfG7lA",
    "cute": 0.9,
    "species": "capybara"
-  },
-  {
-   "id": "yt-2M5qwAF_guY",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "룸메이트 고양이가 아기를 낳자 리트리버가 보인 반응ㄷㄷㄷ",
-   "source": "유튜브 · 별별동물",
-   "time": "2026-10-16T09:30:08.000Z",
-   "link": "https://www.youtube.com/watch?v=2M5qwAF_guY",
-   "videoId": "2M5qwAF_guY",
-   "cute": 0.3,
-   "species": null
   }
  ]
 }
