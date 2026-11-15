@@ -1,6 +1,17 @@
 {
- "updated": "2026-11-15T06:25:30.558Z",
+ "updated": "2026-11-15T18:49:41.377Z",
  "items": [
+  {
+   "id": "nw-dVVWhTUW01SldFTjM_b2M9NQ",
+   "type": "news",
+   "mood": "heal",
+   "animal": true,
+   "title": "\"작고 하얀 강아지였다면 달랐을까요\"… 믹스견 테오의 기다림 [가족]",
+   "source": "한국일보",
+   "time": "2026-11-15T07:07:00.000Z",
+   "link": "https://www.hankookilbo.com/news/article/amp/A2026111515470003123",
+   "image": "https://newsimg.hankookilbo.com/2026/11/15/febd6340-dc93-47f3-aad2-a570f9b38ff4.png"
+  },
   {
    "id": "nw-oMmRWTnhPUzA1VUdjP29jPTU",
    "type": "news",
@@ -47,17 +58,6 @@
    "image": "https://ojsfile.ohmynews.com/CRI_T_IMG/2026/1109/A0003283180_T.jpg"
   },
   {
-   "id": "nw-JSRlNrdGtaaTFMY3c_b2M9NQ",
-   "type": "news",
-   "mood": "laugh",
-   "animal": true,
-   "title": "한지은 치어리더 ‘귀여운 고양이’[엑's HD포토]",
-   "source": "www.xportsnews.com",
-   "time": "2026-11-14T06:31:04.000Z",
-   "link": "https://www.xportsnews.com/article/2219311",
-   "image": "https://image.xportsnews.com/contents/images/upload/article/2026/1113/1794580365250522.webp"
-  },
-  {
    "id": "yt-VS2_aa6yUZk",
    "type": "video",
    "mood": "heal",
@@ -67,7 +67,7 @@
    "time": "2026-11-14T01:16:03.000Z",
    "link": "https://www.youtube.com/watch?v=VS2_aa6yUZk",
    "videoId": "VS2_aa6yUZk",
-   "cute": 0.96,
+   "cute": 0.9,
    "species": null
   },
   {
@@ -91,8 +91,19 @@
    "time": "2026-11-14T00:10:32.000Z",
    "link": "https://www.youtube.com/watch?v=3lzpGFidxpA",
    "videoId": "3lzpGFidxpA",
-   "cute": 0.18,
+   "cute": 0.2,
    "species": null
+  },
+  {
+   "id": "nw-NBeFNURjFlbTVQYnc_b2M9NQ",
+   "type": "news",
+   "mood": "touch",
+   "animal": false,
+   "title": "“자양2동, 소불고기 반찬에 담은 따뜻한 이웃 사랑”",
+   "source": "성광일보",
+   "time": "2026-11-13T12:20:00.000Z",
+   "link": "https://www.sgilbo.kr/ko-kr/articles/55340",
+   "image": "https://cdn.www.sgilbo.kr/w1200/q100/f_jpg/article-images/2026-11-13/5378ce03-9407-4006-9540-0756ebd18622.jpg"
   },
   {
    "id": "nw-3Y1VaeU1HNUdkMmMzP29jPTU",
@@ -166,7 +177,8 @@
    "title": "광주 초월초등학교, 정성으로 버무린 김치에 따뜻한 이웃사랑 담아",
    "source": "누리일보",
    "time": "2026-11-13T04:11:03.000Z",
-   "link": "https://nuriilbo.com/mobile/article.html?no=941964"
+   "link": "https://nuriilbo.com/mobile/article.html?no=941964",
+   "image": "https://www.nuriilbo.com/data/photos/portnews/202611/20261113123212-63286.jpg"
   },
   {
    "id": "nw-sVXhZMXBqWnpsUVp3P29jPTU",
@@ -220,7 +232,7 @@
    "time": "2026-11-12T15:45:31.000Z",
    "link": "https://www.youtube.com/watch?v=mJkxznQQYPU",
    "videoId": "mJkxznQQYPU",
-   "cute": 0.43,
+   "cute": 0.44,
    "species": "rabbit"
   },
   {
@@ -266,16 +278,6 @@
    "time": "2026-11-12T03:00:00.000Z",
    "link": "https://www.dongascience.com/ko/news/80822",
    "image": "https://image.dongascience.com/Photo/2026/11/17943713763339.jpg"
-  },
-  {
-   "id": "nw-dzd1ZYVnpXSHBZUVE_b2M9NQ",
-   "type": "news",
-   "mood": "touch",
-   "animal": false,
-   "title": "김천시 지좌동, 이웃에 따뜻한 온기를 전하다!",
-   "source": "데일리대구경북뉴스",
-   "time": "2026-11-12T02:04:47.000Z",
-   "link": "https://www.dailydgnews.com/news/article.html?no=268956"
   },
   {
    "id": "nw-tRXlWMjlxVERZMlFRP29jPTU",
@@ -330,7 +332,7 @@
    "time": "2026-11-11T21:00:18.000Z",
    "link": "https://www.youtube.com/watch?v=lXUbg7SwVoU",
    "videoId": "lXUbg7SwVoU",
-   "cute": 0.72,
+   "cute": 0.82,
    "species": null
   },
   {
@@ -345,14 +347,14 @@
    "image": "https://media.yonhapnewstv.co.kr/article/AKR/20261111/AKR202611111750408fC_01_i.jpg"
   },
   {
-   "id": "nw-1UjFrMkxWaHdjMFppP29jPTU",
+   "id": "nw-1SFdUWXRXSEJ6Um1JP29jPTU",
    "type": "news",
    "mood": "hope",
    "animal": false,
    "title": "[사이언스프리즘] 멸종은 운명이 아니다",
    "source": "세계일보",
    "time": "2026-11-11T14:09:48.000Z",
-   "link": "https://m.segye.com/daumview/20261111515675",
+   "link": "https://www.segye.com/newsView/20261111515675",
    "image": "https://www.segye.com/content/image/2026/04/15/20260415524728.jpg"
   },
   {
@@ -387,19 +389,19 @@
    "time": "2026-11-11T05:05:30.000Z",
    "link": "https://www.youtube.com/watch?v=_gpvr29sJME",
    "videoId": "_gpvr29sJME",
-   "cute": 0.18,
+   "cute": 0.22,
    "species": null
   },
   {
-   "id": "nw-UjNkbEJtVFY5MGNsRT9vYz01",
+   "id": "nw-KVlRWclIzYzRkSEJuP29jPTU",
    "type": "news",
    "mood": "laugh",
    "animal": true,
    "title": "[사진] \"귀여운 판다가 반기네\" CIIE 쓰촨 전시홀",
-   "source": "동방일보",
-   "time": "2026-11-11T00:58:20.000Z",
-   "link": "https://www.dongbangilbo.co.kr/news/articleView.html?idxno=113129",
-   "image": "https://cdn.dongbangilbo.co.kr/news/thumbnail/202611/113129_133312_0006_v150.jpg"
+   "source": "내외뉴스통신",
+   "time": "2026-11-11T01:33:16.000Z",
+   "link": "https://www.nbnnews.co.kr/news/articleView.html?idxno=1069251",
+   "image": "https://cdn.nbnnews.co.kr/news/thumbnail/202611/1069251_1126557_0008_v150.jpg"
   },
   {
    "id": "yt-iEjnfyurDzY",
@@ -441,6 +443,16 @@
    "species": null
   },
   {
+   "id": "nw-haR2FHTlVSalJ6VVE_b2M9NQ",
+   "type": "news",
+   "mood": "laugh",
+   "animal": true,
+   "title": "아일릿, '빌려온 고양이'로 스포티파이 2억 돌파…“음원 파워 정상 입증”",
+   "source": "EPN엔피나우",
+   "time": "2026-11-10T10:22:20.000Z",
+   "link": "https://www.enpnow.com/news/articleViewAmp.html?idxno=110079"
+  },
+  {
    "id": "nw-pSbGNWVlNMWHBoVVE_b2M9NQ",
    "type": "news",
    "mood": "touch",
@@ -460,6 +472,19 @@
    "source": "서울경제TV",
    "time": "2026-11-10T01:24:57.000Z",
    "link": "https://www.sentv.co.kr/article/view/sentv202611100073"
+  },
+  {
+   "id": "yt-QZWufMLe1V0",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "하늘에서 떨어진 꼬리에 놀란 아기냥이의 최후ㅋㅋ #동물 #사자",
+   "source": "유튜브 · 펫파라치",
+   "time": "2026-11-09T16:39:37.000Z",
+   "link": "https://www.youtube.com/watch?v=QZWufMLe1V0",
+   "videoId": "QZWufMLe1V0",
+   "cute": 0.4,
+   "species": "bigcat"
   },
   {
    "id": "nw-VTlMWlZSYVlqRXhVUT9vYz01",
@@ -506,14 +531,14 @@
    "link": "https://news.suwon.go.kr/?p=29&viewMode=view&reqIdx=202611091418351759"
   },
   {
-   "id": "nw-wYjJ4ZlQySlVWVzFOP29jPTU",
+   "id": "nw-hKcVpuUlVNR1ptTmc_b2M9NQ",
    "type": "news",
    "mood": "heal",
    "animal": true,
    "title": "통영 ‘고양이 학교’의 묘한 매력…‘폐교 활용’ 최우수상",
    "source": "부산일보",
    "time": "2026-11-09T05:43:09.000Z",
-   "link": "http://mobile.busan.com/view/busan/view.php?code=2026110816010812494",
+   "link": "https://mobile.busan.com/view/busan/view.php?code=2026110816010812494",
    "image": "https://www.busan.com/nas/wcms/wcms_data/photos/2026/11/09/2026110910191952227_l.jpeg"
   },
   {
@@ -547,7 +572,7 @@
    "time": "2026-11-09T04:00:34.000Z",
    "link": "https://www.youtube.com/watch?v=M09o65gRuGg",
    "videoId": "M09o65gRuGg",
-   "cute": 0.52,
+   "cute": 0.53,
    "species": null
   },
   {
@@ -562,30 +587,6 @@
    "image": "https://cdn.mediagn.co.kr/news/photo/202611/31048_41087_311.jpg"
   },
   {
-   "id": "nw-qVFRsU2JXWjRjMnMyP29jPTU",
-   "type": "news",
-   "mood": "heal",
-   "animal": true,
-   "title": "통영교육지원청, 폐교 활용 고양이 보호센터 국무총리상 수상",
-   "source": "뉴스핌",
-   "time": "2026-11-08T08:23:00.000Z",
-   "link": "https://www.newspim.com/news/view/20261108000112",
-   "image": "https://img.newspim.com/news/2026/11/08/2611081721270850_t1.jpg"
-  },
-  {
-   "id": "yt--K0aW6wmDSk",
-   "type": "video",
-   "mood": "laugh",
-   "animal": true,
-   "title": "Now my bunny is safe",
-   "source": "유튜브 · Fur Keeps 🐾",
-   "time": "2026-11-08T04:39:19.000Z",
-   "link": "https://www.youtube.com/watch?v=-K0aW6wmDSk",
-   "videoId": "-K0aW6wmDSk",
-   "cute": 0.3,
-   "species": "rabbit"
-  },
-  {
    "id": "yt-p0418ckcGsA",
    "type": "video",
    "mood": "heal",
@@ -595,7 +596,7 @@
    "time": "2026-11-08T00:00:18.000Z",
    "link": "https://www.youtube.com/watch?v=p0418ckcGsA",
    "videoId": "p0418ckcGsA",
-   "cute": 0.2,
+   "cute": 0.24,
    "species": null
   },
   {
@@ -612,16 +613,16 @@
    "species": null
   },
   {
-   "id": "yt-AUbWLV5I27k",
+   "id": "yt-A3oxH7-OXQU",
    "type": "video",
    "mood": "heal",
    "animal": true,
-   "title": "These Tiny Kittens Are Having the CUTEST Adventures Ever! 😻💕🐾 #Shorts #shortsfeed #kitten #cat #usa",
-   "source": "유튜브 · Crazy Catto Official",
-   "time": "2026-11-07T04:00:39.000Z",
-   "link": "https://www.youtube.com/watch?v=AUbWLV5I27k",
-   "videoId": "AUbWLV5I27k",
-   "cute": 0.64,
+   "title": "If You travel with puppies, you need it🐶💦",
+   "source": "유튜브 · Eternumm pet",
+   "time": "2026-11-06T16:57:12.000Z",
+   "link": "https://www.youtube.com/watch?v=A3oxH7-OXQU",
+   "videoId": "A3oxH7-OXQU",
+   "cute": 0.2,
    "species": null
   },
   {
@@ -647,7 +648,7 @@
    "time": "2026-11-06T05:43:48.000Z",
    "link": "https://www.youtube.com/watch?v=IxgOUEec-qM",
    "videoId": "IxgOUEec-qM",
-   "cute": 0.52,
+   "cute": 0.58,
    "species": null
   },
   {
@@ -660,21 +661,21 @@
    "time": "2026-11-06T02:45:00.000Z",
    "link": "https://www.youtube.com/watch?v=UqqDxFcFuKg",
    "videoId": "UqqDxFcFuKg",
-   "cute": 0.26,
+   "cute": 0.22,
    "species": "donkey"
   },
   {
-   "id": "yt-H9iU56C_nIs",
+   "id": "yt-ozEGbc0uzIw",
    "type": "video",
    "mood": "heal",
    "animal": true,
-   "title": "The Cutest Day of a Baby and His Puppy 🐶👶 | 아기와 강아지의 귀여운 하루",
-   "source": "유튜브 · 세식구소란일기",
-   "time": "2026-11-05T07:36:27.000Z",
-   "link": "https://www.youtube.com/watch?v=H9iU56C_nIs",
-   "videoId": "H9iU56C_nIs",
-   "cute": 0.5,
-   "species": null
+   "title": "Gungun MUST Have the Last Word #panda  #desiighnerpanda #funny #babypanda #cute #animals #cutepanda",
+   "source": "유튜브 · gungunthepanda",
+   "time": "2026-11-04T16:00:02.000Z",
+   "link": "https://www.youtube.com/watch?v=ozEGbc0uzIw",
+   "videoId": "ozEGbc0uzIw",
+   "cute": 0.86,
+   "species": "panda"
   },
   {
    "id": "yt-4Qm1IfZ2hO4",
@@ -699,21 +700,47 @@
    "time": "2026-11-02T23:00:19.000Z",
    "link": "https://www.youtube.com/watch?v=brH93NF4Zk8",
    "videoId": "brH93NF4Zk8",
-   "cute": 0.45,
+   "cute": 0.44,
    "species": null
   },
   {
-   "id": "yt-yESHDXU_kYA",
+   "id": "yt-E_O_PgvSk2c",
    "type": "video",
    "mood": "heal",
    "animal": true,
-   "title": "cute baby panda crying 🫵🤣🥰❤️💖👍😘🫵🤣🤣🥰😭😭😭😁😄😃😃😀😂😂😂😆🥰❤️❤️💖👍 #funny #emoji#sad#panda# #cutepanda",
-   "source": "유튜브 · Rapper 😎",
-   "time": "2026-11-01T09:29:40.000Z",
-   "link": "https://www.youtube.com/watch?v=yESHDXU_kYA",
-   "videoId": "yESHDXU_kYA",
-   "cute": 0.78,
-   "species": "panda"
+   "title": "아기 품에 안고 철벽 방어하는 댕댕이",
+   "source": "유튜브 · 팽투로그",
+   "time": "2026-11-01T03:50:18.000Z",
+   "link": "https://www.youtube.com/watch?v=E_O_PgvSk2c",
+   "videoId": "E_O_PgvSk2c",
+   "cute": 0.22,
+   "species": null
+  },
+  {
+   "id": "yt-PTjUUK8EGOI",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "WHAT ARE YOU WEARING ON HALLOWEEN!? 😅🙀 #kitten #cat #dance #trend #viral #couple #funny #shorts",
+   "source": "유튜브 · Jasmin and James",
+   "time": "2026-10-31T11:00:05.000Z",
+   "link": "https://www.youtube.com/watch?v=PTjUUK8EGOI",
+   "videoId": "PTjUUK8EGOI",
+   "cute": 0.4,
+   "species": null
+  },
+  {
+   "id": "yt-aQVJ1e-gu0I",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "WHAT ARE YOU WEARING ON HALLOWEEN!? 😅🙀 #kitten #cat #dance #trend #viral #couple #funny #shorts",
+   "source": "유튜브 · Jasmin and James",
+   "time": "2026-10-31T09:30:09.000Z",
+   "link": "https://www.youtube.com/watch?v=aQVJ1e-gu0I",
+   "videoId": "aQVJ1e-gu0I",
+   "cute": 0.46,
+   "species": null
   },
   {
    "id": "yt-QlCSTP1wESY",
@@ -725,60 +752,21 @@
    "time": "2026-10-31T09:00:24.000Z",
    "link": "https://www.youtube.com/watch?v=QlCSTP1wESY",
    "videoId": "QlCSTP1wESY",
-   "cute": 0.44,
-   "species": null
-  },
-  {
-   "id": "yt-2FegMIQY8Qs",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "A Baby Deer Walked Into Their Shelter… And Snuggled Up With the Cats and Dog! 🦌🐶🐱",
-   "source": "유튜브 · PAW ROOM",
-   "time": "2026-10-28T22:27:26.000Z",
-   "link": "https://www.youtube.com/watch?v=2FegMIQY8Qs",
-   "videoId": "2FegMIQY8Qs",
    "cute": 0.52,
-   "species": "deer"
-  },
-  {
-   "id": "yt-qTZvRAVxEBA",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "This is just too cute! #puppy #pets #cute",
-   "source": "유튜브 · Feeding Teacup Puppy",
-   "time": "2026-10-28T10:07:39.000Z",
-   "link": "https://www.youtube.com/watch?v=qTZvRAVxEBA",
-   "videoId": "qTZvRAVxEBA",
-   "cute": 0.47,
    "species": null
   },
   {
-   "id": "yt-YqMObTb1Fiw",
+   "id": "yt-FSvxJsft3UA",
    "type": "video",
    "mood": "heal",
    "animal": true,
-   "title": "18개월 아기와 풍산개의 첫 만남 🐶❤️ #Shorts",
-   "source": "유튜브 · 이진씨",
-   "time": "2026-10-28T00:38:19.000Z",
-   "link": "https://www.youtube.com/watch?v=YqMObTb1Fiw",
-   "videoId": "YqMObTb1Fiw",
-   "cute": 0.43,
+   "title": "세상에서 제일 팔자 좋은 강아지",
+   "source": "유튜브 · 몽글비하인드",
+   "time": "2026-10-29T06:22:17.000Z",
+   "link": "https://www.youtube.com/watch?v=FSvxJsft3UA",
+   "videoId": "FSvxJsft3UA",
+   "cute": 0.16,
    "species": null
-  },
-  {
-   "id": "yt-kmDshU3OKlY",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "아기 돼지들의 극과 극 반응#동물 #돼지",
-   "source": "유튜브 · 이시간지구촌",
-   "time": "2026-10-27T23:00:12.000Z",
-   "link": "https://www.youtube.com/watch?v=kmDshU3OKlY",
-   "videoId": "kmDshU3OKlY",
-   "cute": 0.19,
-   "species": "pig"
   },
   {
    "id": "yt-nIG7gkCWp_o",
@@ -794,19 +782,6 @@
    "species": "panda"
   },
   {
-   "id": "yt-dyGn0HYZ4Nk",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "The Kitten Met His First Armadillo",
-   "source": "유튜브 · Always Room",
-   "time": "2026-10-26T17:51:10.000Z",
-   "link": "https://www.youtube.com/watch?v=dyGn0HYZ4Nk",
-   "videoId": "dyGn0HYZ4Nk",
-   "cute": 0.24,
-   "species": null
-  },
-  {
    "id": "yt-EL_LmH22aKs",
    "type": "video",
    "mood": "heal",
@@ -816,7 +791,20 @@
    "time": "2026-10-26T12:30:26.000Z",
    "link": "https://www.youtube.com/watch?v=EL_LmH22aKs",
    "videoId": "EL_LmH22aKs",
-   "cute": 0.6,
+   "cute": 0.62,
+   "species": null
+  },
+  {
+   "id": "yt-yWcFM2NDToo",
+   "type": "video",
+   "mood": "heal",
+   "animal": true,
+   "title": "13남매 남보라 아들 강아지 처음봐 돌발",
+   "source": "유튜브 · 밤작가tv",
+   "time": "2026-10-26T08:50:16.000Z",
+   "link": "https://www.youtube.com/watch?v=yWcFM2NDToo",
+   "videoId": "yWcFM2NDToo",
+   "cute": 0.4,
    "species": null
   },
   {
@@ -829,7 +817,7 @@
    "time": "2026-10-25T19:36:10.000Z",
    "link": "https://www.youtube.com/watch?v=znSMhr_jRFo",
    "videoId": "znSMhr_jRFo",
-   "cute": 0.17,
+   "cute": 0.16,
    "species": "turtle"
   },
   {
@@ -842,8 +830,21 @@
    "time": "2026-10-25T10:15:19.000Z",
    "link": "https://www.youtube.com/watch?v=nwv416XZ230",
    "videoId": "nwv416XZ230",
-   "cute": 0.44,
+   "cute": 0.58,
    "species": null
+  },
+  {
+   "id": "yt-Bk2-a0e5cWg",
+   "type": "video",
+   "mood": "laugh",
+   "animal": true,
+   "title": "Ranking Cutest Bunny Moments",
+   "source": "유튜브 · Zack the Bison",
+   "time": "2026-10-24T23:15:33.000Z",
+   "link": "https://www.youtube.com/watch?v=Bk2-a0e5cWg",
+   "videoId": "Bk2-a0e5cWg",
+   "cute": 0.42,
+   "species": "rabbit"
   },
   {
    "id": "yt-9k7Ar01zKRM",
@@ -868,7 +869,7 @@
    "time": "2026-10-23T21:21:49.000Z",
    "link": "https://www.youtube.com/watch?v=6ADTX4G4oKo",
    "videoId": "6ADTX4G4oKo",
-   "cute": 0.9,
+   "cute": 0.92,
    "species": null
   },
   {
@@ -881,21 +882,8 @@
    "time": "2026-10-23T09:15:40.000Z",
    "link": "https://www.youtube.com/watch?v=JC0noj-DZxI",
    "videoId": "JC0noj-DZxI",
-   "cute": 0.84,
+   "cute": 0.88,
    "species": "panda"
-  },
-  {
-   "id": "yt-kDPX2AfMAL8",
-   "type": "video",
-   "mood": "heal",
-   "animal": true,
-   "title": "This Puppy FINALLY Gets an Apple! 🍎🐶🥹 #shorts",
-   "source": "유튜브 · Prani Life",
-   "time": "2026-10-23T08:38:27.000Z",
-   "link": "https://www.youtube.com/watch?v=kDPX2AfMAL8",
-   "videoId": "kDPX2AfMAL8",
-   "cute": 0.9,
-   "species": null
   },
   {
    "id": "yt-_byFRE94OhU",
@@ -907,7 +895,7 @@
    "time": "2026-10-23T03:00:31.000Z",
    "link": "https://www.youtube.com/watch?v=_byFRE94OhU",
    "videoId": "_byFRE94OhU",
-   "cute": 0.46,
+   "cute": 0.6,
    "species": null
   },
   {
@@ -920,7 +908,20 @@
    "time": "2026-10-23T00:09:08.000Z",
    "link": "https://www.youtube.com/watch?v=bfFZvV7oq_Q",
    "videoId": "bfFZvV7oq_Q",
-   "cute": 0.32,
+   "cute": 0.42,
+   "species": null
+  },
+  {
+   "id": "yt-Jfef7ifjyKg",
+   "type": "video",
+   "mood": "laugh",
+   "animal": true,
+   "title": "How to Swaddle a Newborn Step by Step! 🍼 #NewbornTips",
+   "source": "유튜브 · BabyVK",
+   "time": "2026-10-21T15:11:38.000Z",
+   "link": "https://www.youtube.com/watch?v=Jfef7ifjyKg",
+   "videoId": "Jfef7ifjyKg",
+   "cute": 0.53,
    "species": null
   },
   {
@@ -959,7 +960,7 @@
    "time": "2026-10-20T20:23:01.000Z",
    "link": "https://www.youtube.com/watch?v=u78TmSb4JyA",
    "videoId": "u78TmSb4JyA",
-   "cute": 0.58,
+   "cute": 0.7,
    "species": null
   },
   {
@@ -972,7 +973,7 @@
    "time": "2026-10-20T15:30:34.000Z",
    "link": "https://www.youtube.com/watch?v=QE5XeyP19Qc",
    "videoId": "QE5XeyP19Qc",
-   "cute": 0.34,
+   "cute": 0.46,
    "species": null
   },
   {
@@ -985,7 +986,7 @@
    "time": "2026-10-19T19:27:26.000Z",
    "link": "https://www.youtube.com/watch?v=BXrW7gpwLWg",
    "videoId": "BXrW7gpwLWg",
-   "cute": 0.5,
+   "cute": 0.6,
    "species": null
   },
   {
@@ -998,7 +999,7 @@
    "time": "2026-10-19T11:30:19.000Z",
    "link": "https://www.youtube.com/watch?v=B9EQRx_9ZEM",
    "videoId": "B9EQRx_9ZEM",
-   "cute": 0.38,
+   "cute": 0.4,
    "species": null
   },
   {
@@ -1011,7 +1012,7 @@
    "time": "2026-10-18T21:00:04.000Z",
    "link": "https://www.youtube.com/watch?v=eNRDmeampCQ",
    "videoId": "eNRDmeampCQ",
-   "cute": 0.58,
+   "cute": 0.66,
    "species": "rabbit"
   },
   {
@@ -1024,21 +1025,8 @@
    "time": "2026-10-18T12:47:33.000Z",
    "link": "https://www.youtube.com/watch?v=eSgEAGaSERE",
    "videoId": "eSgEAGaSERE",
-   "cute": 0.57,
+   "cute": 0.56,
    "species": "rabbit"
-  },
-  {
-   "id": "yt-alDxeTvUwpI",
-   "type": "video",
-   "mood": "laugh",
-   "animal": true,
-   "title": "Baby Animals Transformation So Cute! #shorts #cuteanimals #babyanimals #animaltransformation",
-   "source": "유튜브 · TROLL PET",
-   "time": "2026-10-17T03:30:01.000Z",
-   "link": "https://www.youtube.com/watch?v=alDxeTvUwpI",
-   "videoId": "alDxeTvUwpI",
-   "cute": 0.4,
-   "species": null
   },
   {
    "id": "yt-6KRHdTfG7lA",
@@ -1050,7 +1038,7 @@
    "time": "2026-10-17T03:00:21.000Z",
    "link": "https://www.youtube.com/watch?v=6KRHdTfG7lA",
    "videoId": "6KRHdTfG7lA",
-   "cute": 0.9,
+   "cute": 0.86,
    "species": "capybara"
   }
  ]
